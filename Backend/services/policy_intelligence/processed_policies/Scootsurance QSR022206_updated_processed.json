@@ -1,51 +1,421 @@
 {
   "product_name": "Scootsurance QSR022206_updated",
   "extracted": {
-    "general_conditions": {},
-    "benefits": {},
-    "benefit_conditions": {},
-    "operational_details": {},
-    "error": "Failed to parse LLM response",
-    "enriched_analysis": {
-      "policy_type": {
-        "category": "Unknown",
-        "target_segment": "Unknown",
-        "coverage_level": "Unknown"
+    "general_conditions": {
+      "age_limits": {
+        "min": 0,
+        "max": 120
       },
-      "coverage_analysis": {
-        "strengths": [],
-        "limitations": [],
-        "unique_features": []
+      "trip_origin": "location",
+      "pre_existing_conditions": {
+        "allowed": false,
+        "conditions": "No pre-existing medical conditions are covered under this policy."
       },
-      "benefit_patterns": {
-        "common_limits": [],
-        "standard_conditions": [],
-        "typical_exclusions": []
+      "eligibility_criteria": [
+        "You are a Singapore citizen or a permanent resident of Singapore",
+        "You have to be aged over 1 month to 74 years old, before the start of Your trip.",
+        "You must be at least 12 years old and not more than 69 years old",
+        "You must be a fare-paying passenger on a Scheduled Flight",
+        "If an insured person has ever been refused cover or had special terms placed on them by any insurer for travel insurance, they must declare this at the point of application and We must accept them, or there will be no cover for them",
+        "At the time You send us Your application for this insurance, none of the intended insured persons have already left Singapore on any trip meant to be covered by this insurance",
+        "You must be a Singapore citizen or a permanent resident",
+        "age between 0 and 120",
+        "criterion1",
+        "You must have a valid passport",
+        "You must not be under treatment not recommended by or carried out by a Doctor, Dentist or TCM practitioner",
+        "You must be a KrisFlyer member",
+        "You must purchase the insurance before departing Singapore.",
+        "Any insured child under the age of 12 years must be accompanied by a parent or adult guardian during the trip",
+        "You must be a Singaporean citizen or resident",
+        "You must be a Singapore citizen or a permanent resident of Singapore",
+        "At the time of arranging the trip or taking out this insurance, neither You nor any other insured person is aware of any circumstances which are likely to lead to a claim under the Policy",
+        "You must be travelling on a return trip",
+        "You must be a Singaporean citizen or a permanent resident of Singapore",
+        "You must be a KrisFlyer member for return trips only",
+        "You must be at least 21 years old",
+        "You must purchase this Policy at least 7 days before the date of Your trip",
+        "You must be at least 18 years old",
+        "Singapore citizen or resident",
+        "The trip must begin in Singapore"
+      ]
+    },
+    "benefits": {
+      "medical_expenses": {
+        "amount": 100000,
+        "currency": "SGD",
+        "description": "Reasonable expenses for medical treatment of bodily Injury or Illness by a Doctor covered under this Policy."
+      },
+      "travel_cancellation": {
+        "amount": 50000,
+        "currency": "SGD",
+        "description": "N/A"
+      },
+      "baggage_loss": {
+        "amount": 20000,
+        "currency": "SGD",
+        "description": "N/A"
+      },
+      "repatriation_of_mortal_remains": {
+        "amount": 50000,
+        "currency": "SGD",
+        "description": "We will arrange and pay for the cost of transporting Your mortal remains back to Singapore."
+      },
+      "emergency_medical_evacuation": {
+        "amount": 100000,
+        "currency": "SGD",
+        "description": "We will arrange and pay for Your transfer under medical supervision, including costs of transportation and medical supplies necessarily incurred for the evacuation/repatriation."
+      },
+      "travel_delay": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Reimbursement for every six consecutive hours of delay"
+      },
+      "travel_misconnection": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Reimbursement for every full six consecutive hours of misconnection"
+      },
+      "baggage_delay": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Reimbursement for every six consecutive hours of delay"
+      },
+      "loss_of_frequent-flyer_points": {
+        "amount": 10000,
+        "currency": "SGD",
+        "description": "Reimbursement for unutilised, pre-paid and non-refundable costs of scheduled flight and/or accommodation"
+      },
+      "loss_of_passport_money": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "personal_liability": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "hijacking": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "full_terrorism_cover": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "hospitalisation_allowance": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Daily benefit amount for each day of Hospitalisation Overseas due to COVID-19 diagnosis"
+      },
+      "overseas_quarantine_allowance": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Daily benefit amount for each day of quarantine or isolation order completed due to COVID-19 diagnosis"
+      },
+      "hospital_income": {
+        "amount": 100,
+        "currency": "SGD",
+        "description": "Daily benefit amount for each complete 24-hour period of Hospital Confinement due to Injury or Illness sustained whilst Overseas on a trip"
+      },
+      "fraudulent_credit_card_usage": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Reimbursement of unauthorised charges incurred due to theft or loss of personal credit card"
+      },
+      "accidental_death_and_permanent_disablement": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Benefit amount for accidental death or permanent disablement within specified timeframes"
       }
+    },
+    "benefit_conditions": {
+      "medical_expenses": {
+        "requirements": [
+          "You must provide medical certificates and receipts for expenses",
+          "Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable",
+          "You must seek medical treatment Overseas",
+          "Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.",
+          "You must be a KrisFlyer member",
+          "You must have a doctor's recommendation for treatment",
+          "You must have a valid medical certificate",
+          "The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment",
+          "medical report",
+          "the date of Your return to Singapore is within the Period of Insurance",
+          "Diagnosis of COVID-19 by a Doctor",
+          "You must incur medical expenses within 30 days from the date of injury or illness",
+          "proof of purchase"
+        ],
+        "exclusions": [
+          "Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions",
+          "Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip",
+          "war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion",
+          "Pre-Existing Medical Conditions",
+          "Losses that You have intentionally or deliberately caused",
+          "pre-existing medical conditions",
+          "Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country",
+          "war-related injuries",
+          "Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination",
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses caused by any illegal acts on Your part",
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "War and civil unrest",
+          "expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness",
+          "Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth",
+          "expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness",
+          "Pre-existing conditions",
+          "Traditional Chinese Medicine (TCM) Expenses"
+        ]
+      },
+      "travel_cancellation": {
+        "requirements": [
+          "travel itinerary",
+          "You must have a valid travel itinerary",
+          "You must have purchased this Policy before You become aware of any circumstances which could lead to the cancellation of Your trip",
+          "You must be a KrisFlyer member",
+          "You must have a doctor's certificate for cancellation",
+          "You must be a fare-paying passenger on a Scheduled Flight",
+          "Cancellation of trip within 30 days before commencement due to COVID-19 diagnosis, hospitalisation or quarantine",
+          "proof of travel booking",
+          "You must provide proof of cancellation and travel documents"
+        ],
+        "exclusions": [
+          "Circumstances known to You before You purchased Your Policy or at the time of booking any trip which could reasonably have been expected to lead to cancelling the trip",
+          "if this Policy was purchased less than three (3) days before the commencement of Your trip",
+          "Any benefits already paid under Section 14 \u2013 Loss of Frequent Flyer Points for the same event",
+          "acts of terrorism",
+          "natural disasters",
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses caused by any illegal acts on Your part",
+          "Changes to travel advisory or restrictions",
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section",
+          "loss of vouchers, reward points or holiday points (other than what is covered under Section 14 \u2013 Loss of Frequent Flyer Points) that You have used, in part or full, to pay for the Scheduled Flight",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "Losses that You have intentionally or deliberately caused",
+          "Cancellation due to unforeseen circumstances not covered by the policy",
+          "Travel arrangement, COVID-19 prevention measures"
+        ]
+      },
+      "baggage_loss": {
+        "requirements": [
+          "You must provide proof of loss and police report",
+          "You must have a valid receipt for the lost or damaged item",
+          "police report",
+          "proof of ownership",
+          "You must have a valid baggage receipt",
+          "You must report the loss to the authorities"
+        ],
+        "exclusions": [
+          "Losses that You have intentionally or deliberately caused",
+          "Loss or theft due to negligence",
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses caused by any illegal acts on Your part",
+          "Loss or theft due to intentional act",
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section",
+          "valuable items left unattended",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "General Exclusions",
+          "Loss or theft due to negligence or intentional act"
+        ]
+      },
+      "repatriation_of_mortal_remains": {
+        "requirements": [],
+        "exclusions": [
+          "expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the cost of the scheduled trip",
+          "expenses for a service not approved and arranged by Our Medical Assistance Provider or its authorized representative",
+          "Expenses related to religious ceremony or rites"
+        ]
+      },
+      "emergency_medical_evacuation": {
+        "requirements": [],
+        "exclusions": [
+          "expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip",
+          "expenses for a service not approved and arranged by Our Medical Assistance Provider or its authorised representative",
+          "treatment performed or ordered by a person who is not a Doctor",
+          "expenses incurred if treatment can be reasonably delayed until Your return to Singapore",
+          "Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination",
+          "Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country"
+        ]
+      },
+      "travel_delay": {
+        "requirements": [
+          "You must have a valid receipt for the delay"
+        ],
+        "exclusions": [
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section"
+        ]
+      },
+      "travel_misconnection": {
+        "requirements": [
+          "You must have a valid receipt for the misconnection"
+        ],
+        "exclusions": [
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section"
+        ]
+      },
+      "baggage_delay": {
+        "requirements": [
+          "You must have a valid receipt for the delay"
+        ],
+        "exclusions": [
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section"
+        ]
+      },
+      "loss_of_frequent-flyer_points": {
+        "requirements": [
+          "You must have a valid receipt for the loss of frequent flyer points"
+        ],
+        "exclusions": [
+          "Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section"
+        ]
+      },
+      "loss_of_passport_money": {
+        "requirements": [
+          "report the loss to the police within 24 hours",
+          "provide proof of purchase of the articles"
+        ],
+        "exclusions": [
+          "unexplained and mysterious disappearance of personal belongings",
+          "loss or damage caused by wear and tear",
+          "loss in value, deterioration, insects, vermin, mildew, atmospheric conditions",
+          "the action of light, any process of heating, cleaning, repairing",
+          "restoring, mechanical or electrical breakdown, misuse, faulty design or workmanship"
+        ]
+      },
+      "personal_liability": {
+        "requirements": [
+          "not admit, deny or make any offer or promise or indemnity without Our written consent",
+          "send Us any writ, summons or other documents in connection with the claim immediately upon Your receipt of the same"
+        ],
+        "exclusions": [
+          "anyone who has caught any illness or disease from You",
+          "damage to property in Your custody or control",
+          "death, Injury and damage to the property of or to any of Your relatives, Your Travelling Companion or people who work for or with You"
+        ]
+      },
+      "hijacking": {
+        "requirements": [
+          "any claims must be supported by a police report or a report issued by the operator of the Public Transport confirming that You were a victim of a Hijack and the duration of the Hijack"
+        ],
+        "exclusions": [
+          "General Exclusions"
+        ]
+      },
+      "full_terrorism_cover": {
+        "requirements": [],
+        "exclusions": [
+          "the consequences of an Act of Terrorism if: (a) the event is compensated by any government authority; or (b) it leads to Your fear of travelling"
+        ]
+      },
+      "hospitalisation_allowance": {
+        "requirements": [
+          "You must be diagnosed with COVID-19",
+          "You must be Hospitalised Overseas"
+        ],
+        "exclusions": [
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "Losses caused by any illegal acts on Your part",
+          "Losses that You have intentionally or deliberately caused"
+        ]
+      },
+      "overseas_quarantine_allowance": {
+        "requirements": [
+          "You must be diagnosed with COVID-19",
+          "You must be given quarantine or isolation order by local authorities Overseas"
+        ],
+        "exclusions": [
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "Losses caused by any illegal acts on Your part",
+          "Losses that You have intentionally or deliberately caused"
+        ]
+      },
+      "hospital_income": {
+        "requirements": [
+          "You must be Hospital Confinement due to Injury or Illness sustained whilst Overseas on a trip"
+        ],
+        "exclusions": [
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "Losses caused by any illegal acts on Your part",
+          "Losses that You have intentionally or deliberately caused"
+        ]
+      },
+      "fraudulent_credit_card_usage": {
+        "requirements": [
+          "You must report the theft of Your personal credit card to the issuer(s) and to Us within 24-hours of discovering that Your personal credit card was stolen or any unauthorised charges were made from it"
+        ],
+        "exclusions": [
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "Losses caused by any illegal acts on Your part",
+          "Losses that You have intentionally or deliberately caused"
+        ]
+      },
+      "accidental_death_and_permanent_disablement": {
+        "requirements": [
+          "You must be a KrisFlyer member",
+          "You must be a fare-paying passenger on a Scheduled Flight"
+        ],
+        "exclusions": [
+          "Losses that have occurred prior to the inception of cover or, after the termination of the Policy",
+          "Losses that result from any business pursuits or, relating to Your work or profession",
+          "Losses caused by any illegal acts on Your part",
+          "Losses that You have intentionally or deliberately caused"
+        ]
+      }
+    },
+    "operational_details": {
+      "claim_deadline": "Within 30 days of the incident",
+      "payment_method": "Direct bank transfer",
+      "deductible": 5000
     }
   },
   "enriched": {
-    "general_conditions": {},
-    "benefits": {},
-    "benefit_conditions": {},
-    "operational_details": {},
-    "error": "Failed to parse LLM response",
-    "enriched_analysis": {
-      "policy_type": {
-        "category": "Unknown",
-        "target_segment": "Unknown",
-        "coverage_level": "Unknown"
-      },
-      "coverage_analysis": {
-        "strengths": [],
-        "limitations": [],
-        "unique_features": []
-      },
-      "benefit_patterns": {
-        "common_limits": [],
-        "standard_conditions": [],
-        "typical_exclusions": []
-      }
+    "policy_type": {
+      "category": "Travel Insurance",
+      "target_segment": "Leisure Travelers",
+      "coverage_level": "standard"
+    },
+    "coverage_analysis": {
+      "strengths": [
+        "Comprehensive coverage for medical expenses, trip cancellation, and baggage loss",
+        "Reasonable medical coverage with a maximum of SGD 100,000",
+        "Comprehensive trip cancellation coverage with a maximum of SGD 50,000",
+        "Baggage loss coverage with a maximum of SGD 20,000"
+      ],
+      "limitations": [
+        "Age restrictions: minimum 1 month, maximum 120 years",
+        "Pre-existing conditions excluded",
+        "Limited coverage for certain benefits, such as loss of passport money and personal liability"
+      ],
+      "unique_features": [
+        "PayNow payment method",
+        "Comprehensive coverage for emergency medical evacuation and repatriation of mortal remains"
+      ]
+    },
+    "benefit_patterns": {
+      "common_limits": [
+        {
+          "type": "medical_coverage",
+          "amount": 100000
+        }
+      ],
+      "standard_conditions": [
+        "Doctor referral required for medical expenses",
+        "30-day claim window for all benefits",
+        "Deductible of SGD 5,000 for all benefits"
+      ],
+      "typical_exclusions": [
+        "Pre-existing conditions",
+        "Non-medical travel",
+        "Losses caused by intentional or deliberate acts",
+        "Losses resulting from business pursuits or work-related activities"
+      ]
     }
   },
   "normalized": {
@@ -1224,6 +1594,13 @@
             "Product A": {
               "condition_exist": "boolean",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           },
           "Product B": {
@@ -1754,6 +2131,11 @@
             "Product C": {
               "condition_exist": "boolean",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -2385,6 +2767,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           }
         },
@@ -2408,6 +2797,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           }
         },
@@ -2431,6 +2827,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           }
         },
@@ -2454,6 +2857,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           }
         },
@@ -2477,6 +2887,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           }
         },
@@ -2500,6 +2917,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {
+                "max_limit": 3
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide medical certificates and receipts for expenses', 'Medical treatment must first be sought whilst You are Overseas and a claim made under Section 3 \u2013 Medical Expenses Whilst Overseas becomes payable', 'You must seek medical treatment Overseas', 'Any treatment by a specialist must be referred by the attending Doctor and shall not exceed the usual level of charges for similar treatment or medical supplies in the location where the expenses are incurred had this insurance not existed.', 'You must be a KrisFlyer member', \"You must have a doctor's recommendation for treatment\", 'You must have a valid medical certificate', 'The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment', 'medical report', 'the date of Your return to Singapore is within the Period of Insurance', 'Diagnosis of COVID-19 by a Doctor', 'You must incur medical expenses within 30 days from the date of injury or illness', 'proof of purchase'], 'exclusions': ['Pregnancy, menopause, childbirth, abortion or miscarriage and all related conditions', 'Expenses incurred for services provided by another party for which You are not liable to pay, or any expenses already included in the costs of the trip', 'war, terrorism, radioactive contamination, chemical, biological, biochemical and electromagnetic weapons, political risks, cyber exclusion', 'Pre-Existing Medical Conditions', 'Losses that You have intentionally or deliberately caused', 'pre-existing medical conditions', 'Your failure to obtain any recommended vaccines, inoculations or medications prior to Your trip based on the requirements of the government in Singapore or destination country', 'war-related injuries', 'Your travel to a country, specific area or event when the government in Singapore or destination country has issued travel advisory against travelling to or to defer non-essential travel to the planned destination', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'Losses that result from any business pursuits or, relating to Your work or profession', 'War and civil unrest', 'expenses incurred for prostheses or any medical supplies unless prescribed by the Doctor for the treatment of Your Injury or Illness', 'Dental treatment due to tooth or gum or oral diseases, or from normal wearing out of Your teeth', 'expenses incurred for prostheses, contact lenses, spectacles, hearing aids, dentures or medical equipment unless prescribed by the Doctor for the treatment of injury or illness', 'Pre-existing conditions', 'Traditional Chinese Medicine (TCM) Expenses']}"
             }
           }
         },
@@ -4087,6 +4511,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4110,6 +4539,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4133,6 +4567,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4156,6 +4595,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4179,6 +4623,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4202,6 +4651,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4225,6 +4679,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4248,6 +4707,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4271,6 +4735,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4294,6 +4763,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },
@@ -4317,6 +4791,11 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "Scootsurance QSR022206_updated": {
+              "parameters": {},
+              "condition_exist": true,
+              "original_text": "{'requirements': ['You must provide proof of loss and police report', 'You must have a valid receipt for the lost or damaged item', 'police report', 'proof of ownership', 'You must have a valid baggage receipt', 'You must report the loss to the authorities'], 'exclusions': ['Losses that You have intentionally or deliberately caused', 'Loss or theft due to negligence', 'Losses that have occurred prior to the inception of cover or, after the termination of the Policy', 'Losses caused by any illegal acts on Your part', 'Loss or theft due to intentional act', 'Any claim arising from a reason not listed in the \u2018When We will pay\u2019 section', 'valuable items left unattended', 'Losses that result from any business pursuits or, relating to Your work or profession', 'General Exclusions', 'Loss or theft due to negligence or intentional act']}"
             }
           }
         },

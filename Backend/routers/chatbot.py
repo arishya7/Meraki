@@ -1,8 +1,78 @@
-from fastapi import APIRouter
+import os
+from fastapi import APIRouter, HTTPException
+from typing import List
+from groq import Groq
+
+from Backend.schemas import ChatbotResponse, Recommendation, ScootUserData
+from Backend.services.plan_recommender import PlanRecommender
 
 router = APIRouter()
+recommender = PlanRecommender()
 
+# Initialize Groq client
+groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
+async def _generate_conversational_summary(recommendation: Recommendation) -> str:
+    """
+    Generates a conversational and concise summary of a recommendation using an LLM.
+    """
+    # Add claims context to the prompt if available
+    claims_context = ""
+    if "Relevant to your past claim" in ''.join(recommendation.pros):
+        claims_context = "\nConsidering the user's past claims, highlight how this plan addresses those specific needs or provides relevant coverage, making it a good fit for someone with similar past experiences."
+
+    prompt = f"""As a helpful insurance agent, summarize the following insurance plan in a clear, concise, and conversational manner for a Scoot app user. Highlight the key benefits (pros) and any notable limitations (cons). Include citations where provided.{claims_context}
+
+Plan Name: {recommendation.plan_name}
+Description: {recommendation.description}
+Pros: {'; '.join(recommendation.pros)}
+Cons: {'; '.join(recommendation.cons)}
+Citations: {'; '.join(recommendation.citations)}
+
+Provide a summary that is easy to read and understand, as if you are speaking directly to the user.
+"""
+    try:
+        chat_completion = groq_client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            model="llama-3.1-8b-instant", # Using a fast model for summarization
+            temperature=0.7,
+            max_tokens=300,
+        )
+        return chat_completion.choices[0].message.content
+    except Exception as e:
+        print(f"[LLM Summary Error] Failed to generate summary: {e}")
+        return f"**{recommendation.plan_name}**\nDescription: {recommendation.description}\nPros: {'; '.join(recommendation.pros)}\nCons: {'; '.join(recommendation.cons)}\nCitations: {'; '.join(recommendation.citations)}"
 
 @router.get("/ping")
 def ping():
 	return {"service": "chatbot", "status": "ok"}
+
+@router.post("/recommend_plans", response_model=ChatbotResponse)
+async def recommend_plans(user_data: ScootUserData):
+    """
+    Endpoint to get insurance plan recommendations based on user trip details.
+    """
+    print(f"[Chatbot Router] Received request for recommendations for user: {user_data.user_id}")
+    try:
+        recommendations = await recommender.get_recommended_plans(user_data)
+
+        if not recommendations:
+            raise HTTPException(status_code=404, detail="No insurance plans found or recommended.")
+
+        response_message = "Hello there! Based on your Scoot trip details, here are the top insurance plans I recommend:\n\n"
+
+        for i, rec in enumerate(recommendations):
+            summary = await _generate_conversational_summary(rec)
+            response_message += f"## Plan {i+1}:\n{summary}\n\n"
+            
+        return ChatbotResponse(message=response_message, recommendations=recommendations)
+
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")

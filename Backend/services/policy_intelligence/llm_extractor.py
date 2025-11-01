@@ -41,18 +41,6 @@ class PolicyExtractor:
             - benefit_conditions
             - operational_details
         """
-        """Extract structured policy information using Groq's LLM.
-        
-        Args:
-            text (str): Raw policy document text
-            
-        Returns:
-            Dict containing extracted policy information structured by layers:
-            - general_conditions
-            - benefits 
-            - benefit_conditions
-            - operational_details
-        """
         # Split text into manageable chunks and extract from each
         chunk_size = 8000
         text_chunks = [text[i:i+chunk_size] for i in range(0, len(text), chunk_size)]
@@ -127,7 +115,10 @@ class PolicyExtractor:
             # Merge general conditions
             if "general_conditions" in extraction:
                 for key, value in extraction["general_conditions"].items():
-                    if value and not merged_info["general_conditions"].get(key):
+                    if isinstance(value, list): # If it's a list, extend it
+                        existing_list = merged_info["general_conditions"].get(key, [])
+                        merged_info["general_conditions"][key] = list(set(existing_list + value))
+                    elif value: # If it's a scalar and not empty, update it
                         merged_info["general_conditions"][key] = value
 
             # Merge benefits
@@ -137,7 +128,11 @@ class PolicyExtractor:
                         merged_info["benefits"][benefit] = details
                     else:
                         # Take higher amount if conflicting
-                        if details.get("amount", 0) > merged_info["benefits"][benefit].get("amount", 0):
+                        def get_safe_amount(d): # Helper to safely get amount
+                            amount = d.get("amount", 0)
+                            return amount if isinstance(amount, (int, float)) else 0
+
+                        if get_safe_amount(details) > get_safe_amount(merged_info["benefits"][benefit]):
                             merged_info["benefits"][benefit] = details
 
             # Merge benefit conditions
@@ -159,9 +154,12 @@ class PolicyExtractor:
             # Merge operational details
             if "operational_details" in extraction:
                 for key, value in extraction["operational_details"].items():
-                    if value:
+                    if isinstance(value, list): # If it's a list, extend it
+                        existing_list = merged_info["operational_details"].get(key, [])
+                        merged_info["operational_details"][key] = list(set(existing_list + value))
+                    elif value: # If it's a scalar and not empty, update it
                         merged_info["operational_details"][key] = value
-
+        
         return merged_info
     def enrich_extracted_info(self, extracted_info: Dict[str, Any]) -> Dict[str, Any]:
         """Enrich the extracted information with additional analysis."""
@@ -211,22 +209,17 @@ class PolicyExtractor:
 
         user_prompt = f"Analyze this extracted policy information and provide enriched insights:\n\n{summary}"
 
-        response = self.client.chat.completions.create(
-            model="llama-3.1-8b-instant",
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            temperature=0.2,
-            max_tokens=2000
-        )
+        response = self._call_llm_with_retry([
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ])
 
         try:
-            enriched_info = json.loads(response.choices[0].message.content)
-            extracted_info["enriched_analysis"] = enriched_info
+            enriched_info = json.loads(response)
+            return enriched_info # Return enriched_info directly
         except json.JSONDecodeError:
-            extracted_info["enriched_analysis"] = {
-                "error": "Failed to generate enriched analysis"
+            print(f"Failed to parse enriched response: {response}")
+            return {
+                "error": "Failed to generate enriched analysis",
+                "raw_response": response
             }
-
-        return extracted_info

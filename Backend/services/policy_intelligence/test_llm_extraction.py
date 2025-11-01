@@ -51,10 +51,10 @@ def test_llm_extraction():
     structured = {
         "product_name": "Travel Insurance",
         "layers": {
-            "layer_1_general_conditions": enriched["general_conditions"],
-            "layer_2_benefits": enriched["benefits"],
-            "layer_3_benefit_conditions": enriched["benefit_conditions"],
-            "layer_4_operational": enriched["operational_details"]
+            "layer_1_general_conditions": extracted["general_conditions"],
+            "layer_2_benefits": extracted["benefits"],
+            "layer_3_benefit_conditions": extracted["benefit_conditions"],
+            "layer_4_operational": extracted["operational_details"]
         }
     }
     

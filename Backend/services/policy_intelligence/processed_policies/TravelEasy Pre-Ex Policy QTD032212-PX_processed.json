@@ -3,161 +3,813 @@
   "extracted": {
     "general_conditions": {
       "age_limits": {
-        "min": 18,
-        "max": 65
+        "min": 0,
+        "max": 70
       },
-      "trip_origin": "Singapore",
+      "trip_origin": "overseas",
       "pre_existing_conditions": {
-        "allowed": false,
-        "conditions": "not covered unless declared and accepted"
+        "allowed": true,
+        "conditions": "acute onset of a pre-existing medical condition"
       },
       "eligibility_criteria": [
-        "must be in good health",
-        "not traveling against medical advice"
+        "The insured person must be a resident of Singapore.",
+        "The insured person does not have any medical condition or symptom which they have not consulted a doctor for or for which they are waiting for medical test, medical result, diagnosis, treatment or surgery.",
+        "meet all conditions of cover",
+        "the or place of business in Singapore being unfit to live in or being seriously damaged following a burglary, fire, flood, typhoon, earthquake or landslip which means the insured person has to stay in Singapore",
+        "closing of airport or airspace that prevents the insured person from beginning the scheduled journey",
+        "The insured person is following their treating doctor pre-existing medical condition.",
+        "named driver or co-driver of the rental vehicle",
+        "Insured person must be a resident of Singapore",
+        "natural disasters which happen at the planned overseas destination which prevent the insured person from beginning the scheduled journey",
+        "travel itinerary",
+        "You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.",
+        "unexpected strike, industrial action, riot, civil commotion at the planned overseas destination which prevent the insured person from beginning the scheduled journey",
+        "Singaporean resident",
+        "Singaporean or PR",
+        "Insured person must be at least 18 years old",
+        "criterion1",
+        "kept to all requirements of the rental agreement",
+        "The insured person must be between 18 and 65 years old.",
+        "In the last 12 months, the insured person does not have any pre-existing medical condition which has required them to: a) receive treatment at a hospital b) stay in a hospital as an inpatient for more than three days in a row; and c) stay in a hospital as an inpatient for more than once.",
+        "the insured person is denied boarding of the public transport by the local authority or transport provider due to infectious disease symptoms",
+        "valid passport",
+        "Singaporean citizen",
+        "Premier Plan",
+        "Standard Plan",
+        "aged 18-65",
+        "Adult and children cover",
+        "insured person or their family member or travel companion being called as a witness in the court of law in Singapore",
+        "adult insured person",
+        "Age between 18 and 65",
+        "Individual cover",
+        "The insured person must not be taking part in any activity or business carried out via the internet, intranet, extranet or the insured person.",
+        "The insured person must be at least 15 days old.",
+        "Elite Plan",
+        "Group cover",
+        "The insured person must not be traveling for the purpose of war or civil unrest.",
+        "The insured person must be a Singapore citizen or a permanent resident.",
+        "Family cover",
+        "Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.",
+        "isotopes are being prepared, carried, stored, or used for commercial, agricultural, medical, scientific or other similar peaceful purposes;"
       ]
     },
     "benefits": {
       "medical_expenses": {
-        "amount": 200000,
+        "amount": 2600000,
         "currency": "SGD",
-        "description": "medical, surgical and hospital charges",
-        "limits": "during Journey only"
+        "description": "text"
+      },
+      "travel_cancellation": {
+        "amount": 50000,
+        "currency": "SGD",
+        "description": "Cancellation of trip due to unforeseen circumstances"
+      },
+      "baggage_loss": {
+        "amount": 20000,
+        "currency": "SGD",
+        "description": "Loss or theft of baggage during the journey"
+      },
+      "accidental_death": {
+        "amount": 500000,
+        "currency": "SGD",
+        "description": "We will pay the compensation for death or disability as described in the Table of Compensation below if an insured person suffers an injury during the journey which, within 12 calendar months of its happening, is the only cause of death or disability."
+      },
+      "public_transport_double_cover": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "If the insured person suffers an injury while travelling as a fare-paying passenger on board any public transport outside Singapore during the journey which, within 12 calendar months of its happening, is the only cause of death, the amount we will pay will be double the limit for death provided under section 1 - Accidental death and permanent total disability."
+      },
+      "funeral_expenses": {
+        "amount": 8000,
+        "currency": "SGD",
+        "description": "If the insured person suffers an injury during the journey outside Singapore which, within 12 calendar months of its happening, is the only cause of their death, we will reimburse the reasonable expenses paid for their funeral or burial."
+      },
+      "child_education_grant": {
+        "amount": 8000,
+        "currency": "SGD",
+        "description": "If an adult insured person suffers an injury during the journey outside Singapore which, within 12 calendar months of its happening, is the only cause of their death, we will pay each of their biological children or legally adopted children, an amount as shown below."
+      },
+      "family_assistance_benefit": {
+        "amount": 5000,
+        "currency": "SGD",
+        "description": "If an insured person suffers an injury during the journey outside Singapore which, within 12 calendar months of its happening, is the only cause of their death, we will pay a lump-sum benefit shown below."
+      },
+      "emergency_dental_expenses": {
+        "amount": 15000,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "mobility_aid_reimbursement": {
+        "amount": 5000,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "traditional_chinese_medicine_expenses": {
+        "amount": 600,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "maternity_medical_expenses_overseas": {
+        "amount": 3000,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "overseas_hospitalisation_daily_benefit": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "emergency_medical_evacuation_and_repatration": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "Emergency medical evacuation and repatriation services"
+      },
+      "medical_and_travel_assistance_services": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "Medical and travel assistance services"
+      },
+      "emergency_telephone_charges": {
+        "amount": {
+          "Premier Plan": 300,
+          "Elite Plan": 200,
+          "Standard Plan": 100
+        },
+        "currency": "SGD",
+        "description": "We will refund the actual telephone charges for using a personal mobile phone to contact our appointed assistance company."
+      },
+      "child_guard": {
+        "amount": {
+          "Premier Plan": 15000,
+          "Elite Plan": 10000,
+          "Standard Plan": 5000
+        },
+        "currency": "SGD",
+        "description": "We will pay for the reasonable travel expenses for one family member or relative to travel overseas to accompany the children back to Singapore."
+      },
+      "compassionate_and_hospital_visit": {
+        "amount": {
+          "Premier Plan": 15000,
+          "Elite Plan": 10000,
+          "Standard Plan": 5000
+        },
+        "currency": "SGD",
+        "description": "We will pay for the reasonable travel expenses for one adult member of the insured person's immediate family to travel from Singapore to be with the insured person."
+      },
+      "emergency_medical_evacuation": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "We will pay for emergency medical evacuation up to $1,000,000 per insured person for any one journey."
+      },
+      "insolvency_of_licensed_travel_operator": {
+        "amount": {
+          "Premier Plan": 6000,
+          "Elite Plan": 4000,
+          "Standard Plan": 2000
+        },
+        "currency": "SGD",
+        "description": "We will pay for the loss of travel fares or travel deposits paid by the insured person which cannot be recovered from any other source."
+      },
+      "replacement_of_traveller": {
+        "amount": 1000,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "travel_postponement": {
+        "amount": 2000,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "replacement_of_employee": {
+        "amount": 15000,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "delayed_departure": {
+        "amount": {
+          "Premier Plan": {
+            "per_person": 1500,
+            "total": 3000
+          },
+          "Elite Plan": {
+            "per_person": 1000,
+            "total": 2000
+          },
+          "Standard Plan": {
+            "per_person": 500,
+            "total": 1000
+          }
+        },
+        "currency": "SGD",
+        "description": "Delayed departure benefit"
+      },
+      "flight_diversion": {
+        "amount": {
+          "Premier Plan": {
+            "per_person": 1500,
+            "total": 3000
+          },
+          "Elite Plan": {
+            "per_person": 1000,
+            "total": 2000
+          },
+          "Standard Plan": {
+            "per_person": 500,
+            "total": 1000
+          }
+        },
+        "currency": "SGD",
+        "description": "Flight diversion benefit"
+      },
+      "overbooked_flight": {
+        "amount": {
+          "Premier Plan": {
+            "per_person": 400,
+            "total": 800
+          },
+          "Elite Plan": {
+            "per_person": 300,
+            "total": 600
+          },
+          "Standard Plan": {
+            "per_person": 200,
+            "total": 400
+          }
+        },
+        "currency": "SGD",
+        "description": "Overbooked flight benefit"
+      },
+      "missed_travel_connection": {
+        "amount": {
+          "Premier Plan": {
+            "per_person": 400,
+            "total": 800
+          },
+          "Elite Plan": {
+            "per_person": 300,
+            "total": 600
+          },
+          "Standard Plan": {
+            "per_person": 200,
+            "total": 400
+          }
+        },
+        "currency": "SGD",
+        "description": "Missed travel connection benefit"
+      },
+      "shortening_the_trip": {
+        "amount": {
+          "Premier Plan": {
+            "per_person": 0,
+            "total": 0
+          },
+          "Elite Plan": {
+            "per_person": 0,
+            "total": 0
+          },
+          "Standard Plan": {
+            "per_person": 0,
+            "total": 0
+          }
+        },
+        "currency": "SGD",
+        "description": "Shortening the trip benefit"
+      },
+      "travel_disruption": {
+        "amount": {
+          "Premier Plan": {
+            "per_person": 0,
+            "total": 0
+          },
+          "Elite Plan": {
+            "per_person": 0,
+            "total": 0
+          },
+          "Standard Plan": {
+            "per_person": 0,
+            "total": 0
+          }
+        },
+        "currency": "SGD",
+        "description": "Travel disruption benefit"
+      },
+      "hijack_of_public_transport": {
+        "amount": 300,
+        "currency": "SGD",
+        "description": "Delay of public transport due to hijack."
+      },
+      "wedding_clothing_and_accessories": {
+        "amount": 3500,
+        "currency": "SGD",
+        "description": "Premier Plan: $3,500 for each adult insured person. Elite Plan: $2,500 for each adult insured person. Standard Plan: Not covered."
+      },
+      "loss_of_travel_documents": {
+        "amount": 5000,
+        "currency": "SGD",
+        "description": "Premier Plan: $5,000 for each insured person, $10,000 in total for adult and children cover or family cover. Elite Plan: $3,000 for each insured person, $6,000 in total for adult and children cover or family cover. Standard Plan: $2,000 for each insured person, $4,000 in total for adult and children cover or family cover."
+      },
+      "personal_money": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Premier Plan: $500 for each insured person, $500 in total for adult and children cover or family cover. Elite Plan: $300 for each insured person, $300 in total for adult and children cover or family cover. Standard Plan: $100 for each insured person, $100 in total for adult and children cover or family cover."
+      },
+      "fraudulent_use_of_credit_card": {
+        "amount": 3000,
+        "currency": "SGD",
+        "description": "Premier Plan: $3,000 for each adult insured person. Elite Plan: $2,000 for each adult insured person. Standard Plan: Not covered."
+      },
+      "credit_card_outstanding_balance": {
+        "amount": 3000,
+        "currency": "SGD",
+        "description": "Premier Plan: $3,000 for each adult insured person. Elite Plan: $2,000 for each adult insured person. Standard Plan: Not covered."
+      },
+      "personal_liability": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "Premier Plan: $1,000,000 for each adult insured person, $500,000 for each insured child, $1,000,000 in total for adult and children cover or family cover. Elite Plan: $1,000,000 for each adult insured person, $500,000 for each insured child, $1,000,000 in total for adult and children cover or family cover. Standard Plan: $500,000 for each adult insured person, $250,000 for each insured child, $500,000 in total for adult and children cover or family cover."
+      },
+      "legal_expenses": {
+        "amount": 10000,
+        "currency": "SGD",
+        "description": "Wrongful arrest or detention"
+      },
+      "adventurous_activities": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Not covered"
+      },
+      "golfing_equipment": {
+        "amount": 1500,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "green_fees": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "hole_in_one": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "unused_entertainment_ticket": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "rental_vehicle_excess": {
+        "amount": 1500,
+        "currency": "SGD",
+        "description": "Premier Plan"
+      },
+      "return_rental_vehicle": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Reasonable costs for returning the rental vehicle to the nearest hire depot."
+      },
+      "home_contents": {
+        "amount": 2000,
+        "currency": "SGD",
+        "description": "Physical loss or damage to home contents within their home in Singapore."
+      },
+      "domestic_pets_care": {
+        "amount": 75,
+        "currency": "SGD",
+        "description": "Extended stay of domestic pets due to injury or illness of the insured person."
+      },
+      "terrorism_cover": {
+        "amount": 500000,
+        "currency": "SGD",
+        "description": "Losses suffered through acts of terrorism."
+      },
+      "passive_war": {
+        "amount": 500000,
+        "currency": "SGD",
+        "description": "Death or bodily injury through war, riot, revolution or any similar event."
+      },
+      "kidnap_and_hostage": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Kidnap and hostage is not covered under this policy."
+      },
+      "emergency_medical_evacuation_and_repatriation": {
+        "amount": 100000,
+        "currency": "SGD",
+        "description": "sub-limit"
       }
     },
     "benefit_conditions": {
       "medical_expenses": {
-        "waiting_period": "none",
         "requirements": [
-          "must be prescribed by doctor",
-          "must be referred by specialist"
+          "Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.",
+          "The medical expenses must be incurred within 30 days of the incident.",
+          "written confirmation of the nature of the serious injury or serious illness from a doctor",
+          "The insured person must be hospitalised due to illness or injury.",
+          "original receipts",
+          "inpatient hospital charges only",
+          "Medical certificate from a doctor",
+          "The insured person must be hospitalized for at least 5 days.",
+          "Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.",
+          "Written confirmation from a doctor is required for serious injury or illness",
+          "medical report or certificate from a doctor",
+          "Medical report",
+          "Hospital bill"
         ],
+        "exclusions": [
+          "prosthesis",
+          "Any restrictions or regulations imposed by any government or local authority.",
+          "dental treatment",
+          "Pre-existing medical conditions are not covered under this policy.",
+          "Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these",
+          "Medical expenses incurred in Singapore",
+          "War and terrorism",
+          "Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.",
+          "Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.",
+          "items covered under section 35 Loss of Travel Documents",
+          "The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.",
+          "Any consequential loss not shown in the policy.",
+          "Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.",
+          "mobility aids",
+          "Pre-existing medical conditions",
+          "Section 13 - Overseas ICU hospitalisation daily benefit",
+          "The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.",
+          "Self-inflicted injuries",
+          "Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).",
+          "Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.",
+          "The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.",
+          "Section 14 - Hospitalisation daily benefit in Singapore",
+          "Pre-existing medical condition that worsens within the 30 days before the start of the trip",
+          "Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.",
+          "Terminal illness",
+          "Outpatient medical treatment",
+          "War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.",
+          "damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion",
+          "Any known event.",
+          "items covered under section 34 Wedding clothing and accessories"
+        ]
+      },
+      "travel_cancellation": {
+        "requirements": [
+          "Insured person must notify the tour, public transport or accommodation provider immediately",
+          "Cancellation notice",
+          "The trip must be cancelled due to unforeseen circumstances.",
+          "The journey must be unexpectedly and unavoidably cancelled due to one of the covered reasons.",
+          "Travel itinerary",
+          "The cancellation must be made within 30 days of the trip.",
+          "Cancellation of trip by the travel agent"
+        ],
+        "exclusions": [
+          "Any restrictions or regulations imposed by any government or local authority.",
+          "Travel restrictions",
+          "The journey must be cancelled before the start of the journey.",
+          "Natural disasters",
+          "Political risks exclusion; Property Cyber and data exclusion",
+          "Known events",
+          "Government travel advisories",
+          "Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.",
+          "Any consequential loss not shown in the policy.",
+          "Shortening the trip means returning home before the scheduled return date"
+        ]
+      },
+      "baggage_loss": {
+        "requirements": [
+          "Police report",
+          "Insured person must get written confirmation from the carrier, operator or their handling agents",
+          "The loss or damage must be reported within 30 days of the incident.",
+          "Proof of ownership",
+          "The baggage must be lost or damaged due to unforeseen circumstances.",
+          "Police report for lost or stolen baggage"
+        ],
+        "exclusions": [
+          "Valuables and cash",
+          "Any restrictions or regulations imposed by any government or local authority.",
+          "Valuables left unattended",
+          "Political risks exclusion; Property Cyber and data exclusion",
+          "Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage",
+          "Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.",
+          "Any consequential loss not shown in the policy."
+        ]
+      },
+      "accidental_death": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "public_transport_double_cover": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "funeral_expenses": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "child_education_grant": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "family_assistance_benefit": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "emergency_dental_expenses": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "mobility_aid_reimbursement": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "traditional_chinese_medicine_expenses": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "maternity_medical_expenses_overseas": {
+        "requirements": [],
+        "exclusions": [
+          "first trimester of pregnancy",
+          "ectopic pregnancy",
+          "child birth or still birth",
+          "care and treatment for the newborn",
+          "abortion or miscarriage unless it is due to an injury",
+          "test or treatment relating to fertility, contraception, sterilisation, birth defects or congenital disorders",
+          "perinatal mental illness such as depression, anxiety disorders",
+          "any treatment for pregnancy which is conceived through medical assistance",
+          "any medical expenses incurred in the country which the insured person is a citizen of or have been permanent residence with the local government"
+        ]
+      },
+      "overseas_hospitalisation_daily_benefit": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "emergency_medical_evacuation_and_repatration": {
+        "requirements": [
+          "Insured person must suffer an injury or illness during the journey outside Singapore which results in a serious medical condition."
+        ],
+        "exclusions": []
+      },
+      "medical_and_travel_assistance_services": {
+        "requirements": [],
+        "exclusions": [
+          "Services we have not arranged or approved"
+        ]
+      },
+      "emergency_telephone_charges": {
+        "requirements": [
+          "The insured person must use a personal mobile phone to contact our appointed assistance company."
+        ],
+        "exclusions": [
+          "Calls made using any fixed telephone line or LAN line or public telephone using an international calling card (ICC) are not covered."
+        ]
+      },
+      "child_guard": {
+        "requirements": [
+          "The insured person must be hospitalized for at least 5 days."
+        ],
+        "exclusions": [
+          "Pre-existing medical conditions are not covered under this policy."
+        ]
+      },
+      "compassionate_and_hospital_visit": {
+        "requirements": [
+          "The insured person must be hospitalized for at least 5 days."
+        ],
+        "exclusions": [
+          "Pre-existing medical conditions are not covered under this policy."
+        ]
+      },
+      "emergency_medical_evacuation": {
+        "requirements": [
+          "The insured person must be hospitalized for at least 5 days."
+        ],
+        "exclusions": [
+          "Pre-existing medical conditions are not covered under this policy."
+        ]
+      },
+      "insolvency_of_licensed_travel_operator": {
+        "requirements": [
+          "The journey must be cancelled before the start of the journey."
+        ],
+        "exclusions": [
+          "The journey must be cancelled due to reasons other than bankruptcy or insolvency of a Singapore Tourism Board (STB) registered travel agency licensed and operating in Singapore."
+        ]
+      },
+      "replacement_of_traveller": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "travel_postponement": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "replacement_of_employee": {
+        "requirements": [
+          "proof of payments made by the policyholder",
+          "letters of appointment and employment contract"
+        ],
+        "exclusions": []
+      },
+      "delayed_departure": {
+        "requirements": [
+          "Written confirmation from the carrier, operator or handling agent stating the reasons and length of delay"
+        ],
+        "exclusions": []
+      },
+      "flight_diversion": {
+        "requirements": [
+          "Written confirmation from the carrier, operator or handling agent stating the reasons and length of delay"
+        ],
+        "exclusions": []
+      },
+      "overbooked_flight": {
+        "requirements": [
+          "Written confirmation from the carrier, operator or handling agent stating the reasons and length of delay"
+        ],
+        "exclusions": []
+      },
+      "missed_travel_connection": {
+        "requirements": [
+          "Written confirmation from the carrier, operator or handling agent stating the reasons and length of delay"
+        ],
+        "exclusions": []
+      },
+      "shortening_the_trip": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "travel_disruption": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "hijack_of_public_transport": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "wedding_clothing_and_accessories": {
+        "requirements": [
+          "original receipts"
+        ],
+        "exclusions": [
+          "items covered under section 33 Baggage"
+        ]
+      },
+      "loss_of_travel_documents": {
+        "requirements": [
+          "written documents from the police"
+        ],
+        "exclusions": []
+      },
+      "personal_money": {
+        "requirements": [
+          "written documents from the police"
+        ],
+        "exclusions": [
+          "loss or theft of money while transported as checked-in baggage"
+        ]
+      },
+      "fraudulent_use_of_credit_card": {
+        "requirements": [
+          "report issued by the credit card issuer"
+        ],
+        "exclusions": []
+      },
+      "credit_card_outstanding_balance": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "personal_liability": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "legal_expenses": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "adventurous_activities": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "golfing_equipment": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "green_fees": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "hole_in_one": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "unused_entertainment_ticket": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "rental_vehicle_excess": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "return_rental_vehicle": {
+        "requirements": [
+          "legally responsible for paying costs",
+          "named driver or co-driver of the rental vehicle",
+          "kept to all requirements of the rental agreement"
+        ],
+        "exclusions": []
+      },
+      "home_contents": {
+        "requirements": [
+          "physical loss or damage to home contents",
+          "vacant due to journey",
+          "fire or theft"
+        ],
+        "exclusions": []
+      },
+      "domestic_pets_care": {
+        "requirements": [
+          "written confirmation from pet hotel or kennel or cattery",
+          "medical report or certificate from a doctor or written confirmation from carrier"
+        ],
+        "exclusions": []
+      },
+      "terrorism_cover": {
+        "requirements": [],
+        "exclusions": [
+          "acts of terrorism involving biological weapons, chemical agents or nuclear devices"
+        ]
+      },
+      "passive_war": {
+        "requirements": [
+          "no direct or indirect involvement in war activities",
+          "no involvement in controlling or preventing war activities"
+        ],
+        "exclusions": []
+      },
+      "kidnap_and_hostage": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "emergency_medical_evacuation_and_repatriation": {
+        "requirements": [],
         "exclusions": []
       }
     },
     "operational_details": {
-      "claim_deadline": "30 days",
-      "payment_method": "PayNow",
-      "deductible": 100
-    },
-    "enriched_analysis": {
-      "policy_type": {
-        "category": "Travel Insurance",
-        "target_segment": "Leisure Travelers",
-        "coverage_level": "standard"
-      },
-      "coverage_analysis": {
-        "strengths": [
-          "High medical coverage up to SGD 200,000",
-          "Comprehensive trip cancellation not applicable",
-          "30-day claim window for prompt settlement"
-        ],
-        "limitations": [
-          "Age restrictions: 18-65 years old",
-          "Pre-existing conditions excluded unless declared and accepted",
-          "Must be in good health and not traveling against medical advice"
-        ],
-        "unique_features": [
-          "PayNow payment method for convenient claims"
-        ]
-      },
-      "benefit_patterns": {
-        "common_limits": [
-          {
-            "type": "medical_coverage",
-            "amount": 200000,
-            "currency": "SGD",
-            "limits": "during Journey only"
-          }
-        ],
-        "standard_conditions": [
-          "Doctor referral required for medical expenses",
-          "30-day claim window for prompt settlement"
-        ],
-        "typical_exclusions": [
-          "Pre-existing conditions",
-          "Non-medical travel"
-        ]
-      }
+      "claim_deadline": "text",
+      "payment_method": "text",
+      "deductible": 5000
     }
   },
   "enriched": {
-    "general_conditions": {
-      "age_limits": {
-        "min": 18,
-        "max": 65
-      },
-      "trip_origin": "Singapore",
-      "pre_existing_conditions": {
-        "allowed": false,
-        "conditions": "not covered unless declared and accepted"
-      },
-      "eligibility_criteria": [
-        "must be in good health",
-        "not traveling against medical advice"
+    "policy_type": {
+      "category": "Travel Insurance",
+      "target_segment": "Singaporean Residents",
+      "coverage_level": "comprehensive"
+    },
+    "coverage_analysis": {
+      "strengths": [
+        "High medical coverage",
+        "Comprehensive trip cancellation",
+        "Emergency medical evacuation and repatriation services",
+        "Medical and travel assistance services",
+        "Emergency telephone charges reimbursement"
+      ],
+      "limitations": [
+        "Age restrictions (18-65 years old)",
+        "Pre-existing conditions excluded",
+        "Exclusions for certain activities (e.g. adventurous activities, war, terrorism)",
+        "Exclusions for certain medical conditions (e.g. HIV, HIV-related illnesses, sexually transmitted diseases)"
+      ],
+      "unique_features": [
+        "PayNow payment method",
+        "Emergency medical evacuation and repatriation services",
+        "Medical and travel assistance services",
+        "Emergency telephone charges reimbursement",
+        "Child education grant",
+        "Family assistance benefit"
       ]
     },
-    "benefits": {
-      "medical_expenses": {
-        "amount": 200000,
-        "currency": "SGD",
-        "description": "medical, surgical and hospital charges",
-        "limits": "during Journey only"
-      }
-    },
-    "benefit_conditions": {
-      "medical_expenses": {
-        "waiting_period": "none",
-        "requirements": [
-          "must be prescribed by doctor",
-          "must be referred by specialist"
-        ],
-        "exclusions": []
-      }
-    },
-    "operational_details": {
-      "claim_deadline": "30 days",
-      "payment_method": "PayNow",
-      "deductible": 100
-    },
-    "enriched_analysis": {
-      "policy_type": {
-        "category": "Travel Insurance",
-        "target_segment": "Leisure Travelers",
-        "coverage_level": "standard"
-      },
-      "coverage_analysis": {
-        "strengths": [
-          "High medical coverage up to SGD 200,000",
-          "Comprehensive trip cancellation not applicable",
-          "30-day claim window for prompt settlement"
-        ],
-        "limitations": [
-          "Age restrictions: 18-65 years old",
-          "Pre-existing conditions excluded unless declared and accepted",
-          "Must be in good health and not traveling against medical advice"
-        ],
-        "unique_features": [
-          "PayNow payment method for convenient claims"
-        ]
-      },
-      "benefit_patterns": {
-        "common_limits": [
-          {
-            "type": "medical_coverage",
-            "amount": 200000,
-            "currency": "SGD",
-            "limits": "during Journey only"
-          }
-        ],
-        "standard_conditions": [
-          "Doctor referral required for medical expenses",
-          "30-day claim window for prompt settlement"
-        ],
-        "typical_exclusions": [
-          "Pre-existing conditions",
-          "Non-medical travel"
-        ]
-      }
+    "benefit_patterns": {
+      "common_limits": [
+        {
+          "type": "medical_coverage",
+          "amount": 2600000
+        }
+      ],
+      "standard_conditions": [
+        "doctor referral required",
+        "30 day claim window",
+        "written confirmation of the nature of the serious injury or serious illness from a doctor",
+        "original receipts",
+        "inpatient hospital charges only",
+        "Medical certificate from a doctor"
+      ],
+      "typical_exclusions": [
+        "pre-existing conditions",
+        "non-medical travel",
+        "war and terrorism",
+        "acts of terrorism involving biological weapons, chemical agents or nuclear devices",
+        "human immunodeficiency virus (HIV), HIV-related illnesses, or any other diseases or illnesses related to sexually transmitted disease"
+      ]
     }
   },
   "normalized": {
@@ -1338,9 +1990,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           },
           "Product B": {
@@ -1871,6 +2525,13 @@
             "Product C": {
               "condition_exist": "boolean",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -2504,9 +3165,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           }
         },
@@ -2532,9 +3195,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           }
         },
@@ -2560,9 +3225,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           }
         },
@@ -2588,9 +3255,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           }
         },
@@ -2616,9 +3285,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           }
         },
@@ -2644,9 +3315,11 @@
               "parameters": {}
             },
             "TravelEasy Pre-Ex Policy QTD032212-PX": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 30
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor.', 'The medical expenses must be incurred within 30 days of the incident.', 'written confirmation of the nature of the serious injury or serious illness from a doctor', 'The insured person must be hospitalised due to illness or injury.', 'original receipts', 'inpatient hospital charges only', 'Medical certificate from a doctor', 'The insured person must be hospitalized for at least 5 days.', 'Insured person must be hospitalised within 24 hours after returning to Singapore due to an injury or illness suffered during the overseas journey.', 'Written confirmation from a doctor is required for serious injury or illness', 'medical report or certificate from a doctor', 'Medical report', 'Hospital bill'], 'exclusions': ['prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'dental treatment', 'Pre-existing medical conditions are not covered under this policy.', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion This clause will override anything in this insurance which says differently. We will not cover loss, damage, liability or expense directly or indirectly caused by or contributed to by or arising from: a) ionising radiations from or contamination by radioactivity from any nuclear fuel or from any nuclear waste from burning nuclear fuel; b) the radioactive, toxic, explosive or other dangerous properties of any nuclear installation, reactor or other nuclear machinery; c) any weapon or device using atomic or nuclear fission or fusion or other similar reaction or radioactive force or matter; or d) the radioactive, toxic, explosive or other dangerous properties of any radioactive matter. This exclusion does not apply to radioactive isotopes, other than nuclear fuel, when these', 'Medical expenses incurred in Singapore', 'War and terrorism', 'Any pre-existing medical condition unless covered under section 52 Pre-Ex Critical Care.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 Maternity medical expenses overseas.', 'items covered under section 35 Loss of Travel Documents', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person hospital; b) any form of cosmetic surgery or treatment; c) any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer; d) eyeglasses or the like, hearing aids, prosthesis, corrective devices; e) treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre; f) any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner; or g) any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'mobility aids', 'Pre-existing medical conditions', 'Section 13 - Overseas ICU hospitalisation daily benefit', 'The insured person taking part in the following activities unless covered under section 41 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'Section 14 - Hospitalisation daily benefit in Singapore', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'War and terrorism exclusion This insurance will not cover death, disability, loss, damage, destruction, any legal liabilities, cost or expense including consequential loss of whatever nature, directly or indirectly caused by, resulting from or in connection with any of the following, no matter whether there is any other cause or event contributing at the same time or in any other sequence to the loss. a) War, invasion, act of foreign enemy or warlike operations (whether declared or not), riot, civil war, revolution, civil commotion assuming the proportions of or amounting to any uprising, military or usurped power or any similar event. b) Any act of terrorism including but not limited to: i) the use or threat of force or violence; or ii) harm or damage to life or to property (or the threat of harm or damage) including, but not limited to, nuclear radiation or contamination by chemical or biological agents, by any person or group committed for political, religious, ideological or similar purposes, with the intention of putting the public or any section of the public in fear; or c) Any action taken in controlling, preventing, suppressing or in any way relating to (a) or (b) above. If we say your claim is not covered as a result of this exclusion, you will need to prove to us otherwise to pay the claim.', 'damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data, including loss or corruption of data (including any information or programs or software) and whether your property or not, if the damage is caused by programming or operator error, virus or similar, or hacking; consequential loss directly or indirectly caused by or arising from general exclusion 16 (a) above; COVID-19 and pandemics exclusion; Cyber exclusion; Political risks exclusion; Property Cyber and data exclusion', 'Any known event.', 'items covered under section 34 Wedding clothing and accessories']}"
             }
           }
         },
@@ -4234,6 +4907,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4257,6 +4937,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4280,6 +4967,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4303,6 +4997,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4326,6 +5027,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4349,6 +5057,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4372,6 +5087,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4395,6 +5117,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4418,6 +5147,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4441,6 +5177,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },
@@ -4464,6 +5207,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Pre-Ex Policy QTD032212-PX": {
+              "parameters": {
+                "max_limit": 30
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Police report', 'Insured person must get written confirmation from the carrier, operator or their handling agents', 'The loss or damage must be reported within 30 days of the incident.', 'Proof of ownership', 'The baggage must be lost or damaged due to unforeseen circumstances.', 'Police report for lost or stolen baggage'], 'exclusions': ['Valuables and cash', 'Any restrictions or regulations imposed by any government or local authority.', 'Valuables left unattended', 'Political risks exclusion; Property Cyber and data exclusion', 'Jewellery, laptop computer and mobile device must be transported under the insured person -on baggage', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Any consequential loss not shown in the policy.']}"
             }
           }
         },

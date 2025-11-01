@@ -47,10 +47,10 @@ async def extract_policy(policy_text: str, product_name: str) -> Dict[str, Any]:
         structured = {
             "product_name": product_name,
             "layers": {
-                "layer_1_general_conditions": enriched["general_conditions"],
-                "layer_2_benefits": enriched["benefits"],
-                "layer_3_benefit_conditions": enriched["benefit_conditions"],
-                "layer_4_operational": enriched["operational_details"]
+                "layer_1_general_conditions": extracted["general_conditions"],
+                "layer_2_benefits": extracted["benefits"],
+                "layer_3_benefit_conditions": extracted["benefit_conditions"],
+                "layer_4_operational": extracted["operational_details"]
             }
         }
         
@@ -60,7 +60,7 @@ async def extract_policy(policy_text: str, product_name: str) -> Dict[str, Any]:
         return {
             "product_name": product_name,
             "extracted": extracted,
-            "enriched": enriched,
+            "enriched_analysis": enriched, # Renamed to enriched_analysis
             "normalized": normalized
         }
     

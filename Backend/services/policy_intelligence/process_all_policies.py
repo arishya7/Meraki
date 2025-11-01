@@ -6,8 +6,8 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
-from llm_extractor import PolicyExtractor
-from taxonomy_normalizer import normalize_to_taxonomy
+from .llm_extractor import PolicyExtractor
+from .taxonomy_normalizer import normalize_to_taxonomy
 
 def load_policy_text(file_path: Path) -> str:
     """Load text from a PDF policy file using PyMuPDF."""
@@ -55,10 +55,10 @@ def process_single_policy(file_path: Path, extractor: PolicyExtractor) -> Dict[s
         structured = {
             "product_name": product_name,
             "layers": {
-                "layer_1_general_conditions": enriched.get("general_conditions", {}),
-                "layer_2_benefits": enriched.get("benefits", {}),
-                "layer_3_benefit_conditions": enriched.get("benefit_conditions", {}),
-                "layer_4_operational": enriched.get("operational_details", {})
+                "layer_1_general_conditions": extracted.get("general_conditions", {}),
+                "layer_2_benefits": extracted.get("benefits", {}),
+                "layer_3_benefit_conditions": extracted.get("benefit_conditions", {}),
+                "layer_4_operational": extracted.get("operational_details", {})
             }
         }
         

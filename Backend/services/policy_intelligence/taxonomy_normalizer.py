@@ -63,9 +63,13 @@ def canonicalize_extracted(extracted: Dict[str, Any]) -> Dict[str, Dict[str, Any
 
         # normalize value into a single text blob
         if isinstance(value, (list, tuple)):
-            text = " ; ".join([str(x) for x in value if x is not None])
+            # Convert lists/tuples to a JSON string for better readability
+            text = json.dumps(value) if any(isinstance(i, (dict, list)) for i in value) else " ; ".join([str(x) for x in value if x is not None])
         elif isinstance(value, bool):
             text = str(value)
+        elif isinstance(value, dict):
+            # Convert dictionaries to a JSON string
+            text = json.dumps(value)
         else:
             text = str(value)
 

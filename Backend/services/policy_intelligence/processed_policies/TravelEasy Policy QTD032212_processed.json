@@ -3,611 +3,701 @@
   "extracted": {
     "general_conditions": {
       "age_limits": {
-        "min": 18,
-        "max": 65
+        "min": 0,
+        "max": 70
       },
-      "trip_origin": "Singapore",
+      "trip_origin": "overseas",
       "pre_existing_conditions": {
-        "allowed": false,
-        "conditions": "not covered unless declared and accepted"
+        "allowed": true,
+        "conditions": "Pre-Ex Critical Care Section 6 Overseas medical expenses (sub-limit) Covers inpatient hospital charges only"
       },
       "eligibility_criteria": [
-        "must be in good health",
-        "not traveling against medical advice"
+        "The insured person must be a resident of Singapore.",
+        "Any claim or loss arising out of any activity or business carried out via the internet, intranet, extranet or the insured person\u2019s own website, internet site, web address or when sending email or documents by electronic means.",
+        "meet all conditions of cover",
+        "At the time you send us your application for this insurance, none of the intended insured persons have already left Singapore on any trip meant to be covered by this insurance.",
+        "You must be a Singapore citizen or a permanent resident of Singapore.",
+        "The insured person must be at least 18 years old.",
+        "Any insured child under the age of 12 years must be accompanied by a parent or adult guardian during the trip.",
+        "To be eligible for cover under TravelEasy\u00ae Pre-Ex plans, the insured person must meet all the conditions stated under section 52 - Pre-Ex Critical Care.",
+        "The insured person must have a valid passport.",
+        "You must be at least 18 years old to purchase this policy.",
+        "The round trip must begin and end in Singapore.",
+        "You must be at least 18 years old.",
+        "Insured person must be a resident of Singapore",
+        "You must not be a government employee or a government contractor.",
+        "Insured person must comply with all requirements and advice put in place by the Singapore and relevant overseas government, transport and accommodation provider relating to measures for minimising the risk and spread of COVID-19",
+        "Minimum age of 18 years old",
+        "Singaporean resident",
+        "Resident of Singapore",
+        "The country of residence for all insured persons is Singapore.",
+        "Insured person must travel together on the same trip for single return trip travel",
+        "criterion1",
+        "The insured person must not have any medical condition or symptom which they have not consulted a doctor for or for which they are waiting for medical test, medical result, diagnosis, treatment or surgery.",
+        "Singaporean",
+        "insured person is a Singapore citizen or a Singapore permanent resident",
+        "The insured persons are not travelling against the advice of a doctor or for the purpose of getting medical treatment.",
+        "Insured person must be a fare-paying passenger",
+        "Singaporean citizen",
+        "traveler",
+        "e) owning, having or using animals, firearms, mechanically propelled vehicles, vessels or aircraft including drones of any description.",
+        "resident",
+        "Premier Plan",
+        "d) owning or occupying any land or buildings other than temporary holiday accommodation;",
+        "Standard Plan",
+        "The insured person must be a Singaporean citizen or a permanent resident.",
+        "The insured person must have a valid passport and travel documents.",
+        "adult insured person",
+        "If an insured person has ever been refused cover or had special terms placed on them by any insurer for travel insurance, they must declare this at the point of application and we must accept them, or there will be no cover for them.",
+        "Any claims and losses based on, arising out of, directly or indirectly resulting from or as a result of, or any way involving: a) asbestos; or b) any actual or alleged asbestos-related injury or damage involving using asbestos, or the presence, existence, detection, removal, elimination or avoidance of asbestos or exposure or potential exposure to asbestos.",
+        "Elite Plan",
+        "For TravelEasy\u00ae, the insured persons must be in good health or free from physical defects.",
+        "Any liability which you have under an agreement but which you would not have if the agreement did not exist.",
+        "In the last 12 months, the insured person must not have any pre-existing medical condition which has required them to: a) receive treatment at a hospital's Accident and Emergency Department more than once; b) stay in a hospital as an inpatient for more than three days in a row; and c) stay in a hospital as an inpatient for more than once.",
+        "c) the insured person\u2019s employment, trade, business or profession;",
+        "You must be at least 16 years old to purchase this policy.",
+        "Insured person must be a citizen of Singapore or have been a permanent resident with the local government",
+        "Purchase of insurance more than three days before the start of the journey",
+        "Judgments which are not in the first instance delivered by or received from a court within the Republic of Singapore nor to orders received in the court for enforcing judgments made outside the Republic of Singapore whether by way of reciprocal agreement or otherwise.",
+        "Singapore resident",
+        "At the time of arranging the trip or taking out this insurance, neither you nor any other insured person is aware of any circumstances which are likely to lead to a claim under the policy.",
+        "The insured person must be following their treating doctor's advice for all their pre-existing medical condition."
       ]
     },
     "benefits": {
       "medical_expenses": {
-        "amount": 50000,
+        "amount": 2600000,
         "currency": "SGD",
-        "description": "medical, surgical and hospital charges",
-        "limits": "during Journey only"
+        "description": "text"
+      },
+      "travel_cancellation": {
+        "amount": 100000,
+        "currency": "SGD",
+        "description": "Travel cancellation due to COVID-19"
+      },
+      "baggage_loss": {
+        "amount": 200000,
+        "currency": "SGD",
+        "description": "Each insured person"
+      },
+      "emergency_medical_evacuation_and_repatriation": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "emergency medical evacuation and repatriation"
+      },
+      "replacement_of_employee": {
+        "amount": 100000,
+        "currency": "SGD",
+        "description": "Replacement of employee due to COVID-19"
+      },
+      "shortening_the_trip": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Not covered under COVID-19 Cover"
+      },
+      "overseas_quarantine_daily_benefit": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "daily benefit for each complete 24-hour period of quarantine or isolation"
+      },
+      "mobility_aid_reimbursement": {
+        "amount": 1000,
+        "currency": "SGD",
+        "description": "Necessary expenses for buying mobility aids if a doctor says this is necessary as a result of an injury suffered by the insured person while abroad during a journey"
+      },
+      "traditional_chinese_medicine_expenses": {
+        "amount": 200,
+        "currency": "SGD",
+        "description": "Cost of traditional Chinese medical treatment by a TCM practitioner which is needed for injury and illness suffered by the insured person during the journey overseas"
+      },
+      "maternity_medical_expenses_overseas": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Not covered for the first trimester of pregnancy, ectopic pregnancy, child birth or still birth, care and treatment for the newborn, abortion or miscarriage unless it is due to an injury, test or treatment relating to fertility, contraception, sterilisation, birth defects or congenital disorders, perinatal mental illness such as depression, anxiety disorders, any treatment for pregnancy which is conceived through medical assistance, or any medical expenses incurred in the country which the insured person is a citizen of or have been permanent residence with the local government"
+      },
+      "overseas_hospitalisation_daily_benefit": {
+        "amount": 200,
+        "currency": "SGD",
+        "description": "Benefit for each complete 24-hour period of the insured person\u2019s stay in hospital outside Singapore due to an injury or illness suffered during the overseas journey"
+      },
+      "overseas_icu_hospitalisation_daily_benefit": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Not covered"
+      },
+      "medical_and_travel_assistance": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "medical and travel assistance services"
+      },
+      "compassionate_and_hospital_visit": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "compassionate and hospital visit"
+      },
+      "emergency_telephone_charges": {
+        "amount": 300,
+        "currency": "SGD",
+        "description": "Refund the insured person the actual telephone charges for using a personal mobile phone to contact our appointed assistance company, during a medical emergency and for which a medical claim has been made under section 6 - Overseas medical expenses, section 7 \u2013 Emergency dental expenses, section 10 \u2013 Traditional Chinese medicine expenses or section 11 \u2013 Maternity medical expenses overseas."
+      },
+      "insolvency_of_licensed_travel_operator": {
+        "amount": 6000,
+        "currency": "SGD",
+        "description": "Loss of travel fares or travel deposits paid by the insured person which cannot be recovered from any other source, for the journey being cancelled before the start of the journey due to bankruptcy or insolvency of a Singapore Tourism Board (STB) registered travel agency licensed and operating in Singapore from which the insured person bought the trip."
+      },
+      "travel_postponement": {
+        "amount": {
+          "Premier Plan": 2000,
+          "Elite Plan": 1500,
+          "Standard Plan": 750
+        },
+        "currency": "SGD",
+        "description": "Reasonable additional travel expenses to reschedule the insured person\u2019s journey"
+      },
+      "replacement_of_traveller": {
+        "amount": {
+          "Premier Plan": 1000,
+          "Elite Plan": 750,
+          "Standard Plan": 500
+        },
+        "currency": "SGD",
+        "description": "Reasonable additional travel expenses for the insured person to make a one-time change of traveller"
+      },
+      "delayed_departure": {
+        "amount": {
+          "delay_benefit": {
+            "Premier Plan": 100,
+            "Elite Plan": 100,
+            "Standard Plan": 100
+          },
+          "alternative_travel_arrangement": {
+            "Premier Plan": 2000,
+            "Elite Plan": 1500,
+            "Standard Plan": 750
+          }
+        },
+        "currency": "SGD",
+        "description": "Delay benefit and alternative travel arrangement"
+      },
+      "wedding_clothing_and_accessories": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Accidental loss of or damage to the bridal clothing and ceremonial clothing, wedding rings, jewellery and wedding accessories owned by or hired or on loan to the adult insured person for their wedding"
+      },
+      "loss_of_travel_documents": {
+        "amount": 5000,
+        "currency": "SGD",
+        "description": "Cost of getting replacement passports, travel tickets and other relevant travel documents as a result of accidental loss or damage during the journey while overseas"
+      },
+      "personal_money": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Loss of an insured person\u2019s cash, banknotes or traveller\u2019s cheques carried for social and domestic purposes arising out of robbery, burglary or theft while the insured person is outside Singapore during the journey"
+      },
+      "fraudulent_use_of_credit_card": {
+        "amount": 3000,
+        "currency": "SGD",
+        "description": "Unauthorised transactions due to the fraudulent use of personal credit card through unauthorised charges made overseas following its loss arising out of robbery, burglary or theft while the adult insured person is outside Singapore during the journey"
+      },
+      "credit_card_outstanding_balance": {
+        "amount": 3000,
+        "currency": "SGD",
+        "description": "Outstanding balance on their personal credit card account up to the date of the accident if the adult insured person suffers an injury during the journey outside Singapore which within 90 days of its happening is the only cause of their death"
+      },
+      "personal_liability": {
+        "amount": 1000000,
+        "currency": "SGD",
+        "description": "All amounts which the insured person becomes legally responsible for paying compensation for accidents which happen during the journey outside Singapore and which result in: 1. death or injury of any other person; or 2. loss of or damage to property belonging to other people"
+      },
+      "legal_expenses_for_wrongful_arrest_or_detention": {
+        "amount": 10000,
+        "currency": "SGD",
+        "description": "Legal costs and expenses which the insured person legally has to pay due to wrongful arrest or detention by any government or local authority which happens during the journey outside Singapore"
+      },
+      "adventurous_activities_cover": {
+        "amount": 0,
+        "currency": "SGD",
+        "description": "Not covered"
+      },
+      "golfing_equipment": {
+        "amount": 1500,
+        "currency": "SGD",
+        "description": "Loss or damage to golfing equipment due to accident or theft during the journey overseas."
+      },
+      "green_fees": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Overseas pre-booked green fees that are not refundable due to injury or illness."
+      },
+      "hole_in_one": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Cost of one round of celebratory drinks when the insured person scores a hole-in-one in an organised event."
+      },
+      "entertainment_ticket": {
+        "amount": 500,
+        "currency": "SGD",
+        "description": "Unused portion of entertainment ticket due to death, serious injury, or serious illness of the insured person or their family member or travel companion."
+      },
+      "rental_vehicle_excess": {
+        "amount": 1500,
+        "currency": "SGD",
+        "description": "Excess if the adult insured person legally has to pay this amount due to accidental loss or damage to the rental vehicle."
+      },
+      "returning_rental_vehicle": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "Reasonable costs for returning the rental vehicle to the nearest hire depot due to injury or illness."
+      },
+      "domestic_pets_care": {
+        "amount": 750,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "terrorism_cover": {
+        "amount": 500000,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "passive_war": {
+        "amount": 500000,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "hijack_of_public_transport": {
+        "amount": 6000,
+        "currency": "SGD",
+        "description": "text"
+      },
+      "kidnap_and_hostage": {
+        "amount": 6000,
+        "currency": "SGD",
+        "description": "text"
       }
     },
     "benefit_conditions": {
       "medical_expenses": {
-        "waiting_period": "none",
         "requirements": [
-          "must be prescribed by doctor",
-          "must be referred by specialist"
+          "Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses",
+          "Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey",
+          "You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.",
+          "doctor's advice",
+          "COVID-19 test result",
+          "You must have a valid medical certificate issued by a doctor.",
+          "inpatient hospital charges only",
+          "You must have a valid medical certificate to claim for medical expenses.",
+          "Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19",
+          "medical need",
+          "Medical report",
+          "Hospital bill",
+          "government approved personnel",
+          "hospital stay in ICU",
+          "You must have a valid hospital bill or medical receipt.",
+          "Written advice of a doctor",
+          "Serious injury or illness"
+        ],
+        "exclusions": [
+          "quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility",
+          "prosthesis",
+          "Any restrictions or regulations imposed by any government or local authority.",
+          "Any form of cosmetic surgery or treatment;",
+          "The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;",
+          "Medical expenses incurred in Singapore",
+          "Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion",
+          "The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.",
+          "Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal",
+          "Nuclear radiation",
+          "Any consequential loss not shown in the policy.",
+          "Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.",
+          "pre-existing medical condition",
+          "Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.",
+          "War",
+          "mobility aids",
+          "Pre-existing medical conditions",
+          "War and terrorism exclusion",
+          "Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.",
+          "Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;",
+          "Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.",
+          "cost of dental treatment",
+          "COVID-19 treatment expenses which are covered by any government or national healthcare programme",
+          "Self-inflicted injuries",
+          "Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).",
+          "Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.",
+          "Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.",
+          "Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.",
+          "Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.",
+          "Eyeglasses or the like, hearing aids, prosthesis, corrective devices;",
+          "The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.",
+          "War and civil unrest",
+          "Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;",
+          "We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.",
+          "Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.",
+          "Pre-existing medical condition that worsens within the 30 days before the start of the trip",
+          "Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.",
+          "Terminal illness",
+          "Outpatient medical treatment",
+          "Vaccination, including the side effects and complications resulting from vaccination.",
+          "Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.",
+          "Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;",
+          "Any known event.",
+          "Political risks exclusion"
+        ]
+      },
+      "travel_cancellation": {
+        "requirements": [
+          "medical emergency",
+          "You must provide proof of unforeseen circumstances to claim for travel cancellation.",
+          "Cancellation notice",
+          "Insured person must comply with all requirements and advice put in place by the Singapore and relevant overseas government, transport and accommodation provider relating to measures for minimising the risk and spread of COVID-19",
+          "Travel itinerary",
+          "document(s) for the approved travel arrangement issued by the Singapore and/or foreign government",
+          "You must have a valid cancellation policy or refund policy.",
+          "The insured person must notify the tour, public transport or accommodation provider immediately upon finding out that they need to cancel their trip.",
+          "The insured person must provide written confirmation of the cancellation from the tour, public transport or accommodation provider.",
+          "Written confirmation of the nature of the serious injury or serious illness from a doctor",
+          "You must have a valid travel itinerary or ticket.",
+          "Known event or serious medical condition"
+        ],
+        "exclusions": [
+          "Pre-existing medical conditions",
+          "Cancellation due to unforeseen circumstances",
+          "We will not pay for travel cancellation due to general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.",
+          "Claims due to COVID-19 infection diagnosed from test done after the 90th day from the start of the trip",
+          "Natural disasters",
+          "If a claim under section 25 \u2013 Delayed departure, section 26 \u2013 Flight diversion, section 27 \u2013 Overbooked flight, section 28 \u2013 Missed travel connection, section 29 \u2013 Shortening the trip, section 30 \u2013 Travel disruption and section 50 \u2013 Hijack of public transport, results from the same event, we will pay for the claim under one of the sections only.",
+          "Cancellation due to change of mind",
+          "Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.",
+          "Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy."
+        ]
+      },
+      "emergency_medical_evacuation_and_repatriation": {
+        "requirements": [
+          "injury or illness during journey",
+          "Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19",
+          "serious medical condition"
+        ],
+        "exclusions": [
+          "Claims due to COVID-19 infection diagnosed from test done after the 90th day from the start of the trip"
+        ]
+      },
+      "replacement_of_employee": {
+        "requirements": [
+          "Passes away during the trip; or suffers an injury or contracts an illness during the trip and is hospitalised for more than seven days or is confirmed in writing by a doctor to be unable to perform their work duties for more than seven days.",
+          "Insured person must comply with all requirements and advice put in place by the Singapore and relevant overseas government, transport and accommodation provider relating to measures for minimising the risk and spread of COVID-19"
+        ],
+        "exclusions": [
+          "Claims due to COVID-19 infection diagnosed from test done after the 90th day from the start of the trip"
+        ]
+      },
+      "shortening_the_trip": {
+        "requirements": [],
+        "exclusions": [
+          "Claims due to COVID-19 infection diagnosed from test done after the 90th day from the start of the trip"
+        ]
+      },
+      "baggage_loss": {
+        "requirements": [
+          "Proof of ownership",
+          "Police report",
+          "You must provide proof of loss or theft to claim for baggage loss.",
+          "Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay"
+        ],
+        "exclusions": [
+          "Any loss or damage of items hired or rented by the insured person",
+          "Loss or damage to baggage, money or other insured property left unattended in any public place",
+          "Intentional damage",
+          "Normal wear and tear",
+          "Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation",
+          "Perishables, fruits, food and drink products",
+          "We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.",
+          "Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage",
+          "Loss or damage caused by customs or other government officials legally taking, holding or destroying it",
+          "ATM, debit or credit card",
+          "Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late",
+          "Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps",
+          "Damage to any brittle or fragile items unless properly packed and protected",
+          "Loss of money",
+          "Jewellery, laptop computer and mobile device transported as checked-in baggage",
+          "Damage or breakage of sports equipment while in use",
+          "Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover",
+          "Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value",
+          "Vouchers, coupons and any cards",
+          "The cost of reproducing data",
+          "Loss or damage caused by wear and tear"
+        ]
+      },
+      "overseas_quarantine_daily_benefit": {
+        "requirements": [
+          "COVID-19 test result",
+          "government approved personnel"
+        ],
+        "exclusions": [
+          "section 12 (Overseas hospitalisation daily benefit) or section 13 (Overseas ICU hospitalisation daily benefit) pays claim for the same event"
+        ]
+      },
+      "mobility_aid_reimbursement": {
+        "requirements": [
+          "Insured person must receive a doctor's advice that mobility aids are necessary as a result of an injury suffered by the insured person while abroad during a journey"
+        ],
+        "exclusions": [
+          "Prosthesis"
+        ]
+      },
+      "traditional_chinese_medicine_expenses": {
+        "requirements": [
+          "Insured person must receive traditional Chinese medical treatment outside Singapore for an injury or illness suffered during the overseas journey",
+          "Insured person must arrange for traditional Chinese medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses"
+        ],
+        "exclusions": [
+          "Not specified"
+        ]
+      },
+      "maternity_medical_expenses_overseas": {
+        "requirements": [
+          "Insured person must receive medical treatment outside Singapore for pregnancy-related illness suffered during the overseas journey"
+        ],
+        "exclusions": [
+          "First trimester of pregnancy, ectopic pregnancy, child birth or still birth, care and treatment for the newborn, abortion or miscarriage unless it is due to an injury, test or treatment relating to fertility, contraception, sterilisation, birth defects or congenital disorders, perinatal mental illness such as depression, anxiety disorders, any treatment for pregnancy which is conceived through medical assistance, or any medical expenses incurred in the country which the insured person is a citizen of or have been permanent residence with the local government"
+        ]
+      },
+      "overseas_hospitalisation_daily_benefit": {
+        "requirements": [
+          "Insured person must stay in a registered hospital as a registered inpatient because of a medical need and on the advice of a doctor"
+        ],
+        "exclusions": [
+          "Not specified"
+        ]
+      },
+      "overseas_icu_hospitalisation_daily_benefit": {
+        "requirements": [
+          "Insured person must stay in a registered hospital as a registered inpatient in an Intensive Care Unit (ICU) because of a medical need and on the advice of a doctor"
+        ],
+        "exclusions": [
+          "Not specified"
+        ]
+      },
+      "medical_and_travel_assistance": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "compassionate_and_hospital_visit": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "emergency_telephone_charges": {
+        "requirements": [],
+        "exclusions": [
+          "Calls made using any fixed telephone line or LAN line or public telephone using an international calling card (ICC)."
+        ]
+      },
+      "insolvency_of_licensed_travel_operator": {
+        "requirements": [
+          "Purchase of insurance more than three days before the start of the journey"
+        ],
+        "exclusions": []
+      },
+      "travel_postponement": {
+        "requirements": [
+          "Death, serious injury or serious illness of the insured person or their family member or travel companion.",
+          "The insured person or their travel companion being called as a witness in a court of law in Singapore.",
+          "The insured person\u2019s home or place of business in Singapore becoming uninhabitable or being seriously damaged following a burglary, fire, flood, typhoon, earthquake or landslip which means the insured person has to stay in Singapore.",
+          "An unexpected strike, industrial action, riot, civil commotion at the planned overseas destination, which prevents the insured person from beginning the scheduled journey.",
+          "Natural disasters which happen at the planned overseas destination, which prevent the insured person from beginning the scheduled journey.",
+          "Closing of airport or airspace that prevents the insured person from beginning the scheduled journey.",
+          "The insured person is denied boarding of the public transport by the local authority or transport provider due to infectious disease symptoms."
+        ],
+        "exclusions": []
+      },
+      "replacement_of_traveller": {
+        "requirements": [
+          "Death, serious injury or serious illness of the insured person, insured person\u2019s family member or travel companion which happen within 30 days before the start of the journey but after the date of arranging this insurance and the journey."
+        ],
+        "exclusions": []
+      },
+      "delayed_departure": {
+        "requirements": [
+          "Strike or other industrial action; riot; civil commotion; poor weather conditions; natural disasters; the mechanical breakdown of the public transport or it not working properly; or closure of airport or airspace."
+        ],
+        "exclusions": []
+      },
+      "wedding_clothing_and_accessories": {
+        "requirements": [
+          "items must be transported under the insured person\u2019s care as carry-on baggage during travel on public transport"
+        ],
+        "exclusions": []
+      },
+      "loss_of_travel_documents": {
+        "requirements": [
+          "loss must be reported to the local police at the place where the loss happened, no more than 24 hours after the incident"
+        ],
+        "exclusions": []
+      },
+      "personal_money": {
+        "requirements": [
+          "loss must be reported to the local police at the place of the loss no more than 24 hours after the incident"
+        ],
+        "exclusions": [
+          "loss or theft of money while transported as checked-in baggage"
+        ]
+      },
+      "fraudulent_use_of_credit_card": {
+        "requirements": [
+          "loss must be reported to the credit card issuer within six hours of the robbery, burglary or theft"
+        ],
+        "exclusions": []
+      },
+      "credit_card_outstanding_balance": {
+        "requirements": [
+          "injury must be the only cause of death within 90 days of its happening"
+        ],
+        "exclusions": []
+      },
+      "personal_liability": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "legal_expenses_for_wrongful_arrest_or_detention": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "adventurous_activities_cover": {
+        "requirements": [],
+        "exclusions": []
+      },
+      "golfing_equipment": {
+        "requirements": [
+          "The insured person must provide written evidence from the golf club official of the hole-in-one scored.",
+          "The insured person must provide original receipts for the cost of celebratory drinks."
+        ],
+        "exclusions": [
+          "Loss or damage suffered during the course of play or practice."
+        ]
+      },
+      "green_fees": {
+        "requirements": [
+          "The insured person must provide written confirmation of the nature of the serious injury or serious illness from a doctor."
+        ],
+        "exclusions": [
+          "Green fees that are refundable."
+        ]
+      },
+      "hole_in_one": {
+        "requirements": [
+          "The insured person must provide written evidence from the golf club official of the hole-in-one scored.",
+          "The insured person must provide original receipts for the cost of celebratory drinks."
+        ],
+        "exclusions": [
+          "Hole-in-one scored in an unorganised event."
+        ]
+      },
+      "entertainment_ticket": {
+        "requirements": [
+          "The insured person must seek cancellation refund from the relevant parties first (e.g. tour operator, event organiser).",
+          "The insured person must submit claim with proof or denial of any compensation from the relevant parties."
+        ],
+        "exclusions": [
+          "Entertainment ticket that is not prepaid or unused."
+        ]
+      },
+      "rental_vehicle_excess": {
+        "requirements": [
+          "The insured person must be either a named driver or co-driver of the rental vehicle.",
+          "The insured person must have kept to all requirements of the rental agreement."
+        ],
+        "exclusions": [
+          "Loss or damage arising from wear and tear, gradual deterioration, damage from insects or vermin, built-in faults, or faults or damage which are not obvious."
+        ]
+      },
+      "returning_rental_vehicle": {
+        "requirements": [
+          "The insured person must be legally responsible for paying the costs under the rental agreement.",
+          "The insured person must be either a named driver or co-driver of the rental vehicle."
+        ],
+        "exclusions": [
+          "Costs that are not reasonable."
+        ]
+      },
+      "domestic_pets_care": {
+        "requirements": [
+          "written confirmation from the pet hotel or kennel or cattery",
+          "medical report or certificate from a doctor",
+          "written confirmation from the carrier, operator or their handling agent"
+        ],
+        "exclusions": []
+      },
+      "terrorism_cover": {
+        "requirements": [],
+        "exclusions": [
+          "acts of terrorism involving the use of biological weapons, chemical agents or nuclear devices"
+        ]
+      },
+      "passive_war": {
+        "requirements": [
+          "the insured person must prove that, at the time of suffering the loss, they were in no way directly or indirectly taking part in any of those activities",
+          "the insured person must also not have been involved in controlling, preventing, suppressing or in any other way dealing or attempting to deal with those events"
+        ],
+        "exclusions": [
+          "30 days after the outbreak of war or any of the events listed during the insured person\u2019s visit to that country"
+        ]
+      },
+      "hijack_of_public_transport": {
+        "requirements": [],
+        "exclusions": [
+          "the intended destination of the public transport is to, or by way of, a country in a state of war"
+        ]
+      },
+      "kidnap_and_hostage": {
+        "requirements": [
+          "the kidnap must have actually taken place and been reported to the local police at the place of the event within 24 hours of the incident ending",
+          "any claim must be accompanied by written documents from the police"
         ],
         "exclusions": []
       }
     },
     "operational_details": {
-      "claim_deadline": "30 days",
-      "payment_method": "PayNow",
-      "deductible": 100
-    },
-    "policy_details": {
-      "policy_type": "TravelEasy",
-      "policy_plan": "Standard",
-      "policy_coverage": "Single Return Trip",
-      "policy_duration": "30 days",
-      "policy_start_date": "2024-01-01",
-      "policy_end_date": "2024-01-31"
-    },
-    "benefit_limits": {
-      "personal_accident_cover": {
-        "adult_below_70": 50000,
-        "adult_above_70": 50000,
-        "child": 50000
-      },
-      "public_transport_double_cover": {
-        "adult_below_70": 400000,
-        "adult_above_70": 0,
-        "child": 200000
-      },
-      "funeral_expenses_due_to_accident": {
-        "adult": 3000,
-        "child": 750
-      },
-      "child_education_grant": {
-        "adult": 0,
-        "child": 5000
-      },
-      "family_assistance_benefit": {
-        "adult": 0,
-        "child": 3000
-      },
-      "overseas_medical_expenses": {
-        "adult_below_70": 250000,
-        "adult_above_70": 50000,
-        "child": 150000
-      },
-      "emergency_dental_expenses": {
-        "adult": 5000,
-        "child": 1250
-      },
-      "medical_expenses_in_singapore": {
-        "adult_below_70": 25000,
-        "adult_above_70": 5000,
-        "child": 10000
-      },
-      "mobility_aid_reimbursement": {
-        "adult": 1000,
-        "child": 250
-      },
-      "traditional_chinese_medicine_expenses": {
-        "adult": 200,
-        "child": 100
-      },
-      "maternity_medical_expenses_overseas": {
-        "adult": 0,
-        "child": 2000
-      },
-      "overseas_hospitalisation_daily_benefit": {
-        "adult": 200,
-        "child": 100
-      },
-      "overseas_icu_hospitalisation_daily_benefit": {
-        "adult": 0,
-        "child": 150
-      },
-      "hospitalisation_daily_benefit_in_singapore": {
-        "adult": 100,
-        "child": 50
-      },
-      "medical_and_travel_assistance_services": {
-        "available": true
-      },
-      "emergency_medical_evacuation_and_repatriation": {
-        "emergency_medical_evacuation": 1000000,
-        "sending_you_home_after_medical_emergency_evacuation": 1000000,
-        "sending_home_your_mortal_remains": 1000000
-      },
-      "compassionate_and_hospital_visit": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "child_guard": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "emergency_telephone_charges": {
-        "adult": 100,
-        "child": 100
-      },
-      "insolvency_of_licensed_travel_operator": {
-        "adult": 2000,
-        "child": 2000
-      },
-      "travel_cancellation": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "travel_postponement": {
-        "adult": 750,
-        "child": 750
-      },
-      "replacement_of_traveller": {
-        "adult": 500,
-        "child": 500
-      },
-      "replacement_of_employee": {
-        "adult": 5000
-      },
-      "delayed_departure": {
-        "adult": 100,
-        "child": 100
-      },
-      "flight_diversion": {
-        "adult": 100,
-        "child": 100
-      },
-      "overbooked_flight": {
-        "adult": 100,
-        "child": 100
-      },
-      "missed_travel_connection": {
-        "adult": 100,
-        "child": 100
-      },
-      "shortening_the_trip": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "travel_disruption": {
-        "adult": 1000,
-        "child": 1000
-      },
-      "automatic_extension_of_cover": {
-        "available": true
-      },
-      "delayed_baggage": {
-        "adult": 150,
-        "child": 150
-      },
-      "baggage": {
-        "limit": 500
-      },
-      "wedding_clothing_and_accessories": {
-        "adult": 3500
-      },
-      "loss_of_travel_documents": {
-        "adult": 2000,
-        "child": 2000
-      },
-      "personal_money": {
-        "adult": 100,
-        "child": 100
-      },
-      "fraudulent_use_of_credit_card": {
-        "adult": 0,
-        "child": 0
-      },
-      "credit_card_outstanding_balance": {
-        "adult": 0,
-        "child": 0
-      },
-      "personal_liability": {
-        "adult": 500000,
-        "child": 250000
-      },
-      "legal_expenses_for_wrongful_arrest_or_detention": {
-        "adult": 0,
-        "child": 5000
-      },
-      "adventurous_activities_cover": {
-        "available": false
-      },
-      "golfer's_cover": {
-        "damage_or_loss_of_golf_equipment": 0,
-        "unused_green_fees_due_to_injury_or_illness": 500,
-        "hole-in-one": 500
-      },
-      "unused_entertainment_ticket": {
-        "adult": 0,
-        "child": 0
-      },
-      "rental_vehicle_excess": {
-        "adult": 0,
-        "child": 0
-      },
-      "returning_a_rental_vehicle": {
-        "adult": 0,
-        "child": 0
-      },
-      "home_contents": {
-        "adult": 0,
-        "child": 0
-      },
-      "domestic_pets_care": {
-        "adult": 0,
-        "child": 0
-      },
-      "terrorism_cover": {
-        "adult_below_70": 200000,
-        "adult_above_70": 200000,
-        "child": 200000
-      },
-      "passive_war": {
-        "adult_below_70": 150000,
-        "adult_above_70": 50000,
-        "child": 50000
-      },
-      "hijack_of_public_transport": {
-        "adult": 100,
-        "child": 100
-      },
-      "kidnap_and_hostage": {
-        "adult": 100,
-        "child": 100
-      },
-      "pre_ex_critical_care": {
-        "adult_below_70": 75000,
-        "adult_above_70": 50000,
-        "child": 50000
-      }
-    },
-    "enriched_analysis": {
-      "policy_type": {
-        "category": "Travel Insurance",
-        "target_segment": "Leisure Travelers",
-        "coverage_level": "standard"
-      },
-      "coverage_analysis": {
-        "strengths": [
-          "Comprehensive coverage for medical expenses, trip cancellations, and travel disruptions",
-          "Wide range of benefits, including personal accident cover, public transport double cover, and emergency medical evacuation"
-        ],
-        "limitations": [
-          "Age restrictions (18-65 years old)",
-          "Pre-existing conditions excluded unless declared and accepted",
-          "Limited coverage for adventurous activities and rental vehicle excess"
-        ],
-        "unique_features": [
-          "PayNow payment method",
-          "Automatic extension of cover",
-          "Compassionate and hospital visit benefits"
-        ]
-      },
-      "benefit_patterns": {
-        "common_limits": [
-          {
-            "type": "medical_coverage",
-            "amount": 50000
-          },
-          {
-            "type": "public_transport_double_cover",
-            "amount": 400000
-          }
-        ],
-        "standard_conditions": [
-          "Doctor referral required for medical expenses",
-          "30-day claim window"
-        ],
-        "typical_exclusions": [
-          "Pre-existing conditions",
-          "Non-medical travel",
-          "Adventurous activities"
-        ]
-      }
+      "claim_deadline": "text",
+      "payment_method": "text",
+      "deductible": 5000
     }
   },
   "enriched": {
-    "general_conditions": {
-      "age_limits": {
-        "min": 18,
-        "max": 65
-      },
-      "trip_origin": "Singapore",
-      "pre_existing_conditions": {
-        "allowed": false,
-        "conditions": "not covered unless declared and accepted"
-      },
-      "eligibility_criteria": [
-        "must be in good health",
-        "not traveling against medical advice"
+    "policy_type": {
+      "category": "Travel Insurance",
+      "target_segment": "Leisure Travelers",
+      "coverage_level": "standard"
+    },
+    "coverage_analysis": {
+      "strengths": [
+        "Comprehensive coverage for medical expenses, trip cancellations, and travel disruptions",
+        "Reasonable deductible amount of SGD 5000",
+        "Multiple payment methods available"
+      ],
+      "limitations": [
+        "Age restrictions apply (min 18, max 70)",
+        "Pre-existing medical conditions are excluded",
+        "Certain activities, such as adventurous sports, are not covered"
+      ],
+      "unique_features": [
+        "PayNow payment method available",
+        "Comprehensive travel assistance services"
       ]
     },
-    "benefits": {
-      "medical_expenses": {
-        "amount": 50000,
-        "currency": "SGD",
-        "description": "medical, surgical and hospital charges",
-        "limits": "during Journey only"
-      }
-    },
-    "benefit_conditions": {
-      "medical_expenses": {
-        "waiting_period": "none",
-        "requirements": [
-          "must be prescribed by doctor",
-          "must be referred by specialist"
-        ],
-        "exclusions": []
-      }
-    },
-    "operational_details": {
-      "claim_deadline": "30 days",
-      "payment_method": "PayNow",
-      "deductible": 100
-    },
-    "policy_details": {
-      "policy_type": "TravelEasy",
-      "policy_plan": "Standard",
-      "policy_coverage": "Single Return Trip",
-      "policy_duration": "30 days",
-      "policy_start_date": "2024-01-01",
-      "policy_end_date": "2024-01-31"
-    },
-    "benefit_limits": {
-      "personal_accident_cover": {
-        "adult_below_70": 50000,
-        "adult_above_70": 50000,
-        "child": 50000
-      },
-      "public_transport_double_cover": {
-        "adult_below_70": 400000,
-        "adult_above_70": 0,
-        "child": 200000
-      },
-      "funeral_expenses_due_to_accident": {
-        "adult": 3000,
-        "child": 750
-      },
-      "child_education_grant": {
-        "adult": 0,
-        "child": 5000
-      },
-      "family_assistance_benefit": {
-        "adult": 0,
-        "child": 3000
-      },
-      "overseas_medical_expenses": {
-        "adult_below_70": 250000,
-        "adult_above_70": 50000,
-        "child": 150000
-      },
-      "emergency_dental_expenses": {
-        "adult": 5000,
-        "child": 1250
-      },
-      "medical_expenses_in_singapore": {
-        "adult_below_70": 25000,
-        "adult_above_70": 5000,
-        "child": 10000
-      },
-      "mobility_aid_reimbursement": {
-        "adult": 1000,
-        "child": 250
-      },
-      "traditional_chinese_medicine_expenses": {
-        "adult": 200,
-        "child": 100
-      },
-      "maternity_medical_expenses_overseas": {
-        "adult": 0,
-        "child": 2000
-      },
-      "overseas_hospitalisation_daily_benefit": {
-        "adult": 200,
-        "child": 100
-      },
-      "overseas_icu_hospitalisation_daily_benefit": {
-        "adult": 0,
-        "child": 150
-      },
-      "hospitalisation_daily_benefit_in_singapore": {
-        "adult": 100,
-        "child": 50
-      },
-      "medical_and_travel_assistance_services": {
-        "available": true
-      },
-      "emergency_medical_evacuation_and_repatriation": {
-        "emergency_medical_evacuation": 1000000,
-        "sending_you_home_after_medical_emergency_evacuation": 1000000,
-        "sending_home_your_mortal_remains": 1000000
-      },
-      "compassionate_and_hospital_visit": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "child_guard": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "emergency_telephone_charges": {
-        "adult": 100,
-        "child": 100
-      },
-      "insolvency_of_licensed_travel_operator": {
-        "adult": 2000,
-        "child": 2000
-      },
-      "travel_cancellation": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "travel_postponement": {
-        "adult": 750,
-        "child": 750
-      },
-      "replacement_of_traveller": {
-        "adult": 500,
-        "child": 500
-      },
-      "replacement_of_employee": {
-        "adult": 5000
-      },
-      "delayed_departure": {
-        "adult": 100,
-        "child": 100
-      },
-      "flight_diversion": {
-        "adult": 100,
-        "child": 100
-      },
-      "overbooked_flight": {
-        "adult": 100,
-        "child": 100
-      },
-      "missed_travel_connection": {
-        "adult": 100,
-        "child": 100
-      },
-      "shortening_the_trip": {
-        "adult": 5000,
-        "child": 5000
-      },
-      "travel_disruption": {
-        "adult": 1000,
-        "child": 1000
-      },
-      "automatic_extension_of_cover": {
-        "available": true
-      },
-      "delayed_baggage": {
-        "adult": 150,
-        "child": 150
-      },
-      "baggage": {
-        "limit": 500
-      },
-      "wedding_clothing_and_accessories": {
-        "adult": 3500
-      },
-      "loss_of_travel_documents": {
-        "adult": 2000,
-        "child": 2000
-      },
-      "personal_money": {
-        "adult": 100,
-        "child": 100
-      },
-      "fraudulent_use_of_credit_card": {
-        "adult": 0,
-        "child": 0
-      },
-      "credit_card_outstanding_balance": {
-        "adult": 0,
-        "child": 0
-      },
-      "personal_liability": {
-        "adult": 500000,
-        "child": 250000
-      },
-      "legal_expenses_for_wrongful_arrest_or_detention": {
-        "adult": 0,
-        "child": 5000
-      },
-      "adventurous_activities_cover": {
-        "available": false
-      },
-      "golfer's_cover": {
-        "damage_or_loss_of_golf_equipment": 0,
-        "unused_green_fees_due_to_injury_or_illness": 500,
-        "hole-in-one": 500
-      },
-      "unused_entertainment_ticket": {
-        "adult": 0,
-        "child": 0
-      },
-      "rental_vehicle_excess": {
-        "adult": 0,
-        "child": 0
-      },
-      "returning_a_rental_vehicle": {
-        "adult": 0,
-        "child": 0
-      },
-      "home_contents": {
-        "adult": 0,
-        "child": 0
-      },
-      "domestic_pets_care": {
-        "adult": 0,
-        "child": 0
-      },
-      "terrorism_cover": {
-        "adult_below_70": 200000,
-        "adult_above_70": 200000,
-        "child": 200000
-      },
-      "passive_war": {
-        "adult_below_70": 150000,
-        "adult_above_70": 50000,
-        "child": 50000
-      },
-      "hijack_of_public_transport": {
-        "adult": 100,
-        "child": 100
-      },
-      "kidnap_and_hostage": {
-        "adult": 100,
-        "child": 100
-      },
-      "pre_ex_critical_care": {
-        "adult_below_70": 75000,
-        "adult_above_70": 50000,
-        "child": 50000
-      }
-    },
-    "enriched_analysis": {
-      "policy_type": {
-        "category": "Travel Insurance",
-        "target_segment": "Leisure Travelers",
-        "coverage_level": "standard"
-      },
-      "coverage_analysis": {
-        "strengths": [
-          "Comprehensive coverage for medical expenses, trip cancellations, and travel disruptions",
-          "Wide range of benefits, including personal accident cover, public transport double cover, and emergency medical evacuation"
-        ],
-        "limitations": [
-          "Age restrictions (18-65 years old)",
-          "Pre-existing conditions excluded unless declared and accepted",
-          "Limited coverage for adventurous activities and rental vehicle excess"
-        ],
-        "unique_features": [
-          "PayNow payment method",
-          "Automatic extension of cover",
-          "Compassionate and hospital visit benefits"
-        ]
-      },
-      "benefit_patterns": {
-        "common_limits": [
-          {
-            "type": "medical_coverage",
-            "amount": 50000
-          },
-          {
-            "type": "public_transport_double_cover",
-            "amount": 400000
-          }
-        ],
-        "standard_conditions": [
-          "Doctor referral required for medical expenses",
-          "30-day claim window"
-        ],
-        "typical_exclusions": [
-          "Pre-existing conditions",
-          "Non-medical travel",
-          "Adventurous activities"
-        ]
-      }
+    "benefit_patterns": {
+      "common_limits": [
+        {
+          "type": "medical_coverage",
+          "amount": 2600000
+        }
+      ],
+      "standard_conditions": [
+        "Insured person must comply with all requirements and advice put in place by the Singapore and relevant overseas government, transport and accommodation provider relating to measures for minimising the risk and spread of COVID-19",
+        "Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19"
+      ],
+      "typical_exclusions": [
+        "Pre-existing medical conditions",
+        "War and terrorism exclusion",
+        "Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy"
+      ]
     }
   },
   "normalized": {
@@ -1788,9 +1878,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           },
           "Product B": {
@@ -2321,6 +2413,13 @@
             "Product C": {
               "condition_exist": "boolean",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -2954,9 +3053,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           }
         },
@@ -2982,9 +3083,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           }
         },
@@ -3010,9 +3113,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           }
         },
@@ -3038,9 +3143,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           }
         },
@@ -3066,9 +3173,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           }
         },
@@ -3094,9 +3203,11 @@
               "parameters": {}
             },
             "TravelEasy Policy QTD032212": {
-              "parameters": {},
+              "parameters": {
+                "max_limit": 72
+              },
               "condition_exist": true,
-              "original_text": "{'waiting_period': 'none', 'requirements': ['must be prescribed by doctor', 'must be referred by specialist'], 'exclusions': []}"
+              "original_text": "{'requirements': ['Insured person must arrange for medical treatment in Singapore within 72 hours of their return to Singapore, before we will pay for further medical expenses', 'Insured person must receive medical treatment outside Singapore for an injury or illness suffered during the overseas journey', 'You must have fully paid all outstanding premiums to the previous insurer based on the short period rate for the previous policy and we must have a copy of written confirmation from the previous insurer to prove this before our cover starts.', \"doctor's advice\", 'COVID-19 test result', 'You must have a valid medical certificate issued by a doctor.', 'inpatient hospital charges only', 'You must have a valid medical certificate to claim for medical expenses.', 'Insured person must contact MSIG Assist immediately for any medical claims relating to COVID-19', 'medical need', 'Medical report', 'Hospital bill', 'government approved personnel', 'hospital stay in ICU', 'You must have a valid hospital bill or medical receipt.', 'Written advice of a doctor', 'Serious injury or illness'], 'exclusions': ['quarantine or isolation served at other location other than at government approved hotel or COVID-19 medical facility', 'prosthesis', 'Any restrictions or regulations imposed by any government or local authority.', 'Any form of cosmetic surgery or treatment;', 'The cost of any non-emergency treatment or surgery you choose to have, including exploratory tests, which are not directly related to the illness or injury which required the insured person\u2019s need to be admitted to hospital;', 'Medical expenses incurred in Singapore', 'Radioactive contamination, chemical, biological, biochemical and electromagnetic weapons exclusion', 'The insured person taking part in the following activities unless covered under section 41 \u2013 Adventurous Activities Cover: a) flying or other aerial activities except travelling as a fare-paying passenger in a properly licensed, regular scheduled commercial airline operating between licensed commercial airports; b) rafting or canoeing involving white-water rapids, jet skiing, high diving or jumping, free diving, underwater activities involving artificial breathing apparatus; c) bungee jumping, sky-diving, paragliding; d) winter sports, or any activities involving the use of a bobsleigh or skeleton; e) hunting, potholing, mountaineering that normally involves using ropes, rock climbing unless harnessed and done on man-made walls, hiking or trekking; f) speed or time trials, competitions, marathon, triathlon, ultra-marathon, sprints or racing of any kind, or as a professional sportsperson (where you could earn income, pay or sponsorship from taking part in that sport or activity) or any organised team football; g) extreme sports which involve speed, height, danger, a high level of physical exertion, highly specialised gear or special stunts; h) manual work of any kind unless you tell us when applying for the insurance and we accept this in writing; or i) expeditions or crewing a vessel from one country to another or taking part in active service in the armed forces of any nation.', 'Gum diseases, tooth decay, dentures, implants, crowns, bridges or use of precious metal', 'Nuclear radiation', 'Any consequential loss not shown in the policy.', 'Human Immunodeficiency Virus (HIV), HIV related illnesses, or any other diseases or illnesses related to sexually transmitted disease.', 'pre-existing medical condition', 'Claims due to circumstances which you, the insured person or the travel companion knew before the purchase of this policy or trip that may lead to a claim under this policy.', 'War', 'mobility aids', 'Pre-existing medical conditions', 'War and terrorism exclusion', 'Any medical test, vaccination, quarantine, or isolation required by the Singapore or overseas government, transport or accommodation provider that applies broadly to general travellers based on departing or arriving country, taken for the purpose of obtaining approval to travel for the journey.', 'Any claim if the insured person is under treatment not recommended by or carried out by a doctor, dentist or TCM practitioner;', 'Any claim if the insured person is travelling against the advice of a doctor or for the purpose of getting medical treatment during the journey.', 'cost of dental treatment', 'COVID-19 treatment expenses which are covered by any government or national healthcare programme', 'Self-inflicted injuries', 'Suicide or attempted suicide, intentional self-inflicted injury or any act which could reasonably be considered as exposure to danger (unless carried out in an attempt to save human life), insanity, or while the insured person is under the influence of alcohol, drugs or other substance abuse (other than drugs taken under medical supervision and not to treat drug addiction).', 'Changes to travel advisory or restrictions, travel arrangement, COVID-19 prevention measures issued by any government or authority relating to epidemic or pandemic at your planned destination or Singapore.', 'Injury or illness for more than five days and no adult member of the insured person\u2019s family is with them.', 'Childbirth, miscarriage, abortion, menopause or any pregnancy related conditions with exception to cover under section 11 \u2013 Maternity medical expenses overseas.', 'Any deliberate, malicious, criminal or unlawful acts committed by you or the insured person or any person acting on your or their behalf.', 'Eyeglasses or the like, hearing aids, prosthesis, corrective devices;', 'The insured person taking part in naval, military, air force, civil defence or police services or operations, testing of any kind of vehicle or transport, while taking part in off-shore or in mining, aerial imaging or handling explosives, ammunitions or firearms, or travelling as an operator or crew member of any public transport.', 'War and civil unrest', 'Any expenses in respect of normal dental inspection or treatment or in obtaining dentures, retainer;', 'We will not pay for medical expenses caused by COVID-19 or pandemics, except for benefits extended under COVID-19 Cover under a single return trip policy or under an annual policy if COVID-19 Cover is selected and stated on the schedule or endorsement.', 'Pre-existing medical condition and its complications, regardless of whether it is resulting from or complicated by COVID-19 infection.', 'Pre-existing medical condition that worsens within the 30 days before the start of the trip', 'Any mental illness, anxiety state or depression suffered by the insured person and diagnosed before arranging the journey.', 'Terminal illness', 'Outpatient medical treatment', 'Vaccination, including the side effects and complications resulting from vaccination.', 'Medical expenses incurred in Singapore, or after 60 days from the date the insured person first tested positive for COVID-19 by a doctor or government approved personnel during the trip outside Singapore.', 'Treatment or service provided by a health spa, convalescent or nursing home or any rehabilitation centre;', 'Any known event.', 'Political risks exclusion']}"
             }
           }
         },
@@ -4684,6 +4795,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4707,6 +4825,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4730,6 +4855,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4753,6 +4885,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4776,6 +4915,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4799,6 +4945,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4822,6 +4975,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4845,6 +5005,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4868,6 +5035,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4891,6 +5065,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
@@ -4914,6 +5095,13 @@
               "condition_exist": "boolean",
               "original_text": "",
               "parameters": {}
+            },
+            "TravelEasy Policy QTD032212": {
+              "parameters": {
+                "max_limit": 16
+              },
+              "condition_exist": true,
+              "original_text": "{'requirements': ['Proof of ownership', 'Police report', 'You must provide proof of loss or theft to claim for baggage loss.', 'Written confirmation from the carrier, operator or their handling agents stating the reason and length of delay'], 'exclusions': ['Any loss or damage of items hired or rented by the insured person', 'Loss or damage to baggage, money or other insured property left unattended in any public place', 'Intentional damage', 'Normal wear and tear', \"Loss or damage to business goods or samples or any items used in connection with the insured person's employment or occupation\", 'Perishables, fruits, food and drink products', 'We will not pay for baggage loss caused by general exclusion 16 (a) above, which includes damage to any computer or other equipment, component, system or item which processes, stores, sends or retrieves data.', 'Any loss or damage that has been or will be refunded or paid by any carrier, hotel, travel agent or any other person or organisation responsible for the loss of damage', 'Loss or damage caused by customs or other government officials legally taking, holding or destroying it', 'ATM, debit or credit card', 'Any fines or penalties the insured person has to pay due to not replacing the lost personal documents or replacing them late', 'Loss or damage to animals, computer software, mechanical propelled vehicles, aircraft, bicycles, contact or corneal lenses, dentures, retainer or bridges for teeth, bonds, negotiable instruments, securities and stamps', 'Damage to any brittle or fragile items unless properly packed and protected', 'Loss of money', 'Jewellery, laptop computer and mobile device transported as checked-in baggage', 'Damage or breakage of sports equipment while in use', 'Items covered under section 34 \u2013 Wedding clothing and accessories, section 35 \u2013 Loss of Travel Documents or section 42 \u2013 Golfer\u2019s cover', 'Unexplained disappearance, shortage due to mistakes or failure to act, differences in the exchange rate or loss in value', 'Vouchers, coupons and any cards', 'The cost of reproducing data', 'Loss or damage caused by wear and tear']}"
             }
           }
         },
