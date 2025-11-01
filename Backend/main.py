@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv # Import load_dotenv
 
 # Load environment variables from .env file at the project root
@@ -9,6 +10,15 @@ from .services.policy_intelligence import api as policy_api
 from .services.claims_db_client import ClaimsDBClient # Import ClaimsDBClient
 
 app = FastAPI(title="Insurance API")
+
+# Configure CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Add your frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(auth.router, prefix="/auth")
 app.include_router(chatbot.router, prefix="/chat")
