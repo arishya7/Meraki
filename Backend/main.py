@@ -1,4 +1,9 @@
 from fastapi import FastAPI
+from dotenv import load_dotenv # Import load_dotenv
+
+# Load environment variables from .env file at the project root
+load_dotenv()
+
 from .routers import chatbot, quote, payment, claims, user, flights
 from .services.policy_intelligence import api as policy_api
 from .services.claims_db_client import ClaimsDBClient # Import ClaimsDBClient

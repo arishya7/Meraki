@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from datetime import date
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Literal
 
 class ClaimData(BaseModel):
     claim_number: str
@@ -75,6 +75,23 @@ class FlightDetailsUpdate(BaseModel):
     ages: Optional[List[int]] = None
     trip_type: Optional[str] = None
     flexi_flight: Optional[bool] = None
+
+# New schemas for user input flexibility
+class ManualInputDetails(BaseModel):
+    origin: str
+    destination: str
+    departure_date: date
+    return_date: date
+    num_travelers: int = 1
+    ages: List[int] = Field(default_factory=lambda: [30]) # Default to one adult
+    trip_type: str = "round_trip" # "round_trip" or "one_way"
+    flexi_flight: bool = False
+
+class UserDataInputRequest(BaseModel):
+    input_type: Literal["nric", "pdf_upload", "manual_entry"]
+    nric_value: Optional[str] = None
+    pdf_base64: Optional[str] = None # Base64 encoded PDF content
+    manual_details: Optional[ManualInputDetails] = None
 
 
 # Ancileo API Schemas
