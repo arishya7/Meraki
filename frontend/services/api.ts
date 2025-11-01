@@ -1,4 +1,4 @@
-import { ScootUserData, UserDataInputRequest, Recommendation, ChatbotResponse } from '../types';
+import { ScootUserData, UserDataInputRequest, Recommendation, ChatbotResponse, FlightSummaryResponse } from '../types';
 
 const API_BASE_URL = 'http://localhost:8000';
 
@@ -47,7 +47,7 @@ export const getUserProfile = async (nric: string): Promise<ScootUserData> => {
   return response.json();
 };
 
-export const getFlightSummary = async (nric: string): Promise<ScootUserData> => {
+export const getFlightSummary = async (nric: string): Promise<FlightSummaryResponse> => {
   const response = await fetch(`${API_BASE_URL}/flights/summary/${nric}`);
 
   if (!response.ok) {
@@ -186,6 +186,52 @@ export const getRecentActivity = async (userId: string): Promise<{ message: stri
 
   if (!response.ok) {
     throw new Error('Failed to fetch recent activity');
+  }
+
+  return response.json();
+};
+
+export const updateLocationTracking = async (
+  userId: string,
+  allowsTracking: boolean
+): Promise<{ success: boolean; message: string; allows_tracking: boolean }> => {
+  const response = await fetch(`${API_BASE_URL}/auth/update-tracking`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      user_id: userId,
+      allows_tracking: allowsTracking,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.detail || 'Failed to update tracking preference');
+  }
+
+  return response.json();
+};
+
+export const askQuestion = async (
+  question: string,
+  context?: string
+): Promise<{ answer: string; success: boolean }> => {
+  const response = await fetch(`${API_BASE_URL}/chat/ask`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      question,
+      context,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.detail || 'Failed to get answer');
   }
 
   return response.json();

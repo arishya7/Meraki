@@ -22,7 +22,7 @@ async def get_flight_summary(nric: str):
 
     if not user_data:
         try:
-            user_data = mock_scoot_api_client.get_user_data(user_id=f"user_{nric}", nric=nric)
+            user_data = await mock_scoot_api_client.get_user_data(user_id=f"user_{nric}", nric=nric)
             print(f"[FlightsRouter] Retrieved initial flight data from MockScootAPIClient for NRIC: {nric}")
         except Exception as e:
             print(f"[FlightsRouter] Error fetching initial flight data for NRIC {nric}: {e}")
@@ -60,7 +60,7 @@ async def update_flight_details(update_data: FlightDetailsUpdate):
     if not existing_data:
         # If no existing data in store, fetch from mock client first
         try:
-            existing_data = mock_scoot_api_client.get_user_data(user_id=f"user_{update_data.nric}", nric=update_data.nric)
+            existing_data = await mock_scoot_api_client.get_user_data(user_id=f"user_{update_data.nric}", nric=update_data.nric)
         except Exception as e:
             print(f"[FlightsRouter] Error fetching existing flight data for NRIC {update_data.nric}: {e}")
             raise HTTPException(status_code=500, detail="Failed to retrieve existing flight details for update")

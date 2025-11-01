@@ -11,8 +11,8 @@ class GroqService:
         if not api_key:
             print("[GroqService] WARNING: GROQ_API_KEY not found in environment variables")
         self.client = AsyncGroq(api_key=api_key)
-        # Using Llama 3.1 70B - excellent for structured data extraction
-        self.model = "llama-3.1-70b-versatile"
+        # Using Llama 3.3 70B - best quality model for structured data extraction
+        self.model = "llama-3.3-70b-versatile"
 
     async def extract_flight_info_from_text(self, pdf_text: str) -> Optional[Dict[str, Any]]:
         """
@@ -38,21 +38,29 @@ class GroqService:
             }
         """
         try:
-            system_prompt = """You are an expert at extracting flight and passenger information from travel documents.
-Extract structured data from the provided text and return it in JSON format.
+            system_prompt = """You are an expert at extracting flight and passenger information from travel documents, booking confirmations, and itineraries.
+Your task is to carefully analyze the provided text and extract structured data, returning it in JSON format.
 
-Rules:
-1. Extract all passenger names and count them accurately
-2. If passenger ages are not explicitly stated, estimate reasonable ages based on titles (Mr/Mrs = 30-40, Master/Miss = 10-15)
-3. Dates must be in YYYY-MM-DD format
-4. Origin and destination should be airport codes if available, otherwise city/country names
-5. Determine if it's a one-way or round-trip based on return flight information
-6. Extract booking reference/PNR if present
-7. Extract all flight numbers
-8. If multiple passengers, list all their names
-9. If flexi/flexible flight terms are mentioned, set flexi_flight to true
+CRITICAL RULES:
+1. **Be thorough**: Look for information anywhere in the document, including headers, footers, and tables
+2. **Date formats**: Convert all dates to YYYY-MM-DD format (e.g., "15 Dec 2025" → "2025-12-15", "12/15/2025" → "2025-12-15")
+3. **Passenger counting**: Count ALL passengers accurately, including infants and children
+4. **Age estimation**: If ages aren't explicit, estimate: Mr/Mrs/Ms = 35, Master/Miss = 12, Infant = 1
+5. **Location extraction**: Extract airport codes (e.g., SIN, BKK) when available; otherwise use city names (e.g., Singapore, Bangkok)
+6. **Trip type detection**: Set "round_trip" if return/inbound flight exists, otherwise "one_way"
+7. **Flexi flight**: Set true if terms like "flexi", "flexible", "changeable", or "refundable" appear
+8. **Booking reference**: Look for PNR, booking reference, confirmation code, or reservation number
+9. **Flight numbers**: Extract all flight numbers (e.g., TR123, SQ456)
+10. **Handle variations**: Be flexible with document formats - some PDFs may have poor formatting, scattered information, or tables
 
-Return ONLY valid JSON, no additional text."""
+FALLBACK STRATEGY:
+- If you can't find specific information, use reasonable defaults:
+  - num_travelers: Count passenger names or default to 1
+  - passenger_ages: Estimate based on available context
+  - booking_reference: null if not found
+  - flexi_flight: false if not mentioned
+
+Return ONLY valid JSON with no additional text or explanation."""
 
             user_prompt = f"""Extract flight and passenger information from this booking document:
 
@@ -91,10 +99,14 @@ Return the information in this exact JSON structure:
 
         except json.JSONDecodeError as e:
             print(f"[GroqService] JSON decode error: {e}")
-            print(f"[GroqService] Response was: {result_text}")
+            try:
+                print(f"[GroqService] Response was: {result_text}")
+            except:
+                print(f"[GroqService] Could not print response text")
             return None
         except Exception as e:
             print(f"[GroqService] Error extracting flight info with Groq: {e}")
+            print(f"[GroqService] Error type: {type(e).__name__}")
             import traceback
             traceback.print_exc()
             return None

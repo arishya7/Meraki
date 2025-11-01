@@ -120,6 +120,18 @@ export interface FlightSummary {
   flexi_flight: boolean;
 }
 
+// Response from backend /flights/summary endpoint
+export interface FlightSummaryResponse {
+  nric: string;
+  origin: string;
+  destination: string;
+  departure_date: string;
+  return_date: string | null;
+  num_travelers: number;
+  trip_type: string;
+  flexi_flight: boolean;
+}
+
 // Placeholder for individual insurance plan details for display purposes
 export interface InsurancePlan {
   name: string;

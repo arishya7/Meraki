@@ -165,3 +165,14 @@ async def get_all_users() -> list:
                 for row in rows
             ]
 
+async def update_user_tracking_permission(user_id: str, allows_tracking: bool) -> bool:
+    """Update user's location tracking permission"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute("""
+            UPDATE users
+            SET allows_tracking = ?
+            WHERE id = ?
+        """, (1 if allows_tracking else 0, user_id))
+        await db.commit()
+        return True
+

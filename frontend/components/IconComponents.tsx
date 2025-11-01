@@ -123,7 +123,7 @@ export const TripTypeIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export const MSIGLogo = (props: React.HTMLAttributes<HTMLImageElement>) => (
     <img
-        src="/msig-logo.png"
+        src="/msig.jpeg"
         alt="MSIG Logo"
         {...props}
     />

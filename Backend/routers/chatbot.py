@@ -2,6 +2,7 @@ import os
 from fastapi import APIRouter, HTTPException
 from typing import List
 from groq import Groq
+from pydantic import BaseModel
 
 from Backend.schemas import ChatbotResponse, Recommendation, ScootUserData
 from Backend.services.plan_recommender import PlanRecommender
@@ -48,9 +49,54 @@ Provide a summary that is easy to read and understand, as if you are speaking di
         print(f"[LLM Summary Error] Failed to generate summary: {e}")
         return f"**{recommendation.plan_name}**\nDescription: {recommendation.description}\nPros: {'; '.join(recommendation.pros)}\nCons: {'; '.join(recommendation.cons)}\nCitations: {'; '.join(recommendation.citations)}"
 
+class QuestionRequest(BaseModel):
+    question: str
+    context: str | None = None  # Optional context about user's trip/insurance
+
 @router.get("/ping")
 def ping():
 	return {"service": "chatbot", "status": "ok"}
+
+@router.post("/ask")
+async def ask_question(request: QuestionRequest):
+    """
+    Endpoint for general insurance-related Q&A using LLM.
+    Acts as a helpful insurance specialist assistant.
+    """
+    try:
+        system_prompt = """You are Haven, a friendly and knowledgeable travel insurance specialist assistant for MSIG.
+Your role is to help users understand travel insurance, answer their questions about coverage, policies, and travel safety.
+
+Guidelines:
+1. Be conversational, warm, and helpful
+2. Provide accurate, clear information about travel insurance
+3. If asked about specific policy details you don't have, acknowledge that and suggest contacting MSIG directly
+4. Keep responses concise but informative (2-4 sentences typically)
+5. Use simple language, avoid jargon
+6. If the question is not about insurance or travel, politely redirect to insurance-related topics
+7. Never make up policy details or coverage amounts
+8. Focus on educating users about insurance benefits and helping them make informed decisions"""
+
+        user_prompt = request.question
+        if request.context:
+            user_prompt = f"Context: {request.context}\n\nUser question: {request.question}"
+
+        chat_completion = groq_client.chat.completions.create(
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            model="llama-3.3-70b-versatile",  # Using best quality model for Q&A
+            temperature=0.7,
+            max_tokens=500,
+        )
+
+        answer = chat_completion.choices[0].message.content
+        return {"answer": answer, "success": True}
+
+    except Exception as e:
+        print(f"[Q&A Error] Failed to generate answer: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to process question: {str(e)}")
 
 @router.post("/recommend_plans", response_model=ChatbotResponse)
 async def recommend_plans(user_data: ScootUserData):

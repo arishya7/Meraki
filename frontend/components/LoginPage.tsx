@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { loginUser, signUpUser, loginWithSingpass } from '../services/api';
+import { loginUser, signUpUser, loginWithSingpass, updateLocationTracking } from '../services/api';
+import LocationPermissionModal from './LocationPermissionModal';
 
 interface LoginPageProps {
   onLoginSuccess: () => void;
@@ -15,6 +16,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
   const [nric, setNric] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [newUserId, setNewUserId] = useState<string | null>(null);
 
   const validateNRIC = (nric: string): string => {
     const trimmed = nric.trim().toUpperCase();
@@ -67,7 +70,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
         // Store user info in localStorage
         localStorage.setItem('user', JSON.stringify(response.user));
         localStorage.setItem('token', response.token || '');
-        onLoginSuccess();
+
+        // Store user ID and show location permission modal
+        setNewUserId(response.user?.id || null);
+        setShowLocationModal(true);
       } else {
         setError(response.message || 'Sign up failed');
       }
@@ -76,6 +82,33 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleLocationAllow = async () => {
+    if (newUserId) {
+      try {
+        await updateLocationTracking(newUserId, true);
+        setShowLocationModal(false);
+        onLoginSuccess();
+      } catch (err) {
+        console.error('Failed to update tracking preference:', err);
+        // Still proceed to dashboard even if tracking update fails
+        setShowLocationModal(false);
+        onLoginSuccess();
+      }
+    }
+  };
+
+  const handleLocationDeny = async () => {
+    if (newUserId) {
+      try {
+        await updateLocationTracking(newUserId, false);
+      } catch (err) {
+        console.error('Failed to update tracking preference:', err);
+      }
+    }
+    setShowLocationModal(false);
+    onLoginSuccess();
   };
 
   const handleSingpassLogin = async () => {
@@ -262,6 +295,13 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
           </button>
         </div>
       </div>
+
+      {/* Location Permission Modal */}
+      <LocationPermissionModal
+        isOpen={showLocationModal}
+        onAllow={handleLocationAllow}
+        onDeny={handleLocationDeny}
+      />
     </div>
   );
 };

@@ -7,7 +7,10 @@ import ClaimInsuranceTab from './ClaimInsuranceTab';
 import InitialActionsCard from './InitialActionsCard';
 import BookingConfirmationCard from './BookingConfirmationCard';
 import FlightDetailsCard from './FlightDetailsCard';
-import { postUserInputData, postRecommendations, getUserTrackingStatus, getRecentActivity } from '../services/api';
+import RecommendedPlanCard from './RecommendedPlanCard';
+import PaymentConfirmationCard from './PaymentConfirmationCard';
+import PaymentMethodCard from './PaymentMethodCard';
+import { postUserInputData, postRecommendations, getUserTrackingStatus, getRecentActivity, getFlightSummary, askQuestion } from '../services/api';
 
 // Placeholder components for now, will be created as separate files later
 interface ManualInputFormProps {
@@ -92,7 +95,7 @@ const PDFUploadInput: React.FC<PDFUploadInputProps> = ({ onSubmit, onCancel }) =
     );
 };
 
-type FlowState = 'initializing' | 'awaiting_initial_action' | 'awaiting_nric_input' | 'awaiting_manual_input' | 'awaiting_pdf_upload' | 'awaiting_booking_confirmation' | 'reviewing_flight_details' | 'displaying_recommendations' | 'chatting_q_a';
+type FlowState = 'initializing' | 'awaiting_initial_action' | 'awaiting_nric_input' | 'awaiting_manual_input' | 'awaiting_pdf_upload' | 'awaiting_booking_confirmation' | 'reviewing_flight_details' | 'displaying_recommendations' | 'awaiting_plan_selection' | 'confirming_payment' | 'chatting_q_a';
 
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -107,9 +110,11 @@ const ChatWidget: React.FC = () => {
   const [currentScootUserData, setCurrentScootUserData] = useState<ScootUserData | null>(null);
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   const [chatbotSummary, setChatbotSummary] = useState<string>('');
+  const [selectedPlan, setSelectedPlan] = useState<Recommendation | null>(null);
   const [nricInputValue, setNricInputValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [allowsTracking, setAllowsTracking] = useState<boolean>(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -136,6 +141,7 @@ const ChatWidget: React.FC = () => {
           const checkTrackingAndShowMessage = async () => {
             try {
               const trackingStatus = await getUserTrackingStatus(user.id);
+              setAllowsTracking(trackingStatus.allows_tracking);
               if (trackingStatus.allows_tracking) {
                 const activity = await getRecentActivity(user.id);
                 setTimeout(() => {
@@ -143,13 +149,67 @@ const ChatWidget: React.FC = () => {
                     sender: Sender.BOT,
                     text: activity.message,
                   });
-                  // Then show initial actions
-                  setTimeout(() => {
-                    addMessage({
-                      sender: Sender.BOT,
-                      component: <InitialActionsCard onAction={handleInitialAction} />,
-                    });
-                    setFlowState('awaiting_initial_action');
+                  // Fetch flight details from backend
+                  setTimeout(async () => {
+                    try {
+                      const flightData = await getFlightSummary(user.nric);
+
+                      // Apply theme based on destination country
+                      const destinationCode = flightData.destination;
+                      const countryTheme = getThemeForCountry(destinationCode);
+                      setTheme(countryTheme);
+
+                      // Convert FlightSummaryResponse to ScootUserData format
+                      const scootUserData: ScootUserData = {
+                        user_id: user.id,
+                        nric: flightData.nric,
+                        origin: flightData.origin,
+                        destination: flightData.destination,
+                        departure_date: flightData.departure_date,
+                        return_date: flightData.return_date || flightData.departure_date,
+                        num_travelers: flightData.num_travelers,
+                        ages: [30], // Default age, will be updated if available
+                        trip_type: flightData.trip_type as "round_trip" | "one_way",
+                        flexi_flight: flightData.flexi_flight,
+                        claims_history: [],
+                      };
+
+                      setCurrentScootUserData(scootUserData);
+
+                      setTimeout(() => {
+                        addMessage({
+                          sender: Sender.BOT,
+                          text: "I found your upcoming trip details! Please review and confirm:",
+                        });
+                        setTimeout(() => {
+                          addMessage({
+                            sender: Sender.BOT,
+                            component: (
+                              <FlightDetailsCard
+                                flightData={scootUserData}
+                                onConfirm={handleFlightDetailsConfirm}
+                                onEdit={() => setFlowState('reviewing_flight_details')}
+                              />
+                            ),
+                          });
+                          setFlowState('reviewing_flight_details');
+                        }, 800);
+                      }, 1000);
+                    } catch (err) {
+                      console.error('Error fetching flight details:', err);
+                      // Fallback: show initial actions if flight fetch fails
+                      addMessage({
+                        sender: Sender.BOT,
+                        text: "I couldn't fetch your trip details automatically. How would you like to provide your travel information?",
+                      });
+                      setTimeout(() => {
+                        addMessage({
+                          sender: Sender.BOT,
+                          component: <InitialActionsCard onAction={handleInitialAction} showNRIC={allowsTracking} />,
+                        });
+                        setFlowState('awaiting_initial_action');
+                      }, 800);
+                    }
                   }, 1500);
                 }, 1500);
               } else {
@@ -166,7 +226,7 @@ const ChatWidget: React.FC = () => {
                         <div className="space-y-2">
                           <BookingConfirmationCard onUpload={handleBookingConfirmationUpload} />
                           <div className="text-center text-text-main/70 text-sm py-2">or</div>
-                          <InitialActionsCard onAction={handleInitialAction} />
+                          <InitialActionsCard onAction={handleInitialAction} showNRIC={allowsTracking} />
                         </div>
                       ),
                     });
@@ -180,7 +240,7 @@ const ChatWidget: React.FC = () => {
               setTimeout(() => {
                 addMessage({
                   sender: Sender.BOT,
-                  component: <InitialActionsCard onAction={handleInitialAction} />,
+                  component: <InitialActionsCard onAction={handleInitialAction} showNRIC={false} />,
                 });
                 setFlowState('awaiting_initial_action');
               }, 1500);
@@ -198,7 +258,7 @@ const ChatWidget: React.FC = () => {
           setTimeout(() => {
             addMessage({
               sender: Sender.BOT,
-              component: <InitialActionsCard onAction={handleInitialAction} />,
+              component: <InitialActionsCard onAction={handleInitialAction} showNRIC={false} />,
             });
             setFlowState('awaiting_initial_action');
           }, 1500);
@@ -213,7 +273,7 @@ const ChatWidget: React.FC = () => {
         setTimeout(() => {
           addMessage({
             sender: Sender.BOT,
-            component: <InitialActionsCard onAction={handleInitialAction} />,
+            component: <InitialActionsCard onAction={handleInitialAction} showNRIC={false} />,
           });
           setFlowState('awaiting_initial_action');
         }, 1500);
@@ -270,29 +330,31 @@ const ChatWidget: React.FC = () => {
         setRecommendations(chatbotResponse.recommendations);
         setChatbotSummary(chatbotResponse.summary);
 
+        // Add a brief introduction message
         addMessage({
             sender: Sender.BOT,
-            text: chatbotResponse.summary,
-        });
-        addMessage({
-            sender: Sender.BOT,
-            component: (
-                <div className="space-y-3">
-                    {chatbotResponse.recommendations.map((plan, index) => (
-                        <div key={plan.id} className="bg-blue-100 p-3 rounded-lg">
-                            <h4 className="font-bold">{plan.policy_name} - {plan.currency} {plan.price.toFixed(2)}</h4>
-                            <p className="text-sm">{plan.description}</p>
-                            <ul className="list-disc list-inside text-xs">
-                                {plan.pros.map((pro, i) => (<li key={i}>Pros: {pro}</li>))}
-                                {plan.cons.map((con, i) => (<li key={i}>Cons: {con}</li>))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-            ),
+            text: "Perfect! I've found the top 3 insurance plans that match your trip. The first one is our best recommendation based on your profile and travel needs.",
         });
 
-        setFlowState('chatting_q_a'); // Transition to Q&A after recommendations
+        // Display recommendations using the new enhanced card
+        setTimeout(() => {
+          addMessage({
+              sender: Sender.BOT,
+              component: (
+                  <div className="space-y-4">
+                      {chatbotResponse.recommendations.map((plan, index) => (
+                          <RecommendedPlanCard
+                              key={plan.id}
+                              recommendation={plan}
+                              isBestPlan={index === 0}
+                              onSelect={handlePlanSelection}
+                          />
+                      ))}
+                  </div>
+              ),
+          });
+          setFlowState('awaiting_plan_selection');
+        }, 1000);
 
     } catch (err) {
         console.error("Error during API call:", err);
@@ -314,22 +376,95 @@ const ChatWidget: React.FC = () => {
         return;
     }
     addMessage({ sender: Sender.USER, text: `My NRIC is: ${nricInputValue}` });
-    await processUserInputAndFetchRecommendations({
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const userData = await postUserInputData({
         input_type: "nric",
         nric_value: nricInputValue,
-    });
+      });
+
+      // Apply theme based on destination
+      const destinationCode = userData.destination;
+      const countryTheme = getThemeForCountry(destinationCode);
+      setTheme(countryTheme);
+
+      setCurrentScootUserData(userData);
+      addMessage({
+        sender: Sender.BOT,
+        text: "Perfect! I found your trip details. Please review and confirm:",
+      });
+      addMessage({
+        sender: Sender.BOT,
+        component: (
+          <FlightDetailsCard
+            flightData={userData}
+            onConfirm={handleFlightDetailsConfirm}
+            onEdit={() => setFlowState('reviewing_flight_details')}
+          />
+        ),
+      });
+      setFlowState('reviewing_flight_details');
+    } catch (err) {
+      console.error("Error during NRIC lookup:", err);
+      const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
+      setError(errorMessage);
+      addMessage({
+        sender: Sender.BOT,
+        text: `Sorry, I couldn't find trip details for that NRIC. ${errorMessage}`,
+      });
+      setFlowState('awaiting_initial_action');
+    } finally {
+      setIsLoading(false);
+    }
     setNricInputValue(''); // Clear input after submission
   };
 
   const handleManualDetailsSubmit = async (details: ManualInputDetails) => {
     addMessage({ sender: Sender.USER, text: `Manual details submitted.` });
-    await processUserInputAndFetchRecommendations({
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const userData = await postUserInputData({
         input_type: "manual_entry",
         manual_details: details,
-    });
-    // No need to clear manual details state here as the form handles its own state
-    // and will be unmounted. Reset flow state to allow new action.
-    setFlowState('chatting_q_a');
+      });
+
+      // Apply theme based on destination
+      const destinationCode = userData.destination;
+      const countryTheme = getThemeForCountry(destinationCode);
+      setTheme(countryTheme);
+
+      setCurrentScootUserData(userData);
+      addMessage({
+        sender: Sender.BOT,
+        text: "Thanks! Here's a summary of your trip details. Please review and confirm:",
+      });
+      addMessage({
+        sender: Sender.BOT,
+        component: (
+          <FlightDetailsCard
+            flightData={userData}
+            onConfirm={handleFlightDetailsConfirm}
+            onEdit={() => setFlowState('reviewing_flight_details')}
+          />
+        ),
+      });
+      setFlowState('reviewing_flight_details');
+    } catch (err) {
+      console.error("Error during manual entry processing:", err);
+      const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
+      setError(errorMessage);
+      addMessage({
+        sender: Sender.BOT,
+        text: `Sorry, I encountered an error: ${errorMessage} Please try again.`,
+      });
+      setFlowState('awaiting_initial_action');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handlePDFFileSubmit = async (base64Pdf: string) => {
@@ -407,12 +542,12 @@ const ChatWidget: React.FC = () => {
       sender: Sender.BOT,
       text: "Perfect! Let me find the best travel insurance recommendations for your trip.",
     });
-    
+
     // Apply theme based on destination (handle country code)
     const destinationCode = confirmedData.destination; // This is likely a country code (e.g., "JP", "TH")
     const countryTheme = getThemeForCountry(destinationCode);
     setTheme(countryTheme);
-    
+
     await processUserInputAndFetchRecommendations({
       input_type: "manual_entry",
       manual_details: {
@@ -428,14 +563,152 @@ const ChatWidget: React.FC = () => {
     });
   };
 
-  const handleSendMessage = () => {
-    if (inputValue.trim() === '') return;
-    addMessage({ sender: Sender.USER, text: inputValue });
-    setInputValue('');
-    // Placeholder for future Q&A logic
+  const handlePlanSelection = (plan: Recommendation) => {
+    setSelectedPlan(plan);
+    addMessage({
+      sender: Sender.USER,
+      text: `I'd like to select the ${plan.policy_name} plan.`,
+    });
+
     setTimeout(() => {
-        addMessage({ sender: Sender.BOT, text: "I'm still learning how to answer questions. Please select an option to continue." });
-    }, 1000);
+      addMessage({
+        sender: Sender.BOT,
+        text: `Great choice! The ${plan.policy_name} is an excellent option for your trip. Let me prepare your payment details.`,
+      });
+
+      setTimeout(() => {
+        addMessage({
+          sender: Sender.BOT,
+          text: "Here's a summary of your selected plan:",
+        });
+
+        setTimeout(() => {
+          addMessage({
+            sender: Sender.BOT,
+            component: (
+              <div className="bg-white rounded-xl p-4 shadow-md border border-gray-200">
+                <h3 className="font-bold text-lg mb-3 text-gray-800">{plan.policy_name}</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Plan Price:</span>
+                    <span className="font-bold text-primary">{plan.currency} ${plan.price.toFixed(2)}</span>
+                  </div>
+                  <div className="border-t border-gray-200 pt-2">
+                    <p className="text-gray-700">{plan.description}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex gap-2">
+                  <button
+                    onClick={() => handleProceedToPayment(plan)}
+                    className="flex-1 bg-primary text-white font-bold py-3 rounded-lg hover:opacity-90 transition-opacity"
+                  >
+                    Proceed to Payment
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFlowState('awaiting_plan_selection');
+                      addMessage({
+                        sender: Sender.BOT,
+                        text: "No problem! Feel free to choose a different plan from the options above.",
+                      });
+                    }}
+                    className="flex-1 bg-gray-200 text-gray-800 font-bold py-3 rounded-lg hover:bg-gray-300 transition-colors"
+                  >
+                    Change Plan
+                  </button>
+                </div>
+              </div>
+            ),
+          });
+          setFlowState('confirming_payment');
+        }, 800);
+      }, 1000);
+    }, 500);
+  };
+
+  const handleProceedToPayment = (plan: Recommendation) => {
+    addMessage({
+      sender: Sender.USER,
+      text: "Proceed to payment",
+    });
+
+    setTimeout(() => {
+      addMessage({
+        sender: Sender.BOT,
+        text: "Great! Please select your preferred payment method below:",
+      });
+
+      setTimeout(() => {
+        addMessage({
+          sender: Sender.BOT,
+          component: (
+            <PaymentMethodCard
+              plan={plan}
+              onPaymentComplete={() => handlePaymentComplete(plan)}
+              onCancel={() => {
+                setFlowState('confirming_payment');
+                addMessage({
+                  sender: Sender.BOT,
+                  text: "Payment cancelled. Would you like to select a different plan or try again?",
+                });
+              }}
+            />
+          ),
+        });
+        setFlowState('confirming_payment');
+      }, 800);
+    }, 500);
+  };
+
+  const handlePaymentComplete = (plan: Recommendation) => {
+    addMessage({
+      sender: Sender.BOT,
+      text: `Payment successful! Your ${plan.policy_name} insurance has been confirmed.`,
+    });
+
+    setTimeout(() => {
+      addMessage({
+        sender: Sender.BOT,
+        text: `You'll receive a confirmation email shortly with your policy details and documents. Your policy number will be sent to your registered email. Have a safe trip!`,
+      });
+      setFlowState('chatting_q_a');
+    }, 1500);
+  };
+
+  const handleSendMessage = async () => {
+    if (inputValue.trim() === '') return;
+
+    const userQuestion = inputValue;
+    addMessage({ sender: Sender.USER, text: userQuestion });
+    setInputValue('');
+
+    // Build context if available
+    let context = '';
+    if (currentScootUserData) {
+      context = `User's trip: ${currentScootUserData.origin} to ${currentScootUserData.destination}, ${currentScootUserData.num_travelers} traveler(s), departing ${currentScootUserData.departure_date}`;
+    }
+    if (selectedPlan) {
+      context += `. Selected insurance: ${selectedPlan.policy_name}`;
+    }
+
+    try {
+      const response = await askQuestion(userQuestion, context || undefined);
+
+      setTimeout(() => {
+        addMessage({
+          sender: Sender.BOT,
+          text: response.answer
+        });
+      }, 800);
+    } catch (error) {
+      console.error('Error asking question:', error);
+      setTimeout(() => {
+        addMessage({
+          sender: Sender.BOT,
+          text: "I'm having trouble processing that question right now. Could you try rephrasing it or ask about specific insurance coverage?"
+        });
+      }, 800);
+    }
   };
 
   const themeStyle = {

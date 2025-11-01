@@ -5,7 +5,7 @@ from Backend.schemas import UserProfileResponse
 from Backend.services.scoot_api import MockScootAPIClient, SCOOT_COUNTRY_CODE_TO_NAME_MAP
 from Backend.services.user_db import (
     init_db, get_user_by_email, get_user_by_nric, get_user_by_id,
-    create_user, store_token, get_user_id_from_token
+    create_user, store_token, get_user_id_from_token, update_user_tracking_permission
 )
 from Backend.services.nric_validator import validate_nric
 import secrets
@@ -336,12 +336,12 @@ async def get_recent_activity(user_id: str):
 async def get_user_info(user_id: str):
     """Get user information by user ID"""
     await ensure_db_initialized()
-    
+
     user = await get_user_by_id(user_id)
-    
+
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
-    
+
     return {
         "id": user["id"],
         "name": user["name"],
@@ -349,3 +349,28 @@ async def get_user_info(user_id: str):
         "nric": user["nric"],
         "allows_tracking": user["allows_tracking"]
     }
+
+class UpdateTrackingRequest(BaseModel):
+    user_id: str
+    allows_tracking: bool
+
+@router.post("/update-tracking")
+async def update_tracking_permission(request: UpdateTrackingRequest):
+    """Update user's location tracking permission"""
+    await ensure_db_initialized()
+
+    user = await get_user_by_id(request.user_id)
+
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    success = await update_user_tracking_permission(request.user_id, request.allows_tracking)
+
+    if success:
+        return {
+            "success": True,
+            "message": "Tracking preference updated successfully",
+            "allows_tracking": request.allows_tracking
+        }
+    else:
+        raise HTTPException(status_code=500, detail="Failed to update tracking preference")
