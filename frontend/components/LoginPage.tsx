@@ -15,6 +15,15 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const validateNRIC = (nric: string): string => {
+    const trimmed = nric.trim().toUpperCase();
+    const pattern = /^[ST]\d{7}[A-Z]$/;
+    if (!pattern.test(trimmed)) {
+      return 'Invalid NRIC format. Please provide NRIC in the format S1234567D or T1234567A';
+    }
+    return '';
+  };
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
@@ -40,6 +49,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    
+    // Validate NRIC format
+    const nricError = validateNRIC(nric);
+    if (nricError) {
+      setError(nricError);
+      return;
+    }
+    
     setLoading(true);
 
     try {

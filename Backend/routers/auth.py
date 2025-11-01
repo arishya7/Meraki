@@ -3,17 +3,28 @@ from fastapi import APIRouter, HTTPException, Depends, Header
 from pydantic import BaseModel, EmailStr
 from Backend.schemas import UserProfileResponse
 from Backend.services.scoot_api import MockScootAPIClient, SCOOT_COUNTRY_CODE_TO_NAME_MAP
+from Backend.services.user_db import (
+    init_db, get_user_by_email, get_user_by_nric, get_user_by_id,
+    create_user, store_token, get_user_id_from_token
+)
+from Backend.services.nric_validator import validate_nric
 import secrets
 import hashlib
 from datetime import datetime
 
 router = APIRouter()
 
-# In-memory user store (in production, use a proper database)
-# Structure: {email: {id, name, email, password_hash, nric, allows_tracking, created_at}}
-_users_db: Dict[str, Dict[str, Any]] = {}
-# Token store: {token: user_id}
-_token_store: Dict[str, str] = {}
+# Initialize database on module import
+import asyncio
+_initialized = False
+
+async def ensure_db_initialized():
+    """Ensure database is initialized and migrate existing users if needed"""
+    global _initialized
+    if not _initialized:
+        await init_db()
+        await _migrate_initial_users()
+        _initialized = True
 
 # Mock user data based on existing mock events
 _initial_users = [
@@ -47,19 +58,26 @@ _initial_users = [
     }
 ]
 
-# Initialize with mock users
-for user_data in _initial_users:
-    password_hash = hashlib.sha256(user_data["password"].encode()).hexdigest()
-    user_id = f"user_{user_data['nric']}"
-    _users_db[user_data["email"]] = {
-        "id": user_id,
-        "name": user_data["name"],
-        "email": user_data["email"],
-        "password_hash": password_hash,
-        "nric": user_data["nric"],
-        "allows_tracking": user_data["allows_tracking"],
-        "created_at": datetime.now().isoformat()
-    }
+async def _migrate_initial_users():
+    """Migrate initial mock users to database if they don't exist"""
+    for user_data in _initial_users:
+        # Check if user already exists
+        existing_user = await get_user_by_email(user_data["email"])
+        if not existing_user:
+            password_hash = hashlib.sha256(user_data["password"].encode()).hexdigest()
+            user_id = f"user_{user_data['nric']}"
+            try:
+                await create_user(
+                    user_id=user_id,
+                    name=user_data["name"],
+                    email=user_data["email"],
+                    password_hash=password_hash,
+                    nric=user_data["nric"],
+                    allows_tracking=user_data["allows_tracking"]
+                )
+            except Exception as e:
+                # User might already exist by NRIC, skip
+                print(f"[AuthRouter] Skipping migration of {user_data['email']}: {e}")
 
 def _generate_token() -> str:
     """Generate a secure random token"""
@@ -88,12 +106,14 @@ class AuthResponse(BaseModel):
 @router.post("/login", response_model=AuthResponse)
 async def login(request: LoginRequest):
     """User login endpoint"""
-    user = _users_db.get(request.email)
+    await ensure_db_initialized()
+    
+    user = await get_user_by_email(request.email)
     
     if not user:
         return AuthResponse(
             success=False,
-            message="Invalid email or password"
+            message="Account not found. Try Signing up instead."
         )
     
     password_hash = _hash_password(request.password)
@@ -105,7 +125,7 @@ async def login(request: LoginRequest):
     
     # Generate token
     token = _generate_token()
-    _token_store[token] = user["id"]
+    await store_token(token, user["id"])
     
     return AuthResponse(
         success=True,
@@ -122,39 +142,57 @@ async def login(request: LoginRequest):
 @router.post("/signup", response_model=AuthResponse)
 async def signup(request: SignUpRequest):
     """User sign up endpoint"""
-    if request.email in _users_db:
+    await ensure_db_initialized()
+    
+    # Validate NRIC format
+    nric_valid, nric_error = validate_nric(request.nric)
+    if not nric_valid:
+        return AuthResponse(
+            success=False,
+            message=nric_error
+        )
+    
+    # Normalize NRIC (uppercase, no spaces)
+    normalized_nric = request.nric.strip().upper()
+    
+    # Check if email already exists
+    existing_user = await get_user_by_email(request.email)
+    if existing_user:
         return AuthResponse(
             success=False,
             message="Email already registered"
         )
     
     # Check if NRIC already exists
-    existing_user = next((u for u in _users_db.values() if u["nric"] == request.nric), None)
+    existing_user = await get_user_by_nric(normalized_nric)
     if existing_user:
         return AuthResponse(
             success=False,
             message="NRIC already registered"
         )
     
-    user_id = f"user_{request.nric}"
+    user_id = f"user_{normalized_nric}"
     password_hash = _hash_password(request.password)
     
     # Create new user (default: tracking not allowed, user can enable later)
-    new_user = {
-        "id": user_id,
-        "name": request.name,
-        "email": request.email,
-        "password_hash": password_hash,
-        "nric": request.nric,
-        "allows_tracking": False,  # Default to false, user must opt-in
-        "created_at": datetime.now().isoformat()
-    }
-    
-    _users_db[request.email] = new_user
+    try:
+        new_user = await create_user(
+            user_id=user_id,
+            name=request.name,
+            email=request.email,
+            password_hash=password_hash,
+            nric=normalized_nric,
+            allows_tracking=False  # Default to false, user must opt-in
+        )
+    except Exception as e:
+        return AuthResponse(
+            success=False,
+            message=f"Failed to create account: {str(e)}"
+        )
     
     # Generate token
     token = _generate_token()
-    _token_store[token] = user_id
+    await store_token(token, user_id)
     
     return AuthResponse(
         success=True,
@@ -171,22 +209,28 @@ async def signup(request: SignUpRequest):
 @router.post("/singpass", response_model=AuthResponse)
 async def singpass_login():
     """Singpass OAuth login endpoint (mock implementation)"""
+    await ensure_db_initialized()
+    
     # In a real implementation, this would handle Singpass OAuth flow
     # For now, we'll simulate by creating/finding a user based on Singpass data
     
-    # Mock: Use first existing user as Singpass user
-    if not _users_db:
+    # Mock: Use first existing user as Singpass user (by email from initial users)
+    if _initial_users:
+        user = await get_user_by_email(_initial_users[0]["email"])
+        if not user:
+            return AuthResponse(
+                success=False,
+                message="No users available for Singpass login"
+            )
+    else:
         return AuthResponse(
             success=False,
             message="No users available for Singpass login"
         )
     
-    # Get first user as mock Singpass user
-    user = next(iter(_users_db.values()))
-    
     # Generate token
     token = _generate_token()
-    _token_store[token] = user["id"]
+    await store_token(token, user["id"])
     
     return AuthResponse(
         success=True,
@@ -200,13 +244,15 @@ async def singpass_login():
         token=token
     )
 
-def get_current_user_id(authorization: Optional[str] = Header(None)) -> str:
+async def get_current_user_id(authorization: Optional[str] = Header(None)) -> str:
     """Extract user ID from authorization token"""
+    await ensure_db_initialized()
+    
     if not authorization:
         raise HTTPException(status_code=401, detail="Authorization header missing")
     
     token = authorization.replace("Bearer ", "").strip()
-    user_id = _token_store.get(token)
+    user_id = await get_user_id_from_token(token)
     
     if not user_id:
         raise HTTPException(status_code=401, detail="Invalid token")
@@ -216,7 +262,9 @@ def get_current_user_id(authorization: Optional[str] = Header(None)) -> str:
 @router.get("/tracking-status/{user_id}")
 async def get_tracking_status(user_id: str):
     """Get user's tracking permission status"""
-    user = next((u for u in _users_db.values() if u["id"] == user_id), None)
+    await ensure_db_initialized()
+    
+    user = await get_user_by_id(user_id)
     
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -226,7 +274,9 @@ async def get_tracking_status(user_id: str):
 @router.get("/recent-activity/{user_id}")
 async def get_recent_activity(user_id: str):
     """Get user's recent activity message (if tracking is enabled)"""
-    user = next((u for u in _users_db.values() if u["id"] == user_id), None)
+    await ensure_db_initialized()
+    
+    user = await get_user_by_id(user_id)
     
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -265,7 +315,9 @@ async def get_recent_activity(user_id: str):
 @router.get("/user-info/{user_id}")
 async def get_user_info(user_id: str):
     """Get user information by user ID"""
-    user = next((u for u in _users_db.values() if u["id"] == user_id), None)
+    await ensure_db_initialized()
+    
+    user = await get_user_by_id(user_id)
     
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
