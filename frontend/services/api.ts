@@ -57,3 +57,117 @@ export const getFlightSummary = async (nric: string): Promise<ScootUserData> => 
 
   return response.json();
 };
+
+// Authentication APIs
+export interface LoginResponse {
+  success: boolean;
+  message?: string;
+  user?: {
+    id: string;
+    name: string;
+    email: string;
+    nric: string;
+    allows_tracking?: boolean;
+  };
+  token?: string;
+}
+
+export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
+  const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    return {
+      success: false,
+      message: errorData.detail || 'Login failed',
+    };
+  }
+
+  return response.json();
+};
+
+export const signUpUser = async (
+  name: string,
+  email: string,
+  password: string,
+  nric: string
+): Promise<LoginResponse> => {
+  const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, password, nric }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    return {
+      success: false,
+      message: errorData.detail || 'Sign up failed',
+    };
+  }
+
+  return response.json();
+};
+
+export const loginWithSingpass = async (): Promise<LoginResponse> => {
+  // Simulate Singpass OAuth flow
+  // In a real implementation, this would redirect to Singpass and handle the callback
+  const response = await fetch(`${API_BASE_URL}/auth/singpass`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    return {
+      success: false,
+      message: errorData.detail || 'Singpass login failed',
+    };
+  }
+
+  return response.json();
+};
+
+export const getUserTrackingStatus = async (userId: string): Promise<{ allows_tracking: boolean }> => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API_BASE_URL}/auth/tracking-status/${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch tracking status');
+  }
+
+  return response.json();
+};
+
+export const getRecentActivity = async (userId: string): Promise<{ message: string }> => {
+  const token = localStorage.getItem('token');
+  const response = await fetch(`${API_BASE_URL}/auth/recent-activity/${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch recent activity');
+  }
+
+  return response.json();
+};

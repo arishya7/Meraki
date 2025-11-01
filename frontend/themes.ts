@@ -536,7 +536,24 @@ const countryCodeToThemeMap: Record<string, Theme> = {
   'GB': unitedKingdomTheme,
 };
 
-export const getThemeForCountry = (countryName: string): Theme => {
-  const code = countryNameToCodeMap[countryName.toLowerCase()];
-  return countryCodeToThemeMap[code] || defaultTheme;
+export const getThemeForCountry = (countryNameOrCode: string): Theme => {
+  // First try as country code (uppercase 2-letter code)
+  if (countryNameOrCode.length === 2 && countryNameOrCode === countryNameOrCode.toUpperCase()) {
+    const theme = countryCodeToThemeMap[countryNameOrCode];
+    if (theme) return theme;
+  }
+  
+  // Try as country name
+  const code = countryNameToCodeMap[countryNameOrCode.toLowerCase()];
+  if (code) {
+    return countryCodeToThemeMap[code] || defaultTheme;
+  }
+  
+  // Default fallback
+  return defaultTheme;
+};
+
+// Helper to get theme directly from country code
+export const getThemeForCountryCode = (countryCode: string): Theme => {
+  return countryCodeToThemeMap[countryCode] || defaultTheme;
 };

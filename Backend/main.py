@@ -4,12 +4,13 @@ from dotenv import load_dotenv # Import load_dotenv
 # Load environment variables from .env file at the project root
 load_dotenv()
 
-from .routers import chatbot, quote, payment, claims, user, flights
+from .routers import chatbot, quote, payment, claims, user, flights, auth
 from .services.policy_intelligence import api as policy_api
 from .services.claims_db_client import ClaimsDBClient # Import ClaimsDBClient
 
 app = FastAPI(title="Insurance API")
 
+app.include_router(auth.router, prefix="/auth")
 app.include_router(chatbot.router, prefix="/chat")
 app.include_router(user.router, prefix="/user")
 app.include_router(flights.router, prefix="/flights")

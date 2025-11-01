@@ -5,7 +5,9 @@ import { ChatBubbleIcon, CloseIcon, MSIGLogo } from './IconComponents';
 import MessageBubble from './MessageBubble';
 import ClaimInsuranceTab from './ClaimInsuranceTab';
 import InitialActionsCard from './InitialActionsCard';
-import { postUserInputData, postRecommendations } from '../services/api';
+import BookingConfirmationCard from './BookingConfirmationCard';
+import FlightDetailsCard from './FlightDetailsCard';
+import { postUserInputData, postRecommendations, getUserTrackingStatus, getRecentActivity } from '../services/api';
 
 // Placeholder components for now, will be created as separate files later
 interface ManualInputFormProps {
@@ -90,7 +92,7 @@ const PDFUploadInput: React.FC<PDFUploadInputProps> = ({ onSubmit, onCancel }) =
     );
 };
 
-type FlowState = 'initializing' | 'awaiting_initial_action' | 'awaiting_nric_input' | 'awaiting_manual_input' | 'awaiting_pdf_upload' | 'displaying_recommendations' | 'chatting_q_a';
+type FlowState = 'initializing' | 'awaiting_initial_action' | 'awaiting_nric_input' | 'awaiting_manual_input' | 'awaiting_pdf_upload' | 'awaiting_booking_confirmation' | 'reviewing_flight_details' | 'displaying_recommendations' | 'chatting_q_a';
 
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,20 +119,105 @@ const ChatWidget: React.FC = () => {
       setError(null);
       setNricInputValue('');
 
-      // Initial welcome message
-      addMessage({
-        sender: Sender.BOT,
-        text: `Hello! I'm Haven, your personal travel insurance assistant from MSIG. How can I help you today?`,
-      });
+      // Check for logged-in user
+      const userStr = localStorage.getItem('user');
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          const userName = user.name || 'there';
+          
+          // Initial personalized greeting
+          addMessage({
+            sender: Sender.BOT,
+            text: `Hi, ${userName}! I'm Heven. Your AI friend who makes sure nothing ruins your adventure.`,
+          });
 
-      // Transition to awaiting initial action after a brief delay
-      setTimeout(() => {
+          // Check tracking status and show proactive message if enabled
+          const checkTrackingAndShowMessage = async () => {
+            try {
+              const trackingStatus = await getUserTrackingStatus(user.id);
+              if (trackingStatus.allows_tracking) {
+                const activity = await getRecentActivity(user.id);
+                setTimeout(() => {
+                  addMessage({
+                    sender: Sender.BOT,
+                    text: activity.message,
+                  });
+                  // Then show initial actions
+                  setTimeout(() => {
+                    addMessage({
+                      sender: Sender.BOT,
+                      component: <InitialActionsCard onAction={handleInitialAction} />,
+                    });
+                    setFlowState('awaiting_initial_action');
+                  }, 1500);
+                }, 1500);
+              } else {
+                // No tracking, show booking confirmation option and manual entry
+                setTimeout(() => {
+                  addMessage({
+                    sender: Sender.BOT,
+                    text: "Got your booking confirmation handy? You can just drop it here and I'll grab the details",
+                  });
+                  setTimeout(() => {
+                    addMessage({
+                      sender: Sender.BOT,
+                      component: (
+                        <div className="space-y-2">
+                          <BookingConfirmationCard onUpload={handleBookingConfirmationUpload} />
+                          <div className="text-center text-text-main/70 text-sm py-2">or</div>
+                          <InitialActionsCard onAction={handleInitialAction} />
+                        </div>
+                      ),
+                    });
+                    setFlowState('awaiting_booking_confirmation');
+                  }, 1000);
+                }, 1500);
+              }
+            } catch (error) {
+              console.error('Error checking tracking status:', error);
+              // Fallback: show actions after greeting
+              setTimeout(() => {
+                addMessage({
+                  sender: Sender.BOT,
+                  component: <InitialActionsCard onAction={handleInitialAction} />,
+                });
+                setFlowState('awaiting_initial_action');
+              }, 1500);
+            }
+          };
+
+          checkTrackingAndShowMessage();
+        } catch (error) {
+          console.error('Error parsing user data:', error);
+          // Fallback to default greeting
+          addMessage({
+            sender: Sender.BOT,
+            text: `Hello! I'm Haven, your personal travel insurance assistant from MSIG. How can I help you today?`,
+          });
+          setTimeout(() => {
+            addMessage({
+              sender: Sender.BOT,
+              component: <InitialActionsCard onAction={handleInitialAction} />,
+            });
+            setFlowState('awaiting_initial_action');
+          }, 1500);
+        }
+      } else {
+        // No logged-in user, show default greeting
         addMessage({
           sender: Sender.BOT,
-          component: <InitialActionsCard onAction={handleInitialAction} />,
+          text: `Hello! I'm Haven, your personal travel insurance assistant from MSIG. How can I help you today?`,
         });
-        setFlowState('awaiting_initial_action');
-      }, 1500); // Shorter delay for direct action
+
+        setTimeout(() => {
+          addMessage({
+            sender: Sender.BOT,
+            component: <InitialActionsCard onAction={handleInitialAction} />,
+          });
+          setFlowState('awaiting_initial_action');
+        }, 1500);
+      }
 
     } else {
       // Reset to default theme when closed
@@ -141,14 +228,33 @@ const ChatWidget: React.FC = () => {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
   const addMessage = (newMessage: Omit<Message, 'id'>) => {
     setMessages(prev => [...prev, { ...newMessage, id: prev.length + 1 }]);
   };
 
+  const handleInitialAction = (action: 'nric' | 'manual_entry' | 'pdf_upload') => {
+    setError(null); // Clear previous errors
+    let botMessage = '';
+    switch (action) {
+        case 'nric':
+            botMessage = 'Please enter your NRIC to proceed.';
+            setFlowState('awaiting_nric_input');
+            break;
+        case 'manual_entry':
+            botMessage = 'Please provide your trip details:';
+            setFlowState('awaiting_manual_input');
+            break;
+        case 'pdf_upload':
+            botMessage = 'Please upload your Scoot itinerary PDF:';
+            setFlowState('awaiting_pdf_upload');
+            break;
+    }
+    addMessage({ sender: Sender.BOT, text: botMessage });
+  };
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
   const processUserInputAndFetchRecommendations = async (inputRequest: UserDataInputRequest) => {
     setIsLoading(true);
     setError(null);
@@ -228,33 +334,98 @@ const ChatWidget: React.FC = () => {
 
   const handlePDFFileSubmit = async (base64Pdf: string) => {
     addMessage({ sender: Sender.USER, text: `PDF uploaded.` });
-    await processUserInputAndFetchRecommendations({
+    setIsLoading(true);
+    setError(null);
+    try {
+      const userData = await postUserInputData({
         input_type: "pdf_upload",
         pdf_base64: base64Pdf,
-    });
-    // No need to clear pdfFile state here as the input handles its own state
-    // and will be unmounted. Reset flow state to allow new action.
-    setFlowState('chatting_q_a');
+      });
+      
+      // Apply theme based on destination (handle country code)
+      const destinationCode = userData.destination; // This is likely a country code (e.g., "JP", "TH")
+      const countryTheme = getThemeForCountry(destinationCode);
+      setTheme(countryTheme);
+      
+      setCurrentScootUserData(userData);
+      addMessage({
+        sender: Sender.BOT,
+        text: "Great! I've extracted your flight details. Please review them below:",
+      });
+      addMessage({
+        sender: Sender.BOT,
+        component: (
+          <FlightDetailsCard
+            flightData={userData}
+            onConfirm={handleFlightDetailsConfirm}
+            onEdit={() => setFlowState('reviewing_flight_details')}
+          />
+        ),
+      });
+      setFlowState('reviewing_flight_details');
+    } catch (err) {
+      console.error("Error during PDF processing:", err);
+      const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
+      setError(errorMessage);
+      addMessage({
+        sender: Sender.BOT,
+        text: `Sorry, I encountered an error: ${errorMessage} Please try again.`,
+      });
+      const userStr = localStorage.getItem('user');
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          getUserTrackingStatus(user.id).then(status => {
+            if (!status.allows_tracking) {
+              setFlowState('awaiting_booking_confirmation');
+            } else {
+              setFlowState('awaiting_initial_action');
+            }
+          }).catch(() => setFlowState('awaiting_initial_action'));
+        } catch {
+          setFlowState('awaiting_initial_action');
+        }
+      } else {
+        setFlowState('awaiting_initial_action');
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleInitialAction = (action: 'nric' | 'manual_entry' | 'pdf_upload') => {
-    setError(null); // Clear previous errors
-    let botMessage = '';
-    switch (action) {
-        case 'nric':
-            botMessage = 'Please enter your NRIC to proceed.';
-            setFlowState('awaiting_nric_input');
-            break;
-        case 'manual_entry':
-            botMessage = 'Please provide your trip details:';
-            setFlowState('awaiting_manual_input');
-            break;
-        case 'pdf_upload':
-            botMessage = 'Please upload your Scoot itinerary PDF:';
-            setFlowState('awaiting_pdf_upload');
-            break;
-    }
-    addMessage({ sender: Sender.BOT, text: botMessage });
+  const handleBookingConfirmationUpload = () => {
+    setFlowState('awaiting_pdf_upload');
+    addMessage({
+      sender: Sender.BOT,
+      text: 'Please upload your booking confirmation PDF:',
+    });
+  };
+
+  const handleFlightDetailsConfirm = async (confirmedData: ScootUserData) => {
+    setCurrentScootUserData(confirmedData);
+    addMessage({
+      sender: Sender.BOT,
+      text: "Perfect! Let me find the best travel insurance recommendations for your trip.",
+    });
+    
+    // Apply theme based on destination (handle country code)
+    const destinationCode = confirmedData.destination; // This is likely a country code (e.g., "JP", "TH")
+    const countryTheme = getThemeForCountry(destinationCode);
+    setTheme(countryTheme);
+    
+    await processUserInputAndFetchRecommendations({
+      input_type: "manual_entry",
+      manual_details: {
+        origin: confirmedData.origin,
+        destination: confirmedData.destination,
+        departure_date: confirmedData.departure_date,
+        return_date: confirmedData.return_date || confirmedData.departure_date,
+        num_travelers: confirmedData.num_travelers,
+        ages: confirmedData.ages,
+        trip_type: confirmedData.trip_type,
+        flexi_flight: confirmedData.flexi_flight,
+      },
+    });
   };
 
   const handleSendMessage = () => {
@@ -287,7 +458,9 @@ const ChatWidget: React.FC = () => {
                           flowState === 'awaiting_initial_action' ||
                           flowState === 'awaiting_nric_input' ||
                           flowState === 'awaiting_manual_input' ||
-                          flowState === 'awaiting_pdf_upload';
+                          flowState === 'awaiting_pdf_upload' ||
+                          flowState === 'awaiting_booking_confirmation' ||
+                          flowState === 'reviewing_flight_details';
 
   if (!isOpen) {
     return (
@@ -388,7 +561,29 @@ const ChatWidget: React.FC = () => {
             )}
             {flowState === 'awaiting_pdf_upload' && (
                 <div className="mb-2">
-                    <PDFUploadInput onSubmit={handlePDFFileSubmit} onCancel={() => setFlowState('awaiting_initial_action')} />
+                    <PDFUploadInput 
+                        onSubmit={handlePDFFileSubmit} 
+                        onCancel={() => {
+                            // Return to booking confirmation if that's where we came from
+                            const userStr = localStorage.getItem('user');
+                            if (userStr) {
+                                try {
+                                    const user = JSON.parse(userStr);
+                                    getUserTrackingStatus(user.id).then(status => {
+                                        if (!status.allows_tracking) {
+                                            setFlowState('awaiting_booking_confirmation');
+                                        } else {
+                                            setFlowState('awaiting_initial_action');
+                                        }
+                                    }).catch(() => setFlowState('awaiting_initial_action'));
+                                } catch {
+                                    setFlowState('awaiting_initial_action');
+                                }
+                            } else {
+                                setFlowState('awaiting_initial_action');
+                            }
+                        }} 
+                    />
                 </div>
             )}
 
