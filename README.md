@@ -312,6 +312,7 @@ cd Payments/
 echo "STRIPE_WEBHOOK_SECRET=whsec_your_secret_here" > .env
 
 # 2. Start all services
+
 docker-compose up -d
 
 # 3. Verify everything is running
