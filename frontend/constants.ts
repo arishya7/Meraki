@@ -1,4 +1,3 @@
-
 import { TripDetails, InsurancePlan } from './types';
 
 export const MOCK_TRIP_DETAILS: TripDetails = {
@@ -6,7 +5,7 @@ export const MOCK_TRIP_DETAILS: TripDetails = {
   departureDate: '2024-12-25',
   returnDate: '2025-01-05',
   departureCountry: 'SG',
-  arrivalCountry: 'JP',
+  arrivalCountry: 'GR', // Set to Greece as requested
   adultsCount: 2,
   childrenCount: 0,
 };
