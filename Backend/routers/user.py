@@ -95,13 +95,13 @@ async def user_input_data(request: UserDataInputRequest) -> ScootUserData:
         if not request.pdf_base64:
             raise HTTPException(status_code=400, detail="Base64 encoded PDF content is required for 'pdf_upload' input type.")
 
-        # Use GPT-4 to extract structured flight data from PDF
+        # Use Groq AI to extract structured flight data from PDF
         flight_data = await pdf_parser_service.extract_flight_data_from_pdf_base64(request.pdf_base64)
 
         if not flight_data:
             raise HTTPException(status_code=422, detail="Failed to extract flight information from PDF. Please ensure the PDF contains flight booking details.")
 
-        print(f"[UserRouter] Extracted flight data from PDF using GPT-4: {flight_data}")
+        print(f"[UserRouter] Extracted flight data from PDF using Groq: {flight_data}")
 
         # Parse dates from the extracted data
         from datetime import datetime
@@ -146,7 +146,7 @@ async def user_input_data(request: UserDataInputRequest) -> ScootUserData:
             flexi_flight=flight_data.get("flexi_flight", False),
             claims_history=[]
         )
-        print(f"[UserRouter] Constructed ScootUserData from GPT-4 extracted flight data:")
+        print(f"[UserRouter] Constructed ScootUserData from Groq extracted flight data:")
         print(f"  - Origin: {user_data.origin}")
         print(f"  - Destination: {user_data.destination}")
         print(f"  - Departure: {user_data.departure_date}")

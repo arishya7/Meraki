@@ -1,13 +1,13 @@
 import base64
 import fitz # PyMuPDF
 from typing import Optional, Dict, Any
-from .gpt4_service import GPT4Service
+from .groq_service import GroqService
 
 class PdfParserService:
-    """Service to parse PDF files and extract relevant information using GPT-4."""
+    """Service to parse PDF files and extract relevant information using Groq AI."""
 
     def __init__(self):
-        self.gpt4_service = GPT4Service()
+        self.groq_service = GroqService()
 
     async def extract_text_from_pdf_base64(self, pdf_base64_content: str) -> Optional[str]:
         """
@@ -35,15 +35,15 @@ class PdfParserService:
 
     async def extract_flight_data_from_pdf_base64(self, pdf_base64_content: str) -> Optional[Dict[str, Any]]:
         """
-        Decodes a Base64 PDF string and extracts structured flight information using GPT-4.
+        Decodes a Base64 PDF string and extracts structured flight information using Groq AI.
         Returns a dictionary with flight and passenger information, or None if an error occurs.
         """
         try:
             # Decode the Base64 string to bytes
             pdf_bytes = base64.b64decode(pdf_base64_content)
 
-            # Use GPT-4 to extract structured information
-            flight_data = await self.gpt4_service.extract_flight_info_from_pdf_bytes(pdf_bytes)
+            # Use Groq to extract structured information
+            flight_data = await self.groq_service.extract_flight_info_from_pdf_bytes(pdf_bytes)
 
             return flight_data
 

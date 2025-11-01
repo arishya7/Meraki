@@ -4,4 +4,4 @@ PyMuPDF
 pandas
 aiosqlite
 python-dotenv
-openai
+groq
