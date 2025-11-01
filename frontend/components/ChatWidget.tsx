@@ -129,7 +129,7 @@ const ChatWidget: React.FC = () => {
           // Initial personalized greeting
           addMessage({
             sender: Sender.BOT,
-            text: `Hi, ${userName}! I'm Heven. Your AI friend who makes sure nothing ruins your adventure.`,
+            text: `Hi, ${userName}! I'm Haven. Your AI friend who makes sure nothing ruins your adventure.`,
           });
 
           // Check tracking status and show proactive message if enabled

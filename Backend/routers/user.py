@@ -94,38 +94,66 @@ async def user_input_data(request: UserDataInputRequest) -> ScootUserData:
     elif request.input_type == "pdf_upload":
         if not request.pdf_base64:
             raise HTTPException(status_code=400, detail="Base64 encoded PDF content is required for 'pdf_upload' input type.")
-        
-        extracted_text = await pdf_parser_service.extract_text_from_pdf_base64(request.pdf_base64)
-        
-        if not extracted_text:
-            raise HTTPException(status_code=422, detail="Failed to extract text from PDF.")
-        
-        print(f"[UserRouter] Extracted text from PDF (first 500 chars):\n{extracted_text[:500]}...")
 
-        # Placeholder: For now, we'll return a ScootUserData with extracted text in 'origin' for inspection.
-        # This needs to be replaced with actual parsing logic to extract structured data.
+        # Use GPT-4 to extract structured flight data from PDF
+        flight_data = await pdf_parser_service.extract_flight_data_from_pdf_base64(request.pdf_base64)
+
+        if not flight_data:
+            raise HTTPException(status_code=422, detail="Failed to extract flight information from PDF. Please ensure the PDF contains flight booking details.")
+
+        print(f"[UserRouter] Extracted flight data from PDF using GPT-4: {flight_data}")
+
+        # Parse dates from the extracted data
+        from datetime import datetime
+        try:
+            departure_date = datetime.strptime(flight_data.get("departure_date"), "%Y-%m-%d").date()
+            return_date_str = flight_data.get("return_date")
+            return_date = datetime.strptime(return_date_str, "%Y-%m-%d").date() if return_date_str else None
+        except (ValueError, TypeError) as e:
+            print(f"[UserRouter] Error parsing dates: {e}. Using default future dates.")
+            today = date.today()
+            departure_date = today + timedelta(days=30)
+            return_date = departure_date + timedelta(days=15)
+
+        # Ensure dates are in the future
         today = date.today()
-        future_departure_date = date(today.year + 1, 1, 1)
-        future_return_date = date(today.year + 1, 1, 10)
-        if future_departure_date <= today:
-            future_departure_date = today + timedelta(days=30)
-        if future_return_date <= future_departure_date:
-            future_return_date = future_departure_date + timedelta(days=15)
+        if departure_date <= today:
+            departure_date = today + timedelta(days=30)
+        if return_date and return_date <= departure_date:
+            return_date = departure_date + timedelta(days=15)
+
+        # Get passenger information
+        passenger_names = flight_data.get("passenger_names", [])
+        passenger_ages = flight_data.get("passenger_ages", [30])  # Default to age 30 if not provided
+        num_travelers = flight_data.get("num_travelers", len(passenger_names))
+
+        # Ensure ages list matches number of travelers
+        if len(passenger_ages) < num_travelers:
+            passenger_ages.extend([30] * (num_travelers - len(passenger_ages)))
+        elif len(passenger_ages) > num_travelers:
+            passenger_ages = passenger_ages[:num_travelers]
 
         user_data = ScootUserData(
             user_id=f"{user_id_prefix}pdf_{random.randint(1000, 9999)}",
-            nric="", # NRIC not extracted from PDF yet
-            origin=extracted_text[:50].replace('\n', ' '), # Store a snippet for debugging
-            destination="UNKNOWN", # Placeholder
-            departure_date=future_departure_date,
-            return_date=future_return_date,
-            num_travelers=1,
-            ages=[30],
-            trip_type="round_trip",
-            flexi_flight=False,
+            nric="", # NRIC not typically in flight bookings
+            origin=flight_data.get("origin", "UNKNOWN"),
+            destination=flight_data.get("destination", "UNKNOWN"),
+            departure_date=departure_date,
+            return_date=return_date,
+            num_travelers=num_travelers,
+            ages=passenger_ages,
+            trip_type=flight_data.get("trip_type", "round_trip"),
+            flexi_flight=flight_data.get("flexi_flight", False),
             claims_history=[]
         )
-        print(f"[UserRouter] Constructed placeholder ScootUserData from PDF text for NRIC: {user_data.nric}. Origin: {user_data.origin}")
+        print(f"[UserRouter] Constructed ScootUserData from GPT-4 extracted flight data:")
+        print(f"  - Origin: {user_data.origin}")
+        print(f"  - Destination: {user_data.destination}")
+        print(f"  - Departure: {user_data.departure_date}")
+        print(f"  - Return: {user_data.return_date}")
+        print(f"  - Travelers: {user_data.num_travelers}")
+        print(f"  - Passenger Names: {passenger_names}")
+        print(f"  - Ages: {user_data.ages}")
 
     else:
         raise HTTPException(status_code=400, detail=f"Invalid input_type: {request.input_type}")

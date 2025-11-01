@@ -10,7 +10,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [nric, setNric] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -49,18 +50,19 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
     // Validate NRIC format
     const nricError = validateNRIC(nric);
     if (nricError) {
       setError(nricError);
       return;
     }
-    
+
     setLoading(true);
 
     try {
-      const response = await signUpUser(name, email, password, nric);
+      const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
+      const response = await signUpUser(fullName, email, password, nric);
       if (response.success) {
         // Store user info in localStorage
         localStorage.setItem('user', JSON.stringify(response.user));
@@ -120,17 +122,31 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onBack }) => {
           {isSignUp && (
             <>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Full Name
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                  First Name
                 </label>
                 <input
-                  id="name"
+                  id="firstName"
                   type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Enter your full name"
+                  placeholder="Enter your first name"
+                />
+              </div>
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                  Last Name
+                </label>
+                <input
+                  id="lastName"
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Enter your last name"
                 />
               </div>
               <div>

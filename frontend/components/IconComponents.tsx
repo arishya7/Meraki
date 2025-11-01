@@ -121,17 +121,12 @@ export const TripTypeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const MSIGLogo = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 324 74" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M72.34 68.17c-21.3 1.1-39.7-1.12-51.5-12.1-13.7-12.72-17.1-31.4-9.3-47.1 5-10.2 14.8-15.8 26.6-17.1 11.8-1.3 23.8.4 34.6 6.2 12 6.4 20.3 17.2 23.4 30.1 2.3 9.4.9 19.3-3.7 27.8-5.3 9.7-14.5 16.1-25.2 18.2-5 .9-10 .9-14.9.9z" fill="#D81E05" />
-        <path d="M72.34 68.17c-17.3-1.8-32.2-7.8-43.1-20.1-9.9-11.2-13.4-26-10.4-39.9 2-9 6.8-16.7 13.5-22.9 8.2-7.5 18.5-11.5 29.5-12.3 11-.8 22 1.3 32 6.4 11.2 5.7 19.4 14.6 24 26.1 3.2 8 .8 16.7-3.5 24.2-4.8 8.4-12.4 14.6-22 18.2-7.2 2.7-15 3.7-22.8 3.7-3.4 0-6.8-.2-10.2-.4z" fill="#0F2A64" />
-        <g fill="white" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="60">
-            <text x="130" y="58">M</text>
-            <text x="175" y="58">S</text>
-            <text x="215" y="58">I</text>
-            <text x="240" y="58">G</text>
-        </g>
-    </svg>
+export const MSIGLogo = (props: React.HTMLAttributes<HTMLImageElement>) => (
+    <img
+        src="/msig-logo.png"
+        alt="MSIG Logo"
+        {...props}
+    />
 );
 
 export const CreditCardIcon = (props: React.SVGProps<SVGSVGElement>) => (
