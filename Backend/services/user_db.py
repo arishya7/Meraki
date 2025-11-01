@@ -9,6 +9,8 @@ DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 async def init_db():
     """Initialize the database and create tables if they don't exist"""
     async with aiosqlite.connect(DB_PATH) as db:
+        # Enable foreign key constraints
+        await db.execute("PRAGMA foreign_keys = ON")
         await db.execute("""
             CREATE TABLE IF NOT EXISTS users (
                 id TEXT PRIMARY KEY,
@@ -25,7 +27,7 @@ async def init_db():
                 token TEXT PRIMARY KEY,
                 user_id TEXT NOT NULL,
                 created_at TEXT NOT NULL,
-                FOREIGN KEY (user_id) REFERENCES users(id)
+                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
             )
         """)
         await db.commit()
@@ -124,6 +126,8 @@ async def store_token(token: str, user_id: str):
     """Store a token in the database"""
     created_at = datetime.now().isoformat()
     async with aiosqlite.connect(DB_PATH) as db:
+        # Enable foreign key constraints
+        await db.execute("PRAGMA foreign_keys = ON")
         await db.execute("""
             INSERT OR REPLACE INTO tokens (token, user_id, created_at)
             VALUES (?, ?, ?)

@@ -142,69 +142,89 @@ async def login(request: LoginRequest):
 @router.post("/signup", response_model=AuthResponse)
 async def signup(request: SignUpRequest):
     """User sign up endpoint"""
-    await ensure_db_initialized()
-    
-    # Validate NRIC format
-    nric_valid, nric_error = validate_nric(request.nric)
-    if not nric_valid:
-        return AuthResponse(
-            success=False,
-            message=nric_error
-        )
-    
-    # Normalize NRIC (uppercase, no spaces)
-    normalized_nric = request.nric.strip().upper()
-    
-    # Check if email already exists
-    existing_user = await get_user_by_email(request.email)
-    if existing_user:
-        return AuthResponse(
-            success=False,
-            message="Email already registered"
-        )
-    
-    # Check if NRIC already exists
-    existing_user = await get_user_by_nric(normalized_nric)
-    if existing_user:
-        return AuthResponse(
-            success=False,
-            message="NRIC already registered"
-        )
-    
-    user_id = f"user_{normalized_nric}"
-    password_hash = _hash_password(request.password)
-    
-    # Create new user (default: tracking not allowed, user can enable later)
     try:
-        new_user = await create_user(
-            user_id=user_id,
-            name=request.name,
-            email=request.email,
-            password_hash=password_hash,
-            nric=normalized_nric,
-            allows_tracking=False  # Default to false, user must opt-in
+        await ensure_db_initialized()
+        
+        # Validate NRIC format
+        nric_valid, nric_error = validate_nric(request.nric)
+        if not nric_valid:
+            return AuthResponse(
+                success=False,
+                message=nric_error
+            )
+        
+        # Normalize NRIC (uppercase, no spaces)
+        normalized_nric = request.nric.strip().upper()
+        
+        # Check if email already exists
+        existing_user = await get_user_by_email(request.email)
+        if existing_user:
+            return AuthResponse(
+                success=False,
+                message="Email already registered"
+            )
+        
+        # Check if NRIC already exists
+        existing_user = await get_user_by_nric(normalized_nric)
+        if existing_user:
+            return AuthResponse(
+                success=False,
+                message="NRIC already registered"
+            )
+        
+        user_id = f"user_{normalized_nric}"
+        password_hash = _hash_password(request.password)
+        
+        # Create new user (default: tracking not allowed, user can enable later)
+        try:
+            new_user = await create_user(
+                user_id=user_id,
+                name=request.name,
+                email=request.email,
+                password_hash=password_hash,
+                nric=normalized_nric,
+                allows_tracking=False  # Default to false, user must opt-in
+            )
+        except Exception as e:
+            print(f"[AuthRouter] Error creating user: {e}")
+            import traceback
+            traceback.print_exc()
+            return AuthResponse(
+                success=False,
+                message=f"Failed to create account: {str(e)}"
+            )
+        
+        # Generate token and store it
+        token = None
+        try:
+            token = _generate_token()
+            await store_token(token, user_id)
+        except Exception as e:
+            print(f"[AuthRouter] Warning: Token storage failed (user was created): {e}")
+            import traceback
+            traceback.print_exc()
+            # Continue anyway - user can login to get a token
+        
+        # Return success response
+        return AuthResponse(
+            success=True,
+            user={
+                "id": new_user["id"],
+                "name": new_user["name"],
+                "email": new_user["email"],
+                "nric": new_user["nric"],
+                "allows_tracking": new_user["allows_tracking"]
+            },
+            token=token
         )
     except Exception as e:
+        print(f"[AuthRouter] Unexpected error in signup: {e}")
+        import traceback
+        traceback.print_exc()
         return AuthResponse(
             success=False,
-            message=f"Failed to create account: {str(e)}"
+            message=f"An unexpected error occurred: {str(e)}"
         )
-    
-    # Generate token
-    token = _generate_token()
-    await store_token(token, user_id)
-    
-    return AuthResponse(
-        success=True,
-        user={
-            "id": new_user["id"],
-            "name": new_user["name"],
-            "email": new_user["email"],
-            "nric": new_user["nric"],
-            "allows_tracking": new_user["allows_tracking"]
-        },
-        token=token
-    )
 
 @router.post("/singpass", response_model=AuthResponse)
 async def singpass_login():
