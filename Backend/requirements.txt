@@ -3,3 +3,4 @@ uvicorn
 PyMuPDF
 pandas
 aiosqlite
+python-dotenv
