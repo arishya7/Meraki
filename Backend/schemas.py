@@ -44,6 +44,7 @@ class Recommendation(BaseModel):
     cons: List[str]
     citations: List[str]
     score: float = 0.0 # Added score field
+    is_best_plan: bool = False
 
 class ChatbotResponse(BaseModel):
     message: str

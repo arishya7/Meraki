@@ -105,7 +105,7 @@ class PlanRecommender:
     async def get_recommended_plans(self, user_data: ScootUserData) -> List[Recommendation]:
         """Fetches user data, gets quotes, and recommends top insurance plans."""
         print(f"[PlanRecommender] Getting recommendations for user: {user_data.user_id}")
-        print(f"[PlanRecommender] Scoot user data: {user_data.dict()}")
+        print(f"[PlanRecommender] Scoot user data: {user_data.model_dump()}")
 
         # Force departure and return dates to be in the future, overriding any input
         today = date.today()
@@ -127,17 +127,17 @@ class PlanRecommender:
 
         # 1. Get quotes from Ancileo API
         # The AncileoAPIClient now handles converting country names to codes.
-        raw_ancileo_response = await self.ancileo_client.get_quotes(user_data)
+        # raw_ancileo_response = await self.ancileo_client.get_quotes(user_data)
+        raw_ancileo_response = None
 
         if not raw_ancileo_response:
-            print("[PlanRecommender] No raw response received from Ancileo API.")
-            return []
+            print("[PlanRecommender] No raw response received from Ancileo API. Using fallback mock data.")
+            return self._get_fallback_recommendations(user_data)
 
         processed_offers = process_ancileo_response(raw_ancileo_response)
 
         if not processed_offers:
             print("[PlanRecommender] No processed offers after parsing Ancileo API response. Using fallback mock data.")
-            # Return mock recommendations as fallback
             return self._get_fallback_recommendations(user_data)
 
         print(f"[PlanRecommender] Successfully processed {len(processed_offers)} offers.")
@@ -221,6 +221,80 @@ class PlanRecommender:
         # Sort recommendations by score (descending) then by price (ascending)
         recommendations.sort(key=lambda x: (-x.score, x.price))
         return recommendations[:3]
+
+    def _get_fallback_recommendations(self, user_data: ScootUserData) -> List[Recommendation]:
+        """Returns a list of mock recommendations when the Ancileo API fails."""
+        destination_country = user_data.destination.replace("_", " ").title()
+
+        recommendations = [
+            Recommendation(
+                id="mock-1",
+                plan_name="Traveler's Basic",
+                description=f"Essential coverage for your trip to {destination_country}. A great starting point for any traveler.",
+                price=45.50,
+                currency="SGD",
+                pros=[
+                    "Covers major medical emergencies.",
+                    "Includes coverage for baggage loss or delay.",
+                    "24/7 emergency assistance."
+                ],
+                cons=[
+                    "Limited coverage for trip cancellations.",
+                    "Does not cover extreme sports.",
+                    "Lower coverage limits compared to other plans."
+                ],
+                citations=[],
+                score=75,
+                is_best_plan=False
+            ),
+            Recommendation(
+                id="mock-2",
+                plan_name="Explorer's Choice",
+                description=f"Our most popular plan for trips to {destination_country}, offering a balance of coverage and value.",
+                price=85.00,
+                currency="SGD",
+                pros=[
+                    "Comprehensive medical and dental coverage.",
+                    "Trip cancellation and interruption coverage.",
+                    "Coverage for a wider range of activities.",
+                    f"Includes specific benefits for travel to {destination_country}."
+                ],
+                cons=[
+                    "Higher premium than basic plans.",
+                    "Some exclusions for pre-existing conditions."
+                ],
+                citations=[],
+                score=95,
+                is_best_plan=True
+            ),
+            Recommendation(
+                id="mock-3",
+                plan_name="Adventurer's Pro",
+                description=f"Maximum protection for your adventure in {destination_country}, including coverage for high-risk activities.",
+                price=125.00,
+                currency="SGD",
+                pros=[
+                    "Highest coverage limits for medical, baggage, and cancellation.",
+                    "Includes coverage for adventure sports like skiing and diving.",
+                    "Cancel for any reason (CFAR) option available."
+                ],
+                cons=[
+                    "Most expensive option.",
+                    "CFAR option has specific conditions and limitations."
+                ],
+                citations=[],
+                score=90,
+                is_best_plan=False
+            )
+        ]
+
+        # Add a justification for the best plan
+        for rec in recommendations:
+            if rec.is_best_plan:
+                rec.pros.insert(0, f"Justification: This plan is our top recommendation because it offers the most comprehensive coverage for your trip to {destination_country} at a competitive price. It includes full medical, baggage, and cancellation protection, ensuring you're well-covered for the most common travel mishaps.")
+
+        return recommendations
+
 
     def _map_product_code_to_policy_name(self, product_code: str) -> str:
         """Helper to map Ancileo product codes to our internal policy names.

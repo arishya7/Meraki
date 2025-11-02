@@ -125,9 +125,7 @@ const PaymentMethodCard: React.FC<PaymentMethodCardProps> = ({ plan, onPaymentCo
           <div className="mt-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
             <div className="text-center">
               <div className="bg-white p-3 rounded-lg inline-block mb-3">
-                <div className="w-32 h-32 bg-gray-200 flex items-center justify-center rounded">
-                  <p className="text-xs text-gray-500">QR Code</p>
-                </div>
+                <img src="https://www.kasikornbank.com/SiteCollectionDocuments/personal/digital-banking/kplus/functions/qr-pay-with-kplus/images/img-qr-pay-01.png" alt="PayNow QR Code" className="w-32 h-32 rounded" />
               </div>
               <p className="text-sm text-gray-700 mb-2">Scan this QR code with your banking app</p>
               <p className="text-xs text-gray-500">Amount: {plan.currency} ${plan.price.toFixed(2)}</p>
