@@ -75,7 +75,21 @@ const FlightDetailsCard: React.FC<FlightDetailsCardProps> = ({ flightData, onCon
               type="number"
               min="1"
               value={editedData.num_travelers}
-              onChange={(e) => setEditedData({ ...editedData, num_travelers: parseInt(e.target.value) || 1 })}
+              onChange={(e) => {
+                const value = e.target.value;
+                // Allow empty string while typing, otherwise parse to number
+                setEditedData({
+                  ...editedData,
+                  num_travelers: value === '' ? '' as any : Math.max(1, parseInt(value) || 1)
+                });
+              }}
+              onBlur={(e) => {
+                // Ensure we have a valid number when user leaves the field
+                const value = parseInt(e.target.value);
+                if (!value || value < 1) {
+                  setEditedData({ ...editedData, num_travelers: 1 });
+                }
+              }}
               className="w-full px-3 py-2 border border-text-main/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>

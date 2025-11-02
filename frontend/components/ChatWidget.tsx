@@ -149,10 +149,11 @@ const ChatWidget: React.FC = () => {
                     sender: Sender.BOT,
                     text: activity.message,
                   });
-                  // Fetch flight details from backend
-                  setTimeout(async () => {
-                    try {
-                      const flightData = await getFlightSummary(user.nric);
+                  // Only fetch flight details if we have flight data in the database
+                  if (activity.has_flight_data) {
+                    setTimeout(async () => {
+                      try {
+                        const flightData = await getFlightSummary(user.nric);
 
                       // Apply theme based on destination country
                       const destinationCode = flightData.destination;
@@ -195,22 +196,50 @@ const ChatWidget: React.FC = () => {
                           setFlowState('reviewing_flight_details');
                         }, 800);
                       }, 1000);
-                    } catch (err) {
-                      console.error('Error fetching flight details:', err);
-                      // Fallback: show initial actions if flight fetch fails
+                      } catch (err) {
+                        console.error('Error fetching flight details:', err);
+                        // Fallback: ask user to upload itinerary
+                        addMessage({
+                          sender: Sender.BOT,
+                          text: "Please upload your travel itinerary to get started:",
+                        });
+                        setTimeout(() => {
+                          addMessage({
+                            sender: Sender.BOT,
+                            component: (
+                              <div className="space-y-2">
+                                <BookingConfirmationCard onUpload={handleBookingConfirmationUpload} />
+                                <div className="text-center text-text-main/70 text-sm py-2">or</div>
+                                <InitialActionsCard onAction={handleInitialAction} showNRIC={false} />
+                              </div>
+                            ),
+                          });
+                          setFlowState('awaiting_booking_confirmation');
+                        }, 800);
+                      }
+                    }, 1500);
+                  } else {
+                    // No flight data found, ask user to upload itinerary
+                    setTimeout(() => {
                       addMessage({
                         sender: Sender.BOT,
-                        text: "I couldn't fetch your trip details automatically. How would you like to provide your travel information?",
+                        text: "Please upload your travel itinerary to get started:",
                       });
                       setTimeout(() => {
                         addMessage({
                           sender: Sender.BOT,
-                          component: <InitialActionsCard onAction={handleInitialAction} showNRIC={allowsTracking} />,
+                          component: (
+                            <div className="space-y-2">
+                              <BookingConfirmationCard onUpload={handleBookingConfirmationUpload} />
+                              <div className="text-center text-text-main/70 text-sm py-2">or</div>
+                              <InitialActionsCard onAction={handleInitialAction} showNRIC={false} />
+                            </div>
+                          ),
                         });
-                        setFlowState('awaiting_initial_action');
+                        setFlowState('awaiting_booking_confirmation');
                       }, 800);
-                    }
-                  }, 1500);
+                    }, 1500);
+                  }
                 }, 1500);
               } else {
                 // No tracking, show booking confirmation option and manual entry

@@ -174,7 +174,7 @@ export const getUserTrackingStatus = async (userId: string): Promise<{ allows_tr
   return response.json();
 };
 
-export const getRecentActivity = async (userId: string): Promise<{ message: string }> => {
+export const getRecentActivity = async (userId: string): Promise<{ message: string; has_flight_data: boolean }> => {
   const token = localStorage.getItem('token');
   const response = await fetch(`${API_BASE_URL}/auth/recent-activity/${userId}`, {
     method: 'GET',

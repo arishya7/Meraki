@@ -326,11 +326,12 @@ async def get_recent_activity(user_id: str):
         
         import random
         message = random.choice(messages)
-        
-        return {"message": message}
+
+        return {"message": message, "has_flight_data": True}
     except Exception as e:
         print(f"[AuthRouter] Error fetching recent activity for user {user_id}: {e}")
-        return {"message": "Welcome back! I'm here to help you with your travel insurance needs."}
+        # Return message indicating no flight data found
+        return {"message": "Welcome back! I'm here to help you with your travel insurance needs.", "has_flight_data": False}
 
 @router.get("/user-info/{user_id}")
 async def get_user_info(user_id: str):
