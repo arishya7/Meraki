@@ -3,6 +3,7 @@ from fastapi import APIRouter, HTTPException
 from Backend.schemas import ScootUserData, ClaimData, UserProfileResponse, UserDataInputRequest
 from Backend.services.scoot_api import MockScootAPIClient, SCOOT_COUNTRY_CODE_TO_NAME_MAP
 from Backend.services.pdf_parser_service import PdfParserService # Import PdfParserService
+from Backend.services.predictive_intelligence import predictive_intelligence_service
 import random
 from datetime import date, timedelta # Import timedelta for date calculations
 
@@ -162,3 +163,48 @@ async def user_input_data(request: UserDataInputRequest) -> ScootUserData:
         raise HTTPException(status_code=500, detail="Failed to process user input into ScootUserData.")
 
     return user_data
+
+
+@router.post("/personalized_tips")
+async def get_personalized_tips(user_data: ScootUserData) -> Dict[str, Any]:
+    """
+    Generate personalized travel tips based on user's past claims and destination.
+
+    This endpoint provides caring, context-aware advice by analyzing:
+    - Past insurance claims (medical, accidents, baggage, etc.)
+    - Destination-specific health and safety advisories
+    - Claim severity and recency
+
+    Returns personalized tips prioritized by relevance and importance.
+    """
+    try:
+        print(f"[UserRouter] Generating personalized tips for user traveling to {user_data.destination}")
+        print(f"[UserRouter] User has {len(user_data.claims_history)} past claims")
+
+        tips = predictive_intelligence_service.generate_personalized_tips(
+            user_data=user_data,
+            include_emoji=True
+        )
+
+        # Format response
+        response = {
+            "tips": tips,
+            "has_tips": len(tips) > 0,
+            "tip_count": len(tips),
+            "destination": SCOOT_COUNTRY_CODE_TO_NAME_MAP.get(user_data.destination, user_data.destination)
+        }
+
+        print(f"[UserRouter] Generated {len(tips)} personalized tips")
+        return response
+
+    except Exception as e:
+        print(f"[UserRouter] Error generating personalized tips: {e}")
+        import traceback
+        traceback.print_exc()
+        # Return empty tips gracefully - don't fail the user flow
+        return {
+            "tips": [],
+            "has_tips": False,
+            "tip_count": 0,
+            "destination": SCOOT_COUNTRY_CODE_TO_NAME_MAP.get(user_data.destination, user_data.destination)
+        }

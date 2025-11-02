@@ -10,7 +10,7 @@ import FlightDetailsCard from './FlightDetailsCard';
 import RecommendedPlanCard from './RecommendedPlanCard';
 import PaymentConfirmationCard from './PaymentConfirmationCard';
 import PaymentMethodCard from './PaymentMethodCard';
-import { postUserInputData, postRecommendations, getUserTrackingStatus, getRecentActivity, getFlightSummary, askQuestion } from '../services/api';
+import { postUserInputData, postRecommendations, getUserTrackingStatus, getRecentActivity, getFlightSummary, askQuestion, getPersonalizedTips } from '../services/api';
 
 // Placeholder components for now, will be created as separate files later
 interface ManualInputFormProps {
@@ -577,15 +577,54 @@ const ChatWidget: React.FC = () => {
 
   const handleFlightDetailsConfirm = async (confirmedData: ScootUserData) => {
     setCurrentScootUserData(confirmedData);
-    addMessage({
-      sender: Sender.BOT,
-      text: "Perfect! Let me find the best travel insurance recommendations for your trip.",
-    });
 
     // Apply theme based on destination (handle country code)
     const destinationCode = confirmedData.destination; // This is likely a country code (e.g., "JP", "TH")
     const countryTheme = getThemeForCountry(destinationCode);
     setTheme(countryTheme);
+
+    // Fetch personalized tips based on claims history
+    try {
+      const tipsResponse = await getPersonalizedTips(confirmedData);
+
+      if (tipsResponse.has_tips && tipsResponse.tips.length > 0) {
+        // Show caring message with personalized tips
+        addMessage({
+          sender: Sender.BOT,
+          text: "Before we proceed, I want to share some personalized advice based on your travel history! 💙",
+        });
+
+        // Display each tip with slight delays for better UX
+        for (let i = 0; i < Math.min(tipsResponse.tips.length, 3); i++) {
+          await new Promise(resolve => setTimeout(resolve, 800));
+          const tip = tipsResponse.tips[i];
+          addMessage({
+            sender: Sender.BOT,
+            text: tip.message,
+          });
+        }
+
+        // Add a caring transition message
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        addMessage({
+          sender: Sender.BOT,
+          text: "Now, let me find the best travel insurance recommendations for your trip!",
+        });
+      } else {
+        // No personalized tips - show standard message
+        addMessage({
+          sender: Sender.BOT,
+          text: "Perfect! Let me find the best travel insurance recommendations for your trip.",
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching personalized tips:', error);
+      // Continue with standard flow even if tips fail
+      addMessage({
+        sender: Sender.BOT,
+        text: "Perfect! Let me find the best travel insurance recommendations for your trip.",
+      });
+    }
 
     await processUserInputAndFetchRecommendations({
       input_type: "manual_entry",

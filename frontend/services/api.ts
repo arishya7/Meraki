@@ -236,3 +236,38 @@ export const askQuestion = async (
 
   return response.json();
 };
+
+export const getPersonalizedTips = async (
+  userData: any
+): Promise<{
+  tips: Array<{
+    message: string;
+    type: string;
+    priority: number;
+    related_claim: string | null;
+  }>;
+  has_tips: boolean;
+  tip_count: number;
+  destination: string;
+}> => {
+  const response = await fetch(`${API_BASE_URL}/user/personalized_tips`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  });
+
+  if (!response.ok) {
+    console.error('Failed to fetch personalized tips');
+    // Return empty tips gracefully - don't fail the user flow
+    return {
+      tips: [],
+      has_tips: false,
+      tip_count: 0,
+      destination: '',
+    };
+  }
+
+  return response.json();
+};
