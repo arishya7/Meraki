@@ -300,5 +300,5 @@ class MockScootAPIClient:
             flexi_flight=derived_flexi_flight,
             claims_history=claims_history # Now uses randomly assigned claims
         )
-        print(f"[MockScootAPIClient] Constructed ScootUserData for NRIC {nric}: {final_user_data.model_dump()}")
+        print(f"[MockScootAPIClient] Constructed ScootUserData for NRIC {nric}: {final_user_data.dict()}")
         return final_user_data

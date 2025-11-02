@@ -90,7 +90,7 @@ async def user_input_data(request: UserDataInputRequest) -> ScootUserData:
             flexi_flight=request.manual_details.flexi_flight,
             claims_history=[] # For manual entry, claims would need a separate lookup or input
         )
-        print(f"[UserRouter] Constructed ScootUserData from manual entry: {user_data.model_dump()}")
+        print(f"[UserRouter] Constructed ScootUserData from manual entry: {user_data.dict()}")
 
     elif request.input_type == "pdf_upload":
         if not request.pdf_base64:

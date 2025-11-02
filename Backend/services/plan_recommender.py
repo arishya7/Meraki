@@ -89,7 +89,7 @@ class PlanRecommender:
         """
         request_data = PolicyQueryRequest(query=query, policy_name=policy_name)
         try:
-            response = await self.policy_extractor_client.post("/query_policy", json=request_data.model_dump())
+            response = await self.policy_extractor_client.post("/query_policy", json=request_data.dict())
             response.raise_for_status()
             return PolicyQueryResponse(**response.json())
         except httpx.HTTPStatusError as e:
@@ -105,7 +105,7 @@ class PlanRecommender:
     async def get_recommended_plans(self, user_data: ScootUserData) -> List[Recommendation]:
         """Fetches user data, gets quotes, and recommends top insurance plans."""
         print(f"[PlanRecommender] Getting recommendations for user: {user_data.user_id}")
-        print(f"[PlanRecommender] Scoot user data: {user_data.model_dump()}")
+        print(f"[PlanRecommender] Scoot user data: {user_data.dict()}")
 
         # Force departure and return dates to be in the future, overriding any input
         today = date.today()
@@ -136,8 +136,9 @@ class PlanRecommender:
         processed_offers = process_ancileo_response(raw_ancileo_response)
 
         if not processed_offers:
-            print("[PlanRecommender] No processed offers after parsing Ancileo API response.")
-            return []
+            print("[PlanRecommender] No processed offers after parsing Ancileo API response. Using fallback mock data.")
+            # Return mock recommendations as fallback
+            return self._get_fallback_recommendations(user_data)
 
         print(f"[PlanRecommender] Successfully processed {len(processed_offers)} offers.")
 

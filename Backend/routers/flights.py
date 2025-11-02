@@ -69,7 +69,7 @@ async def update_flight_details(update_data: FlightDetailsUpdate):
             raise HTTPException(status_code=404, detail="Flight details not found for this NRIC to update")
 
     # Apply updates from FlightDetailsUpdate (which allows partial updates)
-    updated_fields = update_data.model_dump(exclude_unset=True)
+    updated_fields = update_data.dict(exclude_unset=True)
     
     for field, value in updated_fields.items():
         if field == "destination":

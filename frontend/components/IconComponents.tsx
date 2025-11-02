@@ -2,7 +2,7 @@ import React from 'react';
 
 export const ChatBubbleIcon = (props: React.HTMLAttributes<HTMLImageElement>) => (
   <img
-    src="/chatbot-icon.png"
+    src="/chatbot-icon.png?v=2"
     alt="Chat"
     style={{ borderRadius: '50%' }}
     {...props}
