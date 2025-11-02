@@ -357,33 +357,43 @@ const ChatWidget: React.FC = () => {
 
         const chatbotResponse = await postRecommendations(userData);
         setRecommendations(chatbotResponse.recommendations);
-        setChatbotSummary(chatbotResponse.summary);
+        setChatbotSummary(chatbotResponse.message);
 
-        // Add a brief introduction message
-        addMessage({
-            sender: Sender.BOT,
-            text: "Perfect! I've found the top 3 insurance plans that match your trip. The first one is our best recommendation based on your profile and travel needs.",
-        });
+        // Check if recommendations were found
+        if (chatbotResponse.recommendations.length === 0) {
+            // No plans found - display the error message from backend
+            addMessage({
+                sender: Sender.BOT,
+                text: chatbotResponse.message,
+            });
+            setFlowState('chat'); // Return to chat state for further interaction
+        } else {
+            // Plans found - display them
+            addMessage({
+                sender: Sender.BOT,
+                text: "Perfect! I've found the top 3 insurance plans that match your trip. The first one is our best recommendation based on your profile and travel needs.",
+            });
 
-        // Display recommendations using the new enhanced card
-        setTimeout(() => {
-          addMessage({
-              sender: Sender.BOT,
-              component: (
-                  <div className="space-y-4">
-                      {chatbotResponse.recommendations.map((plan, index) => (
-                          <RecommendedPlanCard
-                              key={plan.id}
-                              recommendation={plan}
-                              isBestPlan={index === 0}
-                              onSelect={handlePlanSelection}
-                          />
-                      ))}
-                  </div>
-              ),
-          });
-          setFlowState('awaiting_plan_selection');
-        }, 1000);
+            // Display recommendations using the new enhanced card
+            setTimeout(() => {
+              addMessage({
+                  sender: Sender.BOT,
+                  component: (
+                      <div className="space-y-4">
+                          {chatbotResponse.recommendations.map((plan, index) => (
+                              <RecommendedPlanCard
+                                  key={plan.id}
+                                  recommendation={plan}
+                                  isBestPlan={index === 0}
+                                  onSelect={handlePlanSelection}
+                              />
+                          ))}
+                      </div>
+                  ),
+              });
+              setFlowState('awaiting_plan_selection');
+            }, 1000);
+        }
 
     } catch (err) {
         console.error("Error during API call:", err);

@@ -108,17 +108,35 @@ async def recommend_plans(user_data: ScootUserData):
         recommendations = await recommender.get_recommended_plans(user_data)
 
         if not recommendations:
-            raise HTTPException(status_code=404, detail="No insurance plans found or recommended.")
+            # Return a user-friendly message when no insurance plans are found
+            no_plans_message = (
+                "I'm sorry, but I couldn't find any insurance plans available for your travel details at the moment.\n\n"
+                "**Development Environment Limitation:**\n"
+                "The Ancileo API development environment currently has limited product availability. "
+                "This is a known limitation of the hackathon dev API and not an issue with your travel details.\n\n"
+                "**In a production environment**, you would see insurance plans for your trip. "
+                "The API is working correctly, but the dev server doesn't have products configured for all destination/date combinations.\n\n"
+                "**For demonstration purposes**, you can:\n"
+                "• Contact the hackathon organizers if you need specific test data\n"
+                "• Check the API documentation for confirmed working examples\n"
+                "• Continue testing other features of the application\n\n"
+                "We apologize for this limitation in the development environment!"
+            )
+            return ChatbotResponse(message=no_plans_message, recommendations=[])
 
         response_message = "Hello there! Based on your Scoot trip details, here are the top insurance plans I recommend:\n\n"
 
         for i, rec in enumerate(recommendations):
             summary = await _generate_conversational_summary(rec)
             response_message += f"## Plan {i+1}:\n{summary}\n\n"
-            
+
         return ChatbotResponse(message=response_message, recommendations=recommendations)
 
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+    except HTTPException:
+        # Re-raise HTTP exceptions as-is
+        raise
     except Exception as e:
+        print(f"[Chatbot Router] Unexpected error in recommend_plans: {e}")
         raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")

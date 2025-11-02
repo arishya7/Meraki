@@ -85,7 +85,7 @@ export interface Recommendation {
 
 // Response for the /chat/recommend_plans API
 export interface ChatbotResponse {
-  summary: string;
+  message: string;
   recommendations: Recommendation[];
 }
 
